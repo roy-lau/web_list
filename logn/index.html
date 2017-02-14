@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <!-- 引入的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link href="css/style.css" rel="stylesheet" />
+
+<body id="body">
+    <nav class="bg-canvas blur">
+        <iframe name="htm" src="http://www.jq22.com/js/a5.html"></iframe>		<!-- http://www.jq22.com/js/a5.html 是背景图，原理就是将一个网页引入进来做为背景图-->
+    </nav>
+    <section class="cont">
+        <section>
+            <nav class="cont_left">
+                <p>
+                    <h1>XX后台管理系统登陆</h1>
+                    <p style="text-align: right;font-size: 20px;">综合监控、统计报表、资产管理系统</p>
+                </p>
+            </nav>
+            <nav class="cont_right">
+                <h2>平台登陆</h2>
+                <div class="form-group">
+                    <p><i class="fa fa-user"></i>
+                        <input type="text" class="form-control" id="inputEmail3" name="name" placeholder="请输入用户名">
+                    </p>
+                    <p><i class="fa fa-key"></i>
+                        <input type="password" class="form-control" id="exampleInputPassword3" name="pwdPrompt" placeholder="请输入密码">
+                        <input type="text" class="form-control" id="exampleInputPassword3" name="pwd" placeholder="请输入密码" style="display: none;">
+                        <a class="eye"><i class="fa fa-eye-slash"></i></a></p>
+                </div>
+                <button type="button" class="btn btn-primary btn-lg btn-block">登陆</button>
+                </div>
+            </nav>
+        </section>
+    </section>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+<script>
+$(function() {
+    $("#body").height($(window).height());
+})
+$(".eye").mouseover(function() {
+    $("input[name=pwd]").val($("input[name=pwdPrompt]").val());
+    $("input[name=pwdPrompt]").hide();
+    $("input[name=pwd]").show().focus();
+    $(".eye i").removeClass("fa-eye-slash");
+    $(".eye i").addClass("fa-eye");
+
+
+});
+$(".eye").mouseout(function() {
+    $("input[name=pwdPrompt]").val($("input[name=pwd]").val());
+    $("input[name=pwdPrompt]").show().focus();
+    $("input[name=pwd]").hide();
+    $(".eye i").removeClass("fa-eye");
+    $(".eye i").addClass("fa-eye-slash");
+})
+</script>
+
+</html>
