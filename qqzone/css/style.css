@@ -1,0 +1,273 @@
+    body {
+    background: #fff;
+    margin: 0px;
+    padding: 0;
+    padding-top: 41px;
+    background: url(../images/1.jpg) #1c0c0f center 0 no-repeat fixed;
+}
+
+.top {
+    width: 100%;
+    top: 0px;
+    height: 41px;
+    background-color: #001E3B;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    position: fixed;
+    z-index: 999;
+}
+
+.header {
+    height: 200px;
+    background-color: rgba(255, 255, 255, .2);
+    width: 960px;
+    margin: 0px auto;
+}
+
+.container {
+    width: 960px;
+    min-width: 960px;
+    margin: 0px auto;
+    position: relative;
+}
+
+.hide {
+    display: none;
+}
+
+.clear {
+    clear: both;
+    height: 40px
+}
+
+.scrubber {
+    position: absolute;
+    top: 29px;
+    left: 0px;
+    width: 47px;
+    z-index: 999
+}
+
+.scrubber a {
+    height: 26px;
+    line-height: 26px;
+    padding-right: 5px;
+    font-size: 12px;
+    color: #a5a5a5;
+    text-decoration: none;
+    display: block;
+    border-right: 2px solid #c8c8c8;
+    border-right-color: rgba(200, 200, 200, .5);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    text-align: right;
+}
+
+.scrubber a:hover,
+.scrubber a.cur {
+    border-right-color: #7ebad0;
+    color: #7ebad0;
+    font-weight: bold;
+}
+
+.scrubber a:hover {
+    text-decoration: underline;
+}
+
+.scrubber a.cur:hover {
+    text-decoration: none;
+}
+
+.spine {
+    display: block;
+    width: 3px;
+    height: 100%;
+    background: #eee;
+}
+
+#scrubber .s_month {
+    display: none;
+}
+
+.content {
+    min-height: 1000px;
+    padding-left: 160px;
+    padding-top: 50px;
+    background: url(../images/spine.png) repeat-y 121px 0;
+    position: relative;
+}
+
+.c_year {
+    height: 30px;
+    line-height: 30px;
+    color: #a5a5a5;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    font-weight: bold;
+    font-size: 14px;
+    position: relative;
+    left: -90px;
+    clear: both;
+}
+
+.c_item {
+    width: 370px;
+    background: #fff;
+    height: auto;
+    margin: 20px 30px 0 0;
+    position: relative;
+    border-radius: 4px;
+    color: #888;
+}
+
+.c_item_left {
+    float: left;
+}
+
+.c_item_first {
+    margin-top: -20px;
+}
+
+.c_item_right {
+    float: right;
+}
+
+.c_item_right .c_i_icon_dot {
+    left: -443px;
+}
+
+.c_i_icon_arrow {
+    position: absolute;
+    height: 0px;
+    border-color: transparent #e2e2e2 transparent transparent;
+    border-width: 10px 10px 10px 0;
+    border-style: dashed solid dashed dashed;
+    border-right-color: #fff;
+    left: -10px;
+    top: 20px;
+}
+
+.c_i_icon_dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 11px;
+    position: absolute;
+    left: -43px;
+    top: 25px;
+    background: #fff;
+}
+
+.c_i_icon_dot_child {
+    width: 7px;
+    height: 7px;
+    border-radius: 7px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    background: #b3dae9;
+}
+
+.c_i_head {
+    padding: 15px 15px 0px 15px;
+}
+
+.c_i_head_title {
+    height: 46px;
+    line-height: 46px;
+    font-size: 28px;
+    padding: 0px 0px 10px 56px;
+    position: relative;
+}
+
+.c_i_head_intro {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 0 15px;
+}
+
+.c_i_head_title_icon {
+    width: 46px;
+    height: 46px;
+    background-color: #b3dae9;
+    border-radius: 8px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    overflow: hidden;
+    color: #fff;
+    font-size: 27px;
+    line-height: 23px;
+}
+
+.c_i_media {
+    padding-bottom: 10px;
+    height: 277px;
+    overflow: hidden;
+}
+
+.c_i_footer {
+    padding: 10px 15px;
+    margin: 0px 15px;
+    border-top: 1px solid #d6d6d6;
+    font-size: 12px;
+    color: #b2b2b2;
+}
+
+.c_i_footer_info {}
+
+.c_i_footer_info .ui_ico {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    visibility: visible;
+}
+
+.c_i_footer_like {
+    line-height: 20px;
+    padding-top: 5px;
+}
+
+.c_i_footer a {
+    color: #b2b2b2;
+    text-decoration: none;
+    padding-right: 10px;
+    display: inline-block;
+    height: 20px;
+}
+
+.c_i_footer a:hover {
+    color: #6EB8D3;
+    text-decoration: underline;
+}
+
+.ui_ico,
+.ui_icon {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    font-size: 0;
+    overflow: hidden;
+}
+
+.quote_after {
+    vertical-align: bottom;
+    background-image: url(../images/timeline.png);
+    background-position: -986px -102px;
+    margin-left: 5px;
+}
+
+.quote_before {
+    vertical-align: top;
+    background-image: url(../images/timeline.png);
+    background-position: -986px -85px;
+    margin-right: 5px;
+}
+
+.ico_zan {
+    background-image: url(../images/timeline.png);
+    background-position: -883px -21px;
+}
+
+.ico_com {
+    background-image: url(../images/timeline.png);
+    background-position: -897px -42px;
+}

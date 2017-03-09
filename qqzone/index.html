@@ -1,0 +1,143 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>QQ空间时光轴效果</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+<!-- 模版定义 -->
+<div class="hide">
+    <div id="tpl_scrubber_year">
+        <a href="javascript:;" onclick="showYear({year},this)" class="s_year" id="scrubber_year_{year}">{year}
+            {list}
+        </a>
+    </div>
+
+    <div id="tpl_scrubber_month" >
+           <a href="javascript:;" class="s_month {year}_month" onclick="showMonth({year},{month},this)" id="scrubber_month_{year}{month}" >{month}月</a>
+    </div>
+
+    <div id="tpl_content_year">
+
+        <div class="c_year" id="content_year_{year}">{year}</div>
+        {list}
+
+    </div>
+
+    <div id="tpl_content_month">
+
+        <div class="c_item c_item_{leftOrRight} content_date_{year}{month} {isFirst}">
+
+            <div class="c_i_icon_arrow"></div>
+            <div class="c_i_icon_dot"><div class="c_i_icon_dot_child"></div></div>
+
+            <div class="c_i_head">
+
+                <div class="c_i_head_title">
+                    <div class="c_i_head_title_icon">{lunar}</div>
+                    {date}
+                </div>
+                <div class="c_i_head_intro">
+                    <i class="ui_ico quote_before"></i>
+                    {intro}
+                    <i class="ui_ico quote_after"></i>
+                </div>
+            </div>
+            <div class="c_i_media">
+                {media}
+            </div>
+            <div class="c_i_footer">
+                <div class="c_i_footer_info">
+                        <a href="javascript:void(0)" class="op_zan" title="赞">
+                            <i class="ui_ico ico_zan">赞</i>({like})</a>
+                        <a href="javascript:void(0)" class="op_pin" title="评论">
+                            <i class="ui_ico ico_com">评论</i>({comment})</a>
+                </div>
+                <div class="c_i_footer_like">
+                    {like_format}人觉得很赞
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!--  网页内容 -->
+
+    <div class="top"></div>
+    <div class="header"></div>
+
+    <div class="container">
+
+
+
+        <div class="scrubber" id="scrubber"> <!-- 时序列表 -->
+<!--
+            <a href="javascript:;" onclick="scroll(0)">现在</a>
+
+            <a href="javascript:;" onclick="showYear(2014,this)" class="s_year">2014
+                <a href="#" class="s_month 2014_month">3月</a>
+            </a>
+
+            <a href="javascript:;" onclick="showYear(2015,this)" class="s_year">2015
+                <a href="#" class="s_month 2015_month">3月</a>
+            </a>
+-->
+        </div>
+
+
+        <div class="content" id="content"> <!-- 内容 -->
+
+<!--
+            <div class="c_year">2014</div>
+
+            <div class="c_item c_item_left" class="item_month_20143">
+
+                <div class="c_i_icon_arrow"></div>
+                <div class="c_i_icon_dot"><div class="c_i_icon_dot_child"></div></div>
+
+                <div class="c_i_head">
+
+                    <div class="c_i_head_title">
+                        <div class="c_i_head_title_icon">初<br/>&nbsp;&nbsp;&nbsp;五</div>
+                        2014-3-31
+                    </div>
+                    <div class="c_i_head_intro">
+                        <i class="ui_ico quote_before"></i>
+                        在这春林初盛，草长莺飞的日子，QQ空间愿你关掉电脑，放下手机，与三五好友相约青山绿水中，感受春天带来的勃勃生机···
+                        <i class="ui_ico quote_after"></i>
+                    </div>
+                </div>
+                <div class="c_i_media">
+
+
+                </div>
+                <div class="c_i_footer">
+                    <div class="c_i_footer_info">
+                            <a href="javascript:void(0)" class="op_zan" title="赞">
+                                <i class="ui_ico ico_zan">赞</i>(32906)</a>
+                            <a href="javascript:void(0)" class="op_pin" title="评论">
+                                <i class="ui_ico ico_com">评论</i>(883)</a>
+                    </div>
+                    <div class="c_i_footer_like">
+                        3.2万人觉得很赞
+                    </div>
+                </div>
+
+            </div>
+-->
+
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/data.js"></script>
+    <script type="text/javascript" src="js/fx.js"></script>
+    <script type="text/javascript" src="js/GetLunarDay.js"></script>
+
+    <script type="text/javascript" src="js/script.js"></script>
+
+</body>
+</html>
