@@ -1,0 +1,77 @@
+#G-lightbox-mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.5;
+  z-index: 10000;
+  display: none;
+}
+#G-lightbox-popup {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  margin-left: -150px;
+  background-color: #fff;
+  z-index: 10001;
+  display: none;
+}
+#G-lightbox-popup .lightbox-pic-view {
+  position: relative;
+  border: 5px solid #fff;
+  border-radius: 3px;
+  /*图片加载时的loading*/
+  background: #fff url(../icon/loading.gif) no-repeat center center;
+  overflow: hidden;
+}
+#G-lightbox-popup .lightbox-pic-view .lightbox-btn {
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+#G-lightbox-popup .lightbox-pic-view .lightbox-prev-btn {
+  left: 0;
+}
+#G-lightbox-popup .lightbox-pic-view .lightbox-next-btn {
+  right: 0;
+}
+#G-lightbox-popup .lightbox-pic-view .lightbox-prev-btn-show {
+  background: url(../images/prev.png) no-repeat;
+  cursor: pointer;
+}
+#G-lightbox-popup .lightbox-pic-view .lightbox-next-btn-show {
+  background: url(../icon/next.png) no-repeat;
+  cursor: pointer;
+}
+#G-lightbox-popup .lightbox-pic-view .lightbox-image {
+  display: block;
+}
+#G-lightbox-popup .lightbox-pic-caption {
+  position: relative;
+  top: -70px;
+  z-index: 2;
+  margin: 0 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#G-lightbox-popup .lightbox-pic-caption .lightbox-caption-area {
+  padding: 10px 5px;
+  color: #fff;
+}
+#G-lightbox-popup .lightbox-pic-caption .lightbox-caption-area .lightbox-pic-desc {
+  margin: 0px;
+}
+#G-lightbox-popup .lightbox-pic-caption .lightbox-caption-area .lightbox-of-index {
+  color: #999;
+}
+#G-lightbox-popup .lightbox-pic-caption .lightbox-close-btn {
+  position: absolute;
+  right: 10px;
+  top: 13px;
+  width: 27px;
+  height: 27px;
+  background: url(../icon/close.png) no-repeat center center;
+}

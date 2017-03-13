@@ -1,0 +1,40 @@
+// 遮罩层(灰色区域)
+#G-lightbox-mask{
+	position: fixed;left:0;	top:0;width:100%;height:100%;background-color: #000;opacity: 0.5;z-index: 10000;fliter: alpha(opacity=50%);
+	display: none;
+}
+// 弹出层(图片加标题)
+#G-lightbox-popup{
+	position: fixed;left: 50%;top:0;margin-left:-150px;background-color: #fff;z-index: 10001;
+	display: none;
+	// 图片视图区域
+	.lightbox-pic-view{
+		position: relative;border:5px solid #fff;border-radius: 3px;/*图片加载时的loading*/background: #fff url(../icon/loading.gif) no-repeat center center;overflow: hidden;
+		// 切换按钮
+		.lightbox-btn{width: 30%;height: 100%;position: absolute;top: 0;z-index: 1;} // background-color: #0C0;
+		.lightbox-prev-btn{left: 0; }
+		.lightbox-next-btn{right: 0; }
+		.lightbox-prev-btn-show{ background: url(../images/prev.png) no-repeat; cursor: pointer;}
+		.lightbox-next-btn-show{ background: url(../icon/next.png) no-repeat; cursor: pointer;}
+		// 图片
+		.lightbox-image{display: block;} // 解决图片margin-buttom：5px;问题
+	}
+	// 图片标题
+	.lightbox-pic-caption{
+		position: relative;top:-70px;z-index:2;margin: 0 5px;background-color: rgba(0,0,0,0.5);
+		// 标题区域
+		.lightbox-caption-area{
+			padding: 10px 5px; color: #fff;
+			// 图片标题
+			.lightbox-pic-desc{margin: 0px;} //清除p标签默认上下16px边距
+			// 索引
+			.lightbox-of-index{color: #999;}
+		}
+		// 关闭按钮
+		.lightbox-close-btn{
+			position: absolute;right:10px;top:13px;width: 27px;height: 27px;background: url(../icon/close.png) no-repeat center center;
+		}
+	}
+
+}
+
