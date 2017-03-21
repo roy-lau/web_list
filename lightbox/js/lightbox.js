@@ -1,5 +1,4 @@
-;
-(function($) {
+;(function($) {
 
     var lightBox = function() {
         var self = this;
@@ -46,10 +45,12 @@
         this.popupMask.click(function() {
             $(this).fadeOut();
             self.popupWin.fadeOut();
+            this.clear = false;
         });
         this.closeBtn.click(function() {
             self.popupMask.fadeOut();
             self.popupWin.fadeOut();
+            this.clear = false;
         });
         // 优化，更完善
         this.flag = true;
@@ -84,6 +85,27 @@
                 self.goto("prev")
             };
         });
+        // 绑定窗口调整事件
+        var timer = null
+        var clear = false
+        $(window).resize(function(){
+            if(clear){
+                window.clearTimeout(timer);
+                timer = window.setTimeout(function(){
+                self.loadPicSize(self.groupData[self.index].src);
+                },500)
+            }
+        }).keyup(function(e){
+            if (self.clear) {
+                var keyValue = e.which;
+                if(keyValue == 38||keyValue == 37){
+                    self.prevBtn.click();
+                }else if(keyValue == 40|| keyValue ==39){
+                    self.nextBtn.click();
+                };
+            }
+        })
+
     };
     lightBox.prototype = {
         goto: function(dir) {
@@ -112,9 +134,9 @@
         loadPicSize: function(sourceSrc) {
             var self = this;
             self.popupPic.css({ width: "auto", height: "auto" }).hide();
+            this.picCaptionArea.hide();           
             // 预加载图片，接收相应的原地址
             this.preloadImg(sourceSrc, function() {
-                alert("ok")
                 self.popupPic.attr("src", sourceSrc);
                 var picWidth = self.popupPic.width(),
                     picHeight = self.popupPic.height();
@@ -148,6 +170,7 @@
                 }).fadeIn();
                 self.picCaptionArea.fade();
                 self.flag = true;
+                this.clear = true;
             });
             // 设置描述文字和当前索引
             this.captionText.text(this.groupData[this.index].caption);
@@ -217,7 +240,10 @@
                     this.prevBtn.removeClass('disabled');
                     this.nextBtn.removeClass('disabled');
                 }
-            }
+            }else {
+                this.prevBtn.addClass("disabled");
+                this.nextBtn.addClass("disabled");
+            }; 
 
         },
         getIndexOf: function(currentId) {

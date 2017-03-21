@@ -7,6 +7,7 @@
   background-color: #000;
   opacity: 0.5;
   z-index: 10000;
+  background: url(../icon/opacity.png) repeat left top;
   display: none;
 }
 #G-lightbox-popup {
@@ -32,6 +33,7 @@
   position: absolute;
   top: 0;
   z-index: 1;
+  background: url(../icon/transparent.png) repeat left top;
 }
 #G-lightbox-popup .lightbox-pic-view .lightbox-prev-btn {
   left: 0;
@@ -56,6 +58,7 @@
   z-index: 2;
   margin: 0 5px;
   background-color: rgba(0, 0, 0, 0.5);
+  background: url(../icon/opacity.png) repeat left top;
 }
 #G-lightbox-popup .lightbox-pic-caption .lightbox-caption-area {
   padding: 10px 5px;
