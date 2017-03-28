@@ -1,0 +1,162 @@
+    <!doctype html>
+    <html lang="cn">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>黑客帝国</title>
+    <script type="text/javascript" src="jquery-2.1.4.js"></script>
+    <!-- <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script> -->
+    <script type="text/javascript"><!--
+    window.onload=function(){
+      
+      var min_str_len = 2;    //雨丝字符串最小长度
+      var max_str_len = 20;   //雨丝字符串最大长度
+      var font_size = 16;     //雨丝字符大小
+
+      //创建展示区
+      $('body').append('<div id="paper"><div>');
+      $('#paper').width($(document).width());
+      $('#paper').height($(document).height());
+      var paper_height = $('#paper').height();
+      var paper_width = $('#paper').width();
+      
+      //在显示区画板上方创建两个画板，三个画板竖直堆放
+      /*
+        ┌───────────────┐
+        │ 准备区(隐藏)  │  ↓↓
+        ├───────────────┤
+        │ 移入区(隐藏)  │  ↓↓  循环即成下雨效果
+        ├───────────────┤
+        │ 展示区(显现)  │  ↓↓
+        └───────────────┘
+      */
+      var verti_line_count = Math.ceil(paper_width / (font_size + 2));    //取得雨丝条数
+      $('#paper').append(new Array(2 * verti_line_count + 1).join("<span></span>"));  //将雨丝填满准备区+移入区
+      var verti_line_width = Math.ceil(paper_width / verti_line_count);   //取得雨丝宽度
+      $('#paper>span').map(function(index){
+        var text = generateMixed(parseInt(Math.random() * (max_str_len - min_str_len + 1) + min_str_len));  //设置雨丝文字(随机)
+        $(this).text(text);
+        if (index < verti_line_count){
+          //调整移入区雨丝位置
+          var top = parseInt(Math.random() * (paper_height - 2 + 1) + 2);   //设置雨丝随机高度
+          $(this).css("top", -paper_height - top + 'px');
+          $(this).css("left", verti_line_width * index + 'px');
+        } else {
+          //调整准备区雨丝位置
+          var top  = $('#paper>span:eq('+ (index - verti_line_count) + ')').css("top").slice(0,-2) * 1;
+          var left = $('#paper>span:eq('+ (index - verti_line_count) + ')').css("left").slice(0,-2) * 1;
+          $(this).css("top", -paper_height + top + 'px');
+          $(this).css("left", left + 'px');
+        }
+        //设置雨丝文字字体大小
+        $(this).css("font-size", font_size);
+      });
+
+      //修改雨丝文字，并着色
+      var setTxt = function(o){
+        
+        //如果雨丝没有接触到展示区，则不执行后续动作
+        if ($(o).css("top").slice(0,-2) * 1 < -paper_height) return false;
+        //if ($(o).children("font:last").css("top").slice(0,-2) * 1 <= 0) return false;
+        
+        //格式化文字，清除空格
+        var text=$(o).text().replace(/\s/igm,''), html='';
+        
+        //随机文字
+        text = generateMixed(text.length);
+        for (var i=0; i<=text.length-1; i++){
+          if (i==text.length-1) {
+            //首个文字，设置亮色
+            html += '<font color="#00FF00">' + text.charAt(i) + '</font><br/>';
+          } else {
+            //其他文字，调整颜色深度
+            var nColor = parseInt('0x11', 16) + Math.ceil(parseInt('0xAA', 16) * (i) /text.length);
+            var sColor = ('00' + nColor.toString(16)).substr(-2);
+            html += '<font color="#00' + sColor + '00">' + text.charAt(i) + '</font><br/>';
+          }
+        }
+        $(o).html(html);
+      }
+      
+      //雨丝下落
+      var move = function(o){
+        //向下移动，每次 20px
+        var top = ($(o).css("top").slice(0,-2) * 1 + 25)  + 'px';
+        $(o).css("top", top);
+        
+        //如果雨丝落出展示区，则将其移到准备区，并重置雨丝长度
+        if ($(o).css("top").slice(0,-2) * 1 > paper_height){
+          var top = $(o).css("top").slice(0,-2) * 1 - (paper_height * 2);
+          var text = generateMixed(parseInt(Math.random() * (max_str_len - min_str_len + 1) + min_str_len));  //设置雨丝文字(随机)
+          $(o).css("top", top);
+          $(o).text(text);
+          setTxt(o);
+          //$(o).css("height", (text.length+2)+'em');
+        };
+      };
+      
+      //重复雨丝下落动作
+      setInterval(function(){
+        $('#paper>span').map(function(index){
+          //if ((new Date()).getMilliseconds() % 2==0) setTxt(this); //降低CPU使用率
+          move(this);
+          setTxt(this);
+        });
+      }, 50);
+      
+    } 
+
+    //生成随机数
+    function GetRandomNum(Min, Max){
+      return(parseInt(Math.random() * (Max - Min + 1) + Min));  
+    }
+
+    //生成随机字符串
+    function generateMixed(n) {
+      var str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', res = "";
+      for(var i=0; i<n; i++){res += str.charAt(parseInt(Math.random() *str.length +1) -1);}
+      return res;
+    }
+
+    --></script>
+    <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+    }
+    #paper {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      font-size: 0px;
+      overflow: hidden;
+      background-color: #000000;
+    }
+    #paper span {
+      position: absolute;
+      display: inline-block;
+      word-break: break-all;
+      text-align: center;
+      width: 1em;
+      line-height: 1em;
+      height: 100%;
+      color: black;
+      /*background-color: #FFFFFF;*/
+      border:0px solid Silver;
+      font-size: 15px;
+      font-weight: bold;
+    }
+    </style>
+    </head>
+    <body>
+    </body>
+    </html>

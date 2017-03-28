@@ -10,4 +10,6 @@
 
 5、 qqzone     https://roy-lau.github.io/web_list/qqzone
 
-6、 图片画廊     https://roy-lau.github.io/web_list/lightbox(完善中)
+6、 图片画廊     https://roy-lau.github.io/web_list/hkdg
+
+7、 图片画廊     https://roy-lau.github.io/web_list/lightbox(完善中)
