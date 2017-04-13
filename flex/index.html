@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flex布局</title>
+</head>
+<style type="text/css">
+body {
+    background-color: #000;
+}
+#box {
+    width: 100px;
+    height: 100px;
+    background-color: #FFF;
+    border: 1px solid blue;
+    border-radius: 5px;
+}
+div,
+p,
+h1,
+h3 {
+    color: #FFF;
+}
+
+
+.item {
+    width: 33px;
+    height: 33px;
+    border-radius: 13px;
+    background-color: #000;
+}
+.box1_1 {
+    display: flex;
+}
+.box1_2 {
+    display: flex;
+    justify-content: center;
+}
+.box1_3 {
+    display: flex;
+    justify-content: flex-end;
+}
+.box1_4 {
+    display: flex;
+    align-items: center;
+}
+.box1_5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box1_6 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.box1_7 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.box2_1 {
+    display: flex;
+    justify-content: space-between;
+}
+.box2_2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.box2_3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.box2_4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.box2_5 {
+    display: flex;
+}
+.box2_5>.item:nth-child(2) {
+    align-self: center;
+}
+.box2_6 {
+    display: flex;
+    justify-content: space-between;
+}
+.box2_6>.item:nth-child(2) {
+    align-self: flex-end;
+}
+.box3_1 {
+    display: flex;
+}
+.box3_1>.item:nth-child(2) {
+    align-self: center;
+}
+.box3_1>.item:nth-child(3) {
+    align-self: flex-end;
+}
+.box4_1{
+	display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-content: space-between;
+}
+
+.box4_2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+.box4_2>.column {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.box5_1 {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+.box5_2 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+.box5_3 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box5_3>.row{
+  flex-basis: 100%;
+  display:flex;
+}
+
+.box5_3>.row:nth-child(2){
+  justify-content: center;
+}
+
+.box5_3>.row:nth-child(3){
+  justify-content: space-between;
+}
+
+.box6_1 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+</style>
+<body>
+    <h1>单个</h1>
+    <div class="box1_1" id="box">
+        <div class="item"></div>
+    </div>
+    <div class="box1_2" id="box">
+        <div class="item"></div>
+    </div>
+    <div class="box1_3" id="box">
+        <div class="item"></div>
+    </div>
+    <div class="box1_4" id="box">
+        <div class="item"></div>
+    </div>
+    <div class="box1_5" id="box">
+        <div class="item"></div>
+    </div>
+    <div class="box1_6" id="box">
+        <div class="item"></div>
+    </div>
+    <div class="box1_7" id="box">
+        <div class="item"></div>
+    </div>
+    <h1>两个：</h1>
+    <div class="box2_1" id="box">
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <div class="box2_2" id="box">
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <div class="box2_3" id="box">
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <div class="box2_4" id="box">
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <div class="box2_5" id="box">
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <div class="box2_6" id="box">
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <h1>三个骰子：</h1>
+    <div class="box3_1" id="box">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <h1>四个骰子：</h1>
+    <div class="box4_1" id="box">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <div class="box4_2" id="box">
+      <div class="column">
+        <span class="item"></span>
+        <span class="item"></span>
+      </div>
+      <div class="column">
+        <span class="item"></span>
+        <span class="item"></span>
+      </div>
+    </div>
+<h1>六个骰子：</h1>
+   <div class="box5_1" id="box">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>  
+     <div class="box5_2" id="box">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+
+    <div class="box5_3" id="box">
+      <div class="row">
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+      </div>
+      <div class="row">
+        <span class="item"></span>
+      </div>
+      <div class="row">
+         <span class="item"></span>
+         <span class="item"></span>
+      </div>
+    </div>
+    <h1>九个骰子：</h1>
+     <div class="box5_2" id="box">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <h1>百分比布局</h1>
+<p>某个网格的宽度为固定的百分比，其余网格平均分配剩余的空间。</p>
+
+    <div class="Grid">
+      <div class="Grid-cell u-1of4">四分之一</div>
+      <div class="Grid-cell">AUTO</div>
+      <div class="Grid-cell u-1of3">三分之一</div>
+    </div>
+
+<h1>圣杯布局</h1>
+<p>圣杯布局（Holy Grail Layout）指的是一种最常见的网站布局。页面从上到下，分成三个部分：头部（header），躯干（body），尾部（footer）。其中躯干又水平分成三栏，从左到右为：导航、主栏、副栏。</p>
+    <body class="HolyGrail">
+      <header>头部</header>
+      <div class="HolyGrail-body">
+        <main class="HolyGrail-content">中间</main>
+        <nav class="HolyGrail-nav">左边</nav>
+        <aside class="HolyGrail-ads">右边</aside>
+      </div>
+      <footer>底部</footer>
+    </body>
+
+</body>
+<style type="text/css">
+/*下面是百分比布局*/
+
+    .Grid {
+      display: flex;
+    }
+
+    .Grid-cell {
+      flex: 1;
+      
+    }
+
+    .Grid-cell.u-full {
+      flex: 0 0 100%;
+
+    }
+
+    .Grid-cell.u-1of2 {
+      flex: 0 0 50%;
+    }
+
+    .Grid-cell.u-1of3 {
+      flex: 0 0 33.3333%;
+    }
+
+    .Grid-cell.u-1of4 {
+      flex: 0 0 25%;
+    }
+
+	/*下面是圣杯布局的样式*/
+    .HolyGrail {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    header,
+    footer {
+    	background-color: blue;
+      flex: 1;
+    }
+
+    .HolyGrail-body {
+      display: flex;
+      flex: 1;
+    }
+
+    .HolyGrail-content {
+    	background-color: red;
+      flex: 1;
+    }
+
+    .HolyGrail-nav, .HolyGrail-ads {
+    	background-color: yellow;
+      /* 两个边栏的宽度设为12em */
+      flex: 0 0 12em;
+    }
+
+    .HolyGrail-nav {
+      /* 导航放到最左边 */
+      order: -1;
+    }
+
+    @media (max-width: 768px) {
+      .HolyGrail-body {
+        flex-direction: column;
+        flex: 1;
+      }
+      .HolyGrail-nav,
+      .HolyGrail-ads,
+      .HolyGrail-content {
+        flex: auto;
+      }
+    }
+
+</style>
+</html>
