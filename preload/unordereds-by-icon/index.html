@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>图片预加载之无序加载</title>
+	<style>
+		body,p,ul,li{margin: 0;padding: 0;}
+		html{background-color: gray;}
+		.box{
+			text-align: center;
+		}
+		#face-btn{
+			width: 30px;
+			height: 30px;
+			padding: 8px;
+			border-radius: 5%;
+			background-color: green;
+			color: white;
+		}
+		#face-btn:focus{background-color: yellow;}
+		.panel{display: none;width: 600px;margin: 0 auto;}
+		.loading{font-size: 2em; color: white;}
+		.list li{
+				display: inline-block;
+				list-style: none;
+				width: 30px;
+				height: 30px;
+				cursor: pointer;
+			}
+		.list li:hover{background-color: white;}
+	</style>
+</head>
+<body>
+<div class="box">
+	<a href="javascript:;" id="face-btn">显示</a>----点击空白区域隐藏
+	<hr>
+	<div class="panel">
+		<p class="loading">图片加载中……</p>
+	
+	</div>
+</div>
+</body>
+<script src="../../lib/js/jquery-2.1.4.js"></script>
+<script src="../preload.js"></script>
+
+<script>
+	var $btn = $('#face-btn'),
+		$panel = $('.panel');
+
+	var imgs = [];
+	for(var i = 0; i<1432; i++){
+		imgs[i] = 'images/qq_' + (i+1)+ '.png';
+	}
+	var len = imgs.length;
+	$btn.on('click', function(e){
+		e.stopPropagation();	// 禁止事件冒泡
+		$panel.fadeIn();
+		$.preload(imgs,{
+			all: function(){
+				var html = '';
+				html += '<ul class="list">';
+				for(var i = 0;i<len; i++){
+					html += '<li><img src="'+ imgs[i] +'" alt="qq图片"/></li>'
+				}
+				html += '</ul>';
+				$panel.html(html)
+			}
+		})
+	})
+	$(document).on('click', function(){		// 点击空白区域隐藏
+		$panel.fadeOut();
+	})
+</script>
+</html>

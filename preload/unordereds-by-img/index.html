@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片预加载之无序加载</title>
+	<style>
+	html,body{height: 100%;}
+		.box{
+			text-align: center;
+		}
+		p{margin: 0 auto;text-align: center;}
+		p .btn{
+				display: inline-block;
+				height: 30px;
+				line-height: 30px;
+				border: 1px solid #ccc;
+				background-color: green;
+				padding: 0 10px;
+				margin-right: 50px;
+				color: #fff;
+			}
+		p .btn:hover{color: red;}
+
+		.loading{
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;	/* 高度继承自父类，将html，body设置100%这里才会有高度*/
+			background-color: rgba(0,0,0,.8);
+			font-size: 6em;
+		}
+		.loading .progress{
+			color: #FFF;
+			position: absolute;
+			top: 30%;
+			left: 40%
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+<h1>图片预加载之无序加载:</h1>
+		<img id="img" src="images/img_1.jpg" alt="pic" />
+	</div>
+	<p>
+		<a href="javascript:;" class="btn" data-control="prev">上一页</a>
+		<a href="javascript:;" class="btn" data-control="next">下一页</a>
+	</p>
+
+	<!-- 加载页 -->
+	<div class="loading">
+		<p class="progress"> 0% </p>
+	</div>
+</body>
+<script src="../../lib/js/jquery-2.1.4.js"></script>
+<script src="../preload.js"></script>
+<script>
+	var imgs = [
+		'images/img_1.jpg',
+		'images/img_2.jpg',
+		'images/img_3.jpg',
+		'images/img_4.jpg',
+		'images/img_5.jpg'
+		/*'https://cn.vuejs.org/images/logo.png',
+		'https://cn.vuejs.org/images/upyun-large.png',
+		'https://cn.vuejs.org/images/stdlib.png',
+		'https://cn.vuejs.org/images/deepstream.png',
+		'https://cn.vuejs.org/images/jsfiddle.png',
+		'https://cn.vuejs.org/images/laravel.png',
+		'https://cn.vuejs.org/images/chaitin.png',
+		'https://cn.vuejs.org/images/htmlburger.png',
+		'https://cn.vuejs.org/images/someline.png',
+		'https://cn.vuejs.org/images/monterail.png',
+		'https://cn.vuejs.org/images/trisoft.png'*/
+	]
+	
+	var index = 0,
+		len = imgs.length,
+		$progress = $('.progress');
+
+		$.preload(imgs,{
+			// 每加载一张执行的事件
+			each: function(count){
+				// 总的图片数量 除以 加载的图片数量 乘以100，
+				$progress.html(Math.round((count + 1) / len * 100) + '%') 
+			},
+			// 图片加载完后执行的事件
+			all: function(){
+				$('.loading').fadeOut();
+			}
+		})
+
+		/*1. 当点击切换按钮时。
+		2. 判断如果点击的data-control的值等于‘prev’，说明点击的是上一页
+		3. 点击的是上一页时，返回一个当前下标自减一的值，如果当前坐标自减一的值小于0，则返回0
+		4. 当点击的不是上一页时，说明点击的是下一页。
+		5. 当点击的是下一页时，返回一个当前下标自加一的值，如果当前坐标自加一的值小于图片数量，则返回图片的最后一张*/
+	$('.btn').on('click', function(){
+		// 上一页
+		if ('prev' === $(this).data('control')) {
+			index = Math.max(0, --index);	// 比较两个值，返回最大的一个
+		}else{
+		// 下一页
+			index = Math.min(len - 1, ++index);	// 比较两个值，返回最小的一个
+		}
+		document.title = (index + 1) + '/' + len;	// 在标题栏显示当前是第几张
+		$('#img').attr('src', imgs[index]);			// 设置img的路径
+	})
+</script>
+</html>
