@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>京东菜单无延迟加载效果</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="wrap" id="leftList">
+		<ul>
+			<li data-id="a">
+				<span>家用电器</span>
+			</li>
+			<li data-id="b">
+				<span>手机 / 运营商 / 数码</span>
+			</li>
+			<li data-id="c">
+				<span>电脑办公</span>
+			</li>
+			<li data-id="d">
+				<span>家居 / 家具 / 家装 / 厨具</span>
+			</li>
+			<li data-id="e">
+				<span>男装 / 女装 / 童鞋 / 内衣</span>
+			</li>
+			<li data-id="f">
+				<span>个护化妆 / 清洁用品 / 宠物</span>
+			</li>
+			<li data-id="g">
+				<span>鞋靴 / 箱包 / 珠宝 / 奢侈品</span>
+			</li>
+			<li data-id="h">
+				<span>运动 / 户外 / 钟表</span>
+			</li>
+			<li data-id="i">
+				<span>汽车 / 汽车用品</span>
+			</li>
+			<li data-id="j">
+				<span>女婴 / 玩具乐器</span>
+			</li>
+			<li data-id="k">
+				<span>食品 / 消费 / 生鲜 / 特产</span>
+			</li>
+			<li data-id="l">
+				<span>医药保健</span>
+			</li>
+		</ul>
+		<div id="sub" class="none">
+			<div id="a" class="sub_content none">
+				<dl>
+					<dt><a href="">菜单头部---a <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---a <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---a <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="b" class="sub_content none">
+				<dl>
+					<dt><a href="">菜单头部---b <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---b <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---b <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="c" class="sub_content none">
+				<dl>
+					<dt><a href="">菜单头部---c <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---c <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---c <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="d" class="sub_content none">
+				<dl>
+					<dt><a href="">菜单头部---d <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---d <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---d <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="e" class="sub_content none">
+				<dl>
+					<dt><a href="">菜单头部---e <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---e <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---e <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="f" class="sub_content none">
+				<dl>
+					<dt><a href="">菜单头部---f <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---f <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---f <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="g" class="sub_content none">
+				<dl>
+					<dt><a href="">菜单头部---g <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---g <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---g <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="h" class="sub_content none">
+				<dl>
+					<dt><a href="">菜单头部---h <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---h <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---h <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="i" class="sub_content none">
+				<dl>
+					<dt><a href="">菜单头部---i <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---i <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---i <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="j" class="sub_content none">
+				<dl>
+					<dt><a href="">菜单头部---j <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---j <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---j <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="k" class="sub_content none">
+				<dl>
+					<dt><a href="">菜单头部---k <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---k <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---k <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="l" class="sub_content none">
+				<dl>
+					<dt><a href="">菜单头部---l <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---l <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt><a href="">菜单头部---l <i>&gt;</i></a></dt>
+					<dd>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+						<a href="">子菜单内容</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="../lib/js/jquery-2.1.4.js"></script>
+<script src="trigonometricFunction.js"></script>
+<script src="script.js"></script>
+</html>
