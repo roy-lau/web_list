@@ -24,4 +24,9 @@
   * 无序加载：https://roy-lau.github.io/web_list/preload/unordereds-by-icon
   * 有序加载：https://roy-lau.github.io/web_list/preload/orders
 
-11、vuejs搭建的售卖平台  https://roy-lau.github.io/web_list/vuejs-shopping
+11、vuejs搭建的售卖平台 https://roy-lau.github.io/web_list/vuejs-shopping :cry::sob::joy:扎心了，gh-pages竟然不能显示
+  __vuejs搭建的售卖平台项目源码：
+	1. git clone git@github.com:roy-lau/vue.git
+	2. cd vue/Demo/shopping
+	3. npm install
+	4. npm run dev
