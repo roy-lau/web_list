@@ -27,15 +27,14 @@ $(document).ready(function () {
 		if (mouseTrack.length > 3) {
 			mouseTrack.shift();
 		}
-		console.log(mouseTrack)
-	}
+	};
 
 	$('#leftList')
 		.on('mouseenter', function(e){
 			// 鼠标移入左侧列表时，将子菜单的none属性移除
 			sub.removeClass('none');
 			// 鼠标移入左侧列表时，绑定moveHandler函数
-			$(document).bind('mouseleave', moveHandler)
+			$(document).bind('mousemove', moveHandler)
 		})
 		.on('mouseleave', function(e){
 			// 鼠标移出左侧列表时，给子菜单添加none属性
@@ -55,6 +54,7 @@ $(document).ready(function () {
 		})
 		// 鼠标移入左侧的li时，触发的事件
 		.on('mouseenter', 'li', function(e){ 	// 事件代理，将mouseenter代理给li
+			sub.removeClass('none');
 			/*
 			1. 如果鼠标移入左侧的li时，右侧的子菜单没有显示的情况下
 			2. 将li赋值给activeRow
@@ -66,6 +66,7 @@ $(document).ready(function () {
 			if (!activeRow) {
 				activeRow = $(e.target)
 				activeRow.addClass('active');
+
 				activeMenu = $('#' + activeRow.data('id'));
 				activeMenu.removeClass('none');
 				return;

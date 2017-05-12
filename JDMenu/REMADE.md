@@ -1,3 +1,4 @@
+
 ### 用到的技术，和引发的问题：
 
 	1、 font: 400 9px/14px consolas; 	// 9px代表font-size，14px代表line-height
@@ -10,7 +11,7 @@
 		向量的差乘公式：
 			向量1的x坐标 乘以 向量2的y坐标 减去 向量2的x坐标 乘以 向量1的y坐标（v1.x * v2.y - v2.x * v1.y）
 
-### bug:
-	1. activeRow is null 100行报错，
-	2. b is undefined 12行报错，
-	
+
+### 思维导图
+
+<img src="https://github.com/roy-lau/web_list/blob/master/JDMenu/trigonometricFunction.png" alt="思维导图">

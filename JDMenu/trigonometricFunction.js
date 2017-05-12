@@ -19,7 +19,7 @@ function vectorProduct(v1,v2){
 	// v2.y: 向量2的y坐标 
 	// v2.x: 向量2的x坐标
 	// v1.y: 向量1的y坐标
-	return v1.x * v2.y - v2.x * v1.y;
+	return v1.x * v2.y - v2.x * v1.y
 }
 // 差乘的判断方法
 function isPointInTrangle(p, a, b, c){

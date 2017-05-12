@@ -20,6 +20,8 @@
 
 10、图片预加载（封装插件）： 
 
-	无序加载：https://roy-lau.github.io/web_list/preload/unordereds-by-img
-	无序加载：https://roy-lau.github.io/web_list/preload/unordereds-by-icon
-	有序加载：https://roy-lau.github.io/web_list/preload/orders
+  * 无序加载：https://roy-lau.github.io/web_list/preload/unordereds-by-img
+  * 无序加载：https://roy-lau.github.io/web_list/preload/unordereds-by-icon
+  * 有序加载：https://roy-lau.github.io/web_list/preload/orders
+
+11、vuejs搭建的售卖平台  https://roy-lau.github.io/web_list/vuejs-shopping
