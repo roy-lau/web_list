@@ -139,12 +139,11 @@
             // todo 实现和阅读器相关的数据交互的方法
             var Chapter_id,ChapterTotal;
             var init = function(UICB) {
-                getFunctionInfo(function() {
-                    getCurChapterContent(Chapter_id, function(data) {
-                        // TODO
-                        UICB && UICB(data)
-                    })
-                })
+                getFunctionInfoPromise().then(function(d){
+                	return getCurChapterContentPromie()
+                }).then(function(data){
+                	UICB && UICB(data)
+                });
             }
             var getFunctionInfo = function(cb) {
                 $.get('data/chapter.json', function(data) {
@@ -159,29 +158,53 @@
             }
 
 
-            var getCurChapterContent = function(chapter_id, callback) {
-                $.get('data/data' + chapter_id + '.json', function(data) {
-                    if (data.result == 0) {
-                        var url = data.jsonp;
-                        Util.getBSONP(url, function(data) {
-                            callback && callback(data);
-                        });
-                    }
-                }, 'json')
+            var getFunctionInfoPromise = function(){
+            	return new Promise(function(resolve,reject){
+	            	$.get('data/chapter.json', function(data) {
+	                    // 获得章节信息之后的回调
+	                    if(data.result == 0){
+			             	Chapter_id = Util.storageGetter('last_chaper_id')
+			             	if( Chapter_id == null){
+			                    Chapter_id = data.chapters[1].chapter_id;
+			             	}
+			             	resolve();
+	                    }else{
+		                    ChapterTotal = data.chapters.length;
+	                    	reject();
+        	            }
+    	            }, 'json');
+
+	            });
+            }
+
+
+            var getCurChapterContentPromie = function(){
+            	return new Promise(function(resolve, reject){
+	            	$.get('data/data' + Chapter_id + '.json', function(data) {
+	                    if (data.result == 0) {
+	                        var url = data.jsonp;
+	                        Util.getBSONP(url, function(data) {
+	                            resolve(data);
+	                        });
+	                    }else{
+	                    	  reject({msg:'fail'})
+	                    }
+	                }, 'json')	
+	            })
             }
 
              var prevChapter = function(UICB){
              	Chapter_id = parseInt(Chapter_id, 10);
              	if (Chapter_id == 0) return;
              	Chapter_id -= 1;
-             	getCurChapterContent(Chapter_id,UICB);
+             	getCurChapterContentPromie(Chapter_id,UICB);
              	Util.storageSetter('last_chaper_id', Chapter_id);
              }
              var nextChapter = function(UICB){
              	Chapter_id = parseInt(Chapter_id, 10);
              	if (Chapter_id == ChapterTotal) return;
              	Chapter_id += 1;
-             	getCurChapterContent(Chapter_id,UICB);
+             	getCurChapterContentPromie(Chapter_id,UICB);
              	Util.storageSetter('last_chaper_id', Chapter_id)
              }
             return {
