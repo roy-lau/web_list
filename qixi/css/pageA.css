@@ -1,0 +1,148 @@
+/*第一张背景图*/
+
+.a_background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.a_background_top {
+    width: 100%;
+    height: 71.6%;
+    background-image: url("../img/bg1.png");
+    background-size: 100% 100%;
+}
+
+.a_background_middle {
+    width: 100%;
+    height: 13.1%;
+    background-image: url("../img/path_red.png");
+    background-size: 100% 100%;
+}
+
+.a_background_botton {
+    width: 100%;
+    height: 15.3%;
+    background-image: url("../img/path_blue.png");
+    background-size: 100% 100%;
+}
+
+
+/*人物暂停*/
+
+.pausewalk {
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+}
+
+
+/*太阳子转以及动画*/
+
+#sun {
+    background: url("../img/sun.png") no-repeat;
+    position: absolute;
+    z-index: 1;
+    top: -30px;
+    height: 201px;
+    width: 201px;
+    right: 100px;
+    -webkit-transform: rotate(45deg);
+    -webkit-animation-name: rotation;
+    -webkit-animation-duration: 60s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+    -moz-transform: rotate(45deg);
+    -moz-animation-name: rotation;
+    -moz-animation-duration: 60s;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes rotation {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    100% {
+        transform: translateX(-2000px) translateY(400px);
+    }
+}
+
+@-moz-keyframes rotation {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    100% {
+        transform: translateX(-2000px) translateY(400px);
+    }
+}
+
+
+/*****************天上飘来两片云***************************/
+
+.Cloud {
+    z-index: 2;
+    position: absolute;
+}
+
+.Cloud1 {
+    width: 100%;
+    height: 30%;
+    left: -5%;
+    top: 15%;
+    background: url("../img/cloud1.png") no-repeat;
+    -webkit-animation-name: smallcloud;
+    -webkit-animation-duration: 30s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-name: smallcloud;
+    -moz-animation-duration: 30s;
+    -moz-animation-iteration-count: infinite;
+}
+
+.Cloud2 {
+    width: 20%;
+    height: 30%;
+    left: -5%;
+    background: url("../img/cloud2.png") no-repeat;
+    -webkit-animation-name: largecloud;
+    -webkit-animation-duration: 60s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-name: largecloud;
+    -moz-animation-duration: 60s;
+    -moz-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes smallcloud {
+    0% {
+        left: 0%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@-moz-keyframes smallcloud {
+    0% {
+        left: 0%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@-webkit-keyframes largecloud {
+    0% {
+        left: 0%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@-moz-keyframes largecloud {
+    0% {
+        left: 0%;
+    }
+    100% {
+        left: 100%;
+    }
+}
