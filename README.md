@@ -30,5 +30,4 @@
 
 13、vuejs搭建的售卖平台  https://github.com/roy-lau/web_list/tree/master/vuejs-shopping
 
-14、 小说阅读器  
-     https://roy-lau.github.io/web_list/reader   gh-pages不能jsonp无法加载章节信息:cry:
+14、 [小说阅读器](https://roy-lau.github.io/web_list/reader)  gh-pages不能jsonp无法加载章节信息:cry:
