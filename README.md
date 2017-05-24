@@ -18,7 +18,7 @@
 
 9、 弹性盒子     https://roy-lau.github.io/web_list/flex
 
-10、	京东无延迟加载菜单 https://roy-lau.github.io/web_list/JDMenu
+10、京东无延迟加载菜单   https://roy-lau.github.io/web_list/JDMenu
 
 11、图片预加载（封装插件）： 
 
@@ -26,11 +26,8 @@
   * 无序加载：https://roy-lau.github.io/web_list/preload/unordereds-by-icon
   * 有序加载：https://roy-lau.github.io/web_list/preload/orders
 
-12、vuejs搭建的售卖平台 https://roy-lau.github.io/web_list/vuejs-shopping :cry::sob::joy:扎心了，gh-pages竟然不能显示
+12、vuejs搭建的售卖平台  https://github.com/roy-lau/web_list/tree/master/vuejs-shopping
 
-_vuejs搭建的售卖平台项目源码：
-
-	1. git clone git@github.com:roy-lau/vue.git
-	2. cd vue/Demo/shopping
-	3. npm install
-	4. npm run dev
+13、 小说阅读器：
+	
+	https://roy-lau.github.io/web_list/reader   gh-pages不能jsonp无法加载章节信息:cry:

@@ -1,6 +1,6 @@
 ## 图片预加载API
 
-	$.preload(imgs,{
+	$.preload(imgs,{ 	// imgs:数组
 			// 设置加载方式为有序加载，默认为无序加载！
 			order: 'ordered',
 			each: function(count){
@@ -10,9 +10,6 @@
 				// 图片加载完后执行的事件
 			}
 		})
-
-### cdn
-	https://roy-lau.github.io/web_list/preload/preload.js
 
 ### demo
 
