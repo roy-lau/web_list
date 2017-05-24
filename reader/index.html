@@ -76,7 +76,6 @@
     <script src="js/jquery.jsonp.js"></script>
     <script>
     (function() {
-    	'use strict';
         var Util = (function() {
             var prefix = 'html5_reader_';
             var storageGetter = function(key) {
@@ -89,11 +88,10 @@
                 return $.jsonp({
                     url: url,
                     cache: true,
-                    callback: 'duokan_fictionn_chapter',
+                    callback: 'duokan_fiction_chapter',
                     success: function(res) {
-                        debugger;
                         var data = $.base64.decode(res),
-                            json = decodeURLComponent(escape(data));
+                            json = decodeURIComponent(escape(data));
                         cb(json);
                     }
                 })
@@ -195,7 +193,7 @@
             // todo 渲染基本的UI结构
             function parseChapterData(jsonData){
             	var jsonObj = JSON.parse(jsonData);
-            	var html = '<h3>' + jsonData.t + '</h3>';
+            	var html = '<h3>' + jsonObj.t + '</h3>';
             	for(var i =0; i< jsonObj.p.length; i++){
             		html += '<p>' + jsonObj.p[i] + '</p>';
             	}
