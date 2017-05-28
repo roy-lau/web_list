@@ -40,6 +40,7 @@ body {
   height: 200px;
 }
 .tabs .content-wrap .content-item {
+  position: absolute;
   height: 200px;
   display: none;
 }

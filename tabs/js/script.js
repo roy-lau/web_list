@@ -26,20 +26,20 @@
         if(config.triggerType === "click"){
 
         	this.tabItems.bind(config.triggerType,function(){
-        		alert(1)
+        		self.invoke($(this));
         	})
 
         }else if(config.triggerType === "mouseover"){
         	
         	this.tabItems.bind(config.triggerType,function(){
-        		alert(2)
+        		self.invoke($(this));
         		
         	})
 
         }else if(config.triggerType === "mouseover" || config.triggerType !== "click"){  // 规避传如入事件参数错误
 
         	this.tabItems.bind("mouseover",function(){
-        		alert(3)
+        		self.invoke($(this));
         		
         	})
 
@@ -47,6 +47,35 @@
     }
 
     Tab.prototype = {
+
+    	// 事件驱动函数
+    	invoke: function(currentTab){	// currentTab当前的tab
+    		var self = this;
+    		/*
+				1. 执行tab选中状态选中状态加上actived
+				2. 切换对应的内容，根据配置参数effect是default还是fade
+    		*/
+
+    		// 获取图片的下标
+    		var index = currentTab.index()
+    		// 给选中的li添加actived样式，同时 移除兄弟节点的actived样式
+    		currentTab.addClass("actived").siblings().removeClass("actived");
+
+    		var effect = this.config.effect;
+    		var contentItems = this.contentItems;
+
+    		// 判断切换方式
+    		if (effect === "default") {
+    			contentItems.eq(index).addClass("current").siblings().removeClass("current")
+    		}else if(effect === "fade"){
+    			contentItems.eq(index).fadeIn().siblings().fadeOut()
+
+    		}else if(effect === "default"||effect !== "fade"){
+    			contentItems.eq(index).addClass("current").siblings().removeClass("current")
+    		}
+
+    	},
+
         // 获取HTML内的配置参数
         getconfig: function() {
             // 获取HTML内的data-config配置
