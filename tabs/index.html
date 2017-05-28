@@ -1,34 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>tabs选项卡插件</title>
+    <meta charset="UTF-8">
+    <title>tabs选项卡插件</title>
 </head>
 <link rel="stylesheet" href="css/style.css">
-<body>
-	<div class="tabs">
-		<ul class="tab-nav">
-			<li class="actived"><a href="javascript:void(0)">老虎</a></li>
-			<li><a href="javascript:void(0)">狮子</a></li>
-			<li><a href="javascript:void(0)">豹子</a></li>
-			<li><a href="javascript:void(0)">天狼</a></li>
-		</ul>
-		<div class="content-wrap">
-			<div class="content-item current">
-				<img src="imgs/img_1.jpg" width="290" height="200" alt="老虎">
-			</div>
-			<div class="content-item">
-				<img src="imgs/img_2.jpg" width="290" height="200" alt="狮子">
-			</div>
-			<div class="content-item">
-				<img src="imgs/img_3.jpg" width="290" height="200" alt="豹子">
-			</div>
-			<div class="content-item">
-				<img src="imgs/img_4.jpg" width="290" height="200" alt="狼">
-			</div>
-		</div>
-	</div>
+
+<body>							<!--data-config单双引号敏感， -->
+    <div class="js-tab tabs" data-config='{ 	 
+							        "triggerType": "click",
+							        "effect": "fade",
+							        "invoke": 2,
+							        "auto": 5000
+							    }'>
+        <ul class="tab-nav">
+            <li class="actived"><a href="javascript:void(0)">老虎</a></li>
+            <li><a href="javascript:void(0)">狮子</a></li>
+            <li><a href="javascript:void(0)">豹子</a></li>
+            <li><a href="javascript:void(0)">天狼</a></li>
+        </ul>
+        <div class="content-wrap">
+            <div class="content-item current">
+                <img src="imgs/img_1.jpg" width="290" height="200" alt="老虎">
+            </div>
+            <div class="content-item">
+                <img src="imgs/img_2.jpg" width="290" height="200" alt="狮子">
+            </div>
+            <div class="content-item">
+                <img src="imgs/img_3.jpg" width="290" height="200" alt="豹子">
+            </div>
+            <div class="content-item">
+                <img src="imgs/img_4.jpg" width="290" height="200" alt="狼">
+            </div>
+        </div>
+    </div>
 </body>
 <script src="../lib/js/jquery-2.1.4.js"></script>
 <script src="js/script.js"></script>
+<script>
+$(function() {
+    var tab1 = new Tab($('.js-tab').eq(0));
+// console.log($('.js-tab').eq(0).data("config"))
+
+/*    {
+        "triggerType": "click", // 触发方式
+        "effect": "fade", // 切换样式
+        "invoke": 2, // 默认显示第几个
+        "auto": 5000 // 切换过渡时间(false：不自动切换，number自动切换时间)
+    }*/
+})
+</script>
+
 </html>
