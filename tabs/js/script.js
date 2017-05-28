@@ -1,5 +1,4 @@
-;
-(function($) {
+;(function($) {
 
     var Tab = function(tab) {
         var self = this;
@@ -18,6 +17,33 @@
             $.extend(this.config, this.getconfig()) // this.getconfig()替换掉this.config，
         }
 
+        // 保存tabs标签列表&&报存对应的内容列表
+        this.tabItems = this.tab.find("ul.tab-nav li");
+        this.contentItems = this.tab.find("div.content-wrap div.content-item");  // 坑-- 标签名，属性一定要正确
+
+        // 保存config配置参数
+        var config = this.config;
+        if(config.triggerType === "click"){
+
+        	this.tabItems.bind(config.triggerType,function(){
+        		alert(1)
+        	})
+
+        }else if(config.triggerType === "mouseover"){
+        	
+        	this.tabItems.bind(config.triggerType,function(){
+        		alert(2)
+        		
+        	})
+
+        }else if(config.triggerType === "mouseover" || config.triggerType !== "click"){  // 规避传如入事件参数错误
+
+        	this.tabItems.bind("mouseover",function(){
+        		alert(3)
+        		
+        	})
+
+        }
     }
 
     Tab.prototype = {
