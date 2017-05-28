@@ -6,13 +6,16 @@
     <title>清单列表-todo-app</title>
 </head>
 <link rel="stylesheet" href="css/style.css">
-
+<!-- normalize.css  常规化css -->
 <body>
     <!-- 总容器开始 -->
     <div class="container">
+	    
+	    <h1>my-todo-app</h1>
+
         <div class="add-task">
-            <input type="text">
-            <button>submit</button>
+            <input type="text" placeholder="e.g. 事项……">
+            <button type="submit">submit</button>
         </div>
         <!-- 清单列表开始 -->
         <div class="task-list">
@@ -25,16 +28,40 @@
             </div>
             <!-- 任务结束 -->
         </div>
+        <div class="task-list">
+            <!-- 任务开始 -->
+            <div class="task-item">
+                <span><input type="checkbox"></span>
+                <span class="task-content">list 1</span>
+                <span>delete</span>
+                <span>detail</span>
+            </div>
+            <!-- 任务结束 -->
+        </div>
+        <div class="task-list">
+            <!-- 任务开始 -->
+            <div class="task-item">
+                <span><input type="checkbox"></span>
+                <span class="task-content">list 1</span>
+                <span>delete</span>
+                <span>detail</span>
+            </div>
+            <!-- 任务结束 -->
+        </div>
         <!-- 清单列表结束 -->
         <!-- 任务详情开始 -->
+        <div class="task-detail-mask"><!-- 这是个遮罩层 --></div>
         <div class="task-detail">
             <!-- 任务标题开始 -->
             <div class="content">
+            事项……
             </div>
             <!-- 任务标题结束 -->
             <!-- 任务描述开始 -->
             <div>
-                <div class="desc"></div>
+                <div class="desc">
+                	<textarea name="" ></textarea>
+                </div>
             </div>
             <!-- 任务描述结束 -->
             <!-- 任务定时提醒开始 -->
@@ -42,7 +69,7 @@
                 <input type="date">
             </div>
             <!-- 任务定时提醒结束 -->
-            <button type="sunmit">submit</button>
+            <!-- <button type="sunmit">submit</button> -->
         </div>
         <!-- 任务详情结束 -->
     </div>
