@@ -49,6 +49,21 @@
         	this.loop = 0;
         	// 自动间隔时间切换的方法
         	this.autoPlay()
+        	//  移动到tab上时，停止定时器。移出时启动定时器。
+        	this.tab.hover(function(){
+        		// 移入时触发的事件
+        		window.clearInterval(self.timer)
+        	},function(){
+        		// 移出时触发的事件
+        		self.autoPlay()
+        	})
+        }
+
+
+        //-------- 设置默认显示第几个tab
+
+        if (config.invoke >1 ) {
+        	this.invoke(this.tabItems.eq(config.invoke -1))
         }
     }
 
@@ -95,7 +110,10 @@
                 contentItems.eq(index).addClass("current").siblings().removeClass("current")
             }
 
-
+            // *如果配置了auto，将loop的值设为index
+            if(this.config.auto){
+            	this.loop=index;
+            }
         },
 
         // 获取HTML内的配置参数
@@ -114,5 +132,23 @@
         }
     };
 
+    // 通过init方法触发tab插件
+    // 初始化插件
+    Tab.init = function(tabs){
+    	var self = this;
+    	tabs.each(function(){
+    		new self($(this))
+    	})
+    }
+
+    // jq初始化插件方法
+    $.fn.extend({
+    	tab:function(){
+    		
+    		this.each(function(){
+    			new Tab($(this))
+    		})
+    	}
+    })
     window.Tab = Tab;
 })(jQuery)

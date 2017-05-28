@@ -47,3 +47,10 @@ body {
 .tabs .content-wrap .current {
   display: block;
 }
+.tab-view {
+  float: left;
+  margin: 20px;
+}
+.tab-view h3 {
+  color: white;
+}

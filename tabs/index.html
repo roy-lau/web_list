@@ -7,40 +7,105 @@
 </head>
 <link rel="stylesheet" href="css/style.css">
 
-<body>							<!--data-config单双引号敏感， -->
-    <div class="js-tab tabs" data-config='{ 	 
-							        "triggerType": "click",
-							        "effect": "fade",
-							        "invoke": 2,
-							        "auto": 1000
-							    }'>
-        <ul class="tab-nav">
-            <li class="actived"><a href="javascript:void(0)">老虎</a></li>
-            <li><a href="javascript:void(0)">狮子</a></li>
-            <li><a href="javascript:void(0)">豹子</a></li>
-            <li><a href="javascript:void(0)">狼</a></li>
-        </ul>
-        <div class="content-wrap">
-            <div class="content-item current">
-                <img src="imgs/img_1.jpg" width="290" height="200" alt="老虎">
-            </div>
-            <div class="content-item">
-                <img src="imgs/img_2.jpg" width="290" height="200" alt="狮子">
-            </div>
-            <div class="content-item">
-                <img src="imgs/img_3.jpg" width="290" height="200" alt="豹子">
-            </div>
-            <div class="content-item">
-                <img src="imgs/img_4.jpg" width="290" height="200" alt="狼">
-            </div>
-        </div>
-    </div>
+<body>				
+<div class="tab-view">
+	<h3>1. 默认，没有传入任何参数</h3>			
+					<!--data-config单双引号敏感， -->
+	    <div class="js-tab tabs">
+	        <ul class="tab-nav">
+	            <li class="actived"><a href="javascript:void(0)">老虎</a></li>
+	            <li><a href="javascript:void(0)">狮子</a></li>
+	            <li><a href="javascript:void(0)">豹子</a></li>
+	            <li><a href="javascript:void(0)">狼</a></li>
+	        </ul>
+	        <div class="content-wrap">
+	            <div class="content-item current">
+	                <img src="imgs/img_1.jpg" width="290" height="200" alt="老虎">
+	            </div>
+	            <div class="content-item">
+	                <img src="imgs/img_2.jpg" width="290" height="200" alt="狮子">
+	            </div>
+	            <div class="content-item">
+	                <img src="imgs/img_3.jpg" width="290" height="200" alt="豹子">
+	            </div>
+	            <div class="content-item">
+	                <img src="imgs/img_4.jpg" width="290" height="200" alt="狼">
+	            </div>
+	        </div>
+	    </div>
+</div>
+<div class="tab-view">
+	<h3>2. 自动执行</h3>			
+					<!--data-config单双引号敏感， -->
+	    <div class="js-tab tabs" data-config='{ 	 
+								        "triggerType": "click",
+								        "effect": "fade",
+								        "auto": 1000
+								    }'>
+	        <ul class="tab-nav">
+	            <li class="actived"><a href="javascript:void(0)">老虎</a></li>
+	            <li><a href="javascript:void(0)">狮子</a></li>
+	            <li><a href="javascript:void(0)">豹子</a></li>
+	            <li><a href="javascript:void(0)">狼</a></li>
+	        </ul>
+	        <div class="content-wrap">
+	            <div class="content-item current">
+	                <img src="imgs/img_1.jpg" width="290" height="200" alt="老虎">
+	            </div>
+	            <div class="content-item">
+	                <img src="imgs/img_2.jpg" width="290" height="200" alt="狮子">
+	            </div>
+	            <div class="content-item">
+	                <img src="imgs/img_3.jpg" width="290" height="200" alt="豹子">
+	            </div>
+	            <div class="content-item">
+	                <img src="imgs/img_4.jpg" width="290" height="200" alt="狼">
+	            </div>
+	        </div>
+	    </div>
+</div>
+<div class="tab-view">
+	<h3>3. 默认选中某个</h3>			
+					<!--data-config单双引号敏感， -->
+	    <div class="js-tab tabs" data-config='{ 	 
+								        "triggerType": "click",
+								        "effect": "fade",
+								        "invoke": 2
+								    }'>
+	        <ul class="tab-nav">
+	            <li class="actived"><a href="javascript:void(0)">老虎</a></li>
+	            <li><a href="javascript:void(0)">狮子</a></li>
+	            <li><a href="javascript:void(0)">豹子</a></li>
+	            <li><a href="javascript:void(0)">狼</a></li>
+	        </ul>
+	        <div class="content-wrap">
+	            <div class="content-item current">
+	                <img src="imgs/img_1.jpg" width="290" height="200" alt="老虎">
+	            </div>
+	            <div class="content-item">
+	                <img src="imgs/img_2.jpg" width="290" height="200" alt="狮子">
+	            </div>
+	            <div class="content-item">
+	                <img src="imgs/img_3.jpg" width="290" height="200" alt="豹子">
+	            </div>
+	            <div class="content-item">
+	                <img src="imgs/img_4.jpg" width="290" height="200" alt="狼">
+	            </div>
+	        </div>
+	    </div>
+</div>
 </body>
 <script src="../lib/js/jquery-2.1.4.js"></script>
 <script src="js/script.js"></script>
 <script>
 $(function() {
-    var tab1 = new Tab($('.js-tab').eq(0));
+
+// Tab.init($(".js-tab"))  通过init方法触发tab插件，传入集和
+$(".js-tab").tab()		// 通过jq方法触发tab插件
+
+/*    var tab1 = new Tab($('.js-tab').eq(0));
+    var tab1 = new Tab($('.js-tab').eq(1));
+    var tab1 = new Tab($('.js-tab').eq(2));*/
 // console.log($('.js-tab').eq(0).data("config"))
 
 /*    {
