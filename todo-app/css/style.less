@@ -7,6 +7,7 @@ body {
 .container {
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 10px;
     position: relative;
     h1 {
         text-align: center;
@@ -46,6 +47,10 @@ body {
             &:hover {
                 background-color: #ddd;
             }
+            .task-content{padding: 0 10px;}
+            .auchor{float: right;color: #888;font-size: 80%;
+				&:hover{color: #333;}
+		    }
         }
     }
     .task-detail{width:50%;position: absolute;bottom: 0;right: 0;padding: 10px;background-color: #fff;color: #333;  display: none;
@@ -53,4 +58,5 @@ body {
 		&>*{margin-bottom: 10px;}
     }
     .task-detail-mask{position: absolute;top: 0; right: 0;bottom: 0;left: 0;background-color: rgba(60,60,60,.6);    display: none;}
+    
 }

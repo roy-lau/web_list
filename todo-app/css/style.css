@@ -5,6 +5,7 @@ body {
 .container {
   max-width: 800px;
   margin: 0 auto;
+  padding: 0 10px;
   position: relative;
 }
 .container h1 {
@@ -73,6 +74,17 @@ body {
 }
 .container .task-list .task-item:hover {
   background-color: #ddd;
+}
+.container .task-list .task-item .task-content {
+  padding: 0 10px;
+}
+.container .task-list .task-item .auchor {
+  float: right;
+  color: #888;
+  font-size: 80%;
+}
+.container .task-list .task-item .auchor:hover {
+  color: #333;
 }
 .container .task-detail {
   width: 50%;

@@ -6,6 +6,7 @@
     <title>清单列表-todo-app</title>
 </head>
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/libs/normalize.css">
 <!-- normalize.css  常规化css -->
 <body>
     <!-- 总容器开始 -->
@@ -13,39 +14,19 @@
 	    
 	    <h1>my-todo-app</h1>
 
-        <div class="add-task">
-            <input type="text" placeholder="e.g. 事项……">
+        <form class="add-task">
+            <input type="text" name="content" placeholder="e.g. 事项……">
             <button type="submit">submit</button>
-        </div>
+        </form>
         <!-- 清单列表开始 -->
         <div class="task-list">
             <!-- 任务开始 -->
-            <div class="task-item">
-                <span><input type="checkbox"></span>
-                <span class="task-content">list 1</span>
-                <span>delete</span>
-                <span>detail</span>
-            </div>
-            <!-- 任务结束 -->
-        </div>
-        <div class="task-list">
-            <!-- 任务开始 -->
-            <div class="task-item">
-                <span><input type="checkbox"></span>
-                <span class="task-content">list 1</span>
-                <span>delete</span>
-                <span>detail</span>
-            </div>
-            <!-- 任务结束 -->
-        </div>
-        <div class="task-list">
-            <!-- 任务开始 -->
-            <div class="task-item">
-                <span><input type="checkbox"></span>
-                <span class="task-content">list 1</span>
-                <span>delete</span>
-                <span>detail</span>
-            </div>
+          <!--   <div class="task-item">
+              <span><input type="checkbox"></span>
+              <span class="task-content">list 1</span>
+              <span>delete</span>
+              <span>detail</span>
+          </div> -->
             <!-- 任务结束 -->
         </div>
         <!-- 清单列表结束 -->
@@ -76,6 +57,7 @@
     <!-- 总容器结束 -->
 </body>
 <script src="../lib/js/jquery-2.1.4.js"></script>
+<script src="js/libs/store.min.js"></script>
 <script src="js/script.js"></script>
 <script>
 </script>
