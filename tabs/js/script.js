@@ -1,6 +1,5 @@
-;
-(function($) {
-
+;(function($) {
+    "use scrict"
     var Tab = function(tab) {
         var self = this;
         // 保存单个tab组件
