@@ -2,6 +2,8 @@
 (function() {
     "use scrict"
     var $formAddTask = $(".add-task"),
+        $window = $(window),
+        $body = $('body'),
         $deleteTask,
         $detailTask,
         $taskDetail = $(".task-detail"),
@@ -18,6 +20,11 @@
         taskList = {};
 
     init()
+   _alert("21").then(function(res){
+            if (res) {
+               alert(010)
+            }
+        })
 
     $formAddTask.on('submit', onAddTaskFormSubmit)
     $taskDetailMask.on('click', fadeOutTaskDetail)
@@ -122,12 +129,10 @@
             updataTask(i, data);
             fadeOutTaskDetail();
         })
-
-
     }
 
-    function listenMsgEvent(){
-        $msgconfirm.on("click", function(){
+    function listenMsgEvent() {
+        $msgconfirm.on("click", function() {
             hideMsg();
         })
     }
@@ -191,12 +196,12 @@
     }
 
     function init() {
-        shoeMsg();
         taskList = store.get("taskList") || [];
         if (taskList.length) {
             renderTaskList();
             taskRemindCheck();
             listenMsgEvent();
+         
         }
     }
 
@@ -204,26 +209,116 @@
         var timer = setInterval(function() {
             for (var i = 0; i < taskList.length; i++) {
                 var item = getStore(i),
-                    currentTimeStamp, 
+                    currentTimeStamp,
                     taskTimeStamp;
                 if (!item || !item.remindDate || item.informed) continue;
                 currentTimeStamp = (new Date()).getTime();
                 taskTimeStamp = (new Date(item.remindDate)).getTime();
                 if (currentTimeStamp - taskTimeStamp >= 1) {
-                    updataTask(i, {informed:true});
-                    shoeMsg(item.content);
+                    updataTask(i, { informed: true });
+                    showMsg(item.content);
                 }
             }
         }, 500)
     }
 
+    function _alert(arg) {
+        if (!arg) console.log("用户没有传入参数")
+        var conf = {},
+                  $Box,
+                  $Mask,
+                  $title,
+                  $content,
+                  $confirm,
+                  $cancel,
+                  confirmed,
+                  timer,
+                  dfd;
+                dfd = $.Deferred();
+                dfd.resolve();
+        if (typeof arg == 'string') {
+            conf.title = arg;
+        } else {
+            conf = $.extend(conf, arg)
+        }
+
+        $Box = $('<div>'+
+            '<div class="alert-title">'+conf.title+'</div>'+
+            '<div class="alert-content"></div>'+
+            '<div><button class="primary confirm">确定</button>'+
+                '<button class="cancel">取消</button></div>'+
+            '</div>').css({
+            padding: 10,
+            width: 300,
+            height: 200,
+            position: 'fixed',
+            background: '#FFF',
+            "text-align": "center",
+            "border-radius": 3,
+            "box-shadow":'0 1px 2px rgba(0,0,0,.5)'
+        });
+        $title = $Box.find('.alert-title').css({
+            "font-weight": 900,
+            "font-size":20
+        })
+        $confirm = $Box.find('button.confirm');
+        $cancel = $Box.find('button.cancel');
+        timer = setInterval(function(){
+                console.log(confirmed)
+            if (confirmed !== undefined) {
+                console.log(confirmed)
+                dfd.resolve(confirmed);
+                clearInterval(timer)
+                dismiss_alert()
+            }
+        },50)
+
+        $confirm.on("click", function(){
+            confirmed = true;
+        })
+        $cancel.on("click", function(){
+            confirmed = false;
+        })
+        function dismiss_alert(){
+            $Mask.remove()
+            $Box.remove()
+        }
+        $Mask = $('<div></div>').css({
+            background: "rgba(0,0,0,.6)",
+            position: 'fixed',
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0
+        })
+        $window.on("resize", abjustBoxPosition);
+        function abjustBoxPosition() {
+            var windowWidth = $window.width(),
+                windowHeight = $window.height(),
+                boxWidth = $Box.width(),
+                boxHeight = $Box.height(),
+                moveX, moveY;
+            moveX = (windowWidth - boxWidth) / 2;
+            moveY = ((windowHeight - boxHeight) / 2)-20;
+            $Box.css({
+                left: moveX,
+                top: moveY
+            })
+        }
+        $Mask.appendTo($body);
+        $Box.appendTo($Mask);
+        $window.resize();
+        return dfd.promise(confirmed);
+    }
     // 定时提醒
-    function shoeMsg(msg) {
+    function showMsg(msg) {
+        if (!msg) return;
         $msgContent.html(msg);
         $alert.get(0).play(); // 播放alert提示音
         $msg.show();
     }
-    function hideMsg(){
+
+    function hideMsg() {
         $msg.hide();
     }
     // 渲染全部的task模板
