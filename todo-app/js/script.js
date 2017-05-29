@@ -11,7 +11,7 @@
         $taskDetailContentInput,
         $checkboxComplete,
         currentIndex,
-    taskList = {};
+        taskList = {};
 
     init()
 
@@ -135,22 +135,23 @@
 
     // 监听完成task事件
     function listenCheckboxComplete() {
-        $checkboxComplete.on('click', function() {
+        $checkboxComplete.on('click', function(e) {
+            e.preventDefault();
             var $this = $(this),
                 isComplete = $this.is(':checked'),
                 index = $this.parent().parent().data("index");
-
             var item = getStore(index);
+            console.log(item)
             if (item.complete) {
                 updataTask(index, { complete: false });
-            }else{
+            } else {
                 updataTask(index, { complete: true });
             }
         })
     }
 
-    function getStore(index){
-        return store.get("taskList")[index]
+    function getStore(index) {
+        return store.get("taskList")[index];
     }
 
     function addTask(newTask) {
@@ -185,12 +186,26 @@
 
     // 渲染全部的task模板
     function renderTaskList() {
-        var $taskList = $('.task-list');
-        $taskList.html("")
+        var $taskList = $('.task-list'),
+            completeIetms = [];
+
+        $taskList.html("");
         for (var i = 0; i < taskList.length; i++) {
-            var $task = renderTaskItem(taskList[i], i);
-            $taskList.prepend($task)
+            var Items = taskList[i];
+            if (Items && Items.complete) {
+                completeIetms.push(Items)
+            } else {
+                var $task = renderTaskItem(Items, i);
+            }
+                $taskList.prepend($task);
         };
+        for (var j = 0; j < completeIetms.length; j++) {
+            $task = renderTaskItem(Items, j);
+            if (!Items) continue;
+            $task.addClass("completed")
+            $taskList.append($task);
+        };
+
         $deleteTask = $(".auchor.delete");
         $detailTask = $(".auchor.detail");
         $checkboxComplete = $(".task-list .complete");
@@ -201,11 +216,11 @@
 
     // 渲染单条task模板
     function renderTaskItem(data, index) {
-        if (!data || !index) return;
+        if (!data || !index === undefined) return;
         var listItemTpl =
             '<div class="task-list">' +
             '<div class="task-item"  data-index="' + index + '">' +
-            '<span><input class="complete" '+ (data.complete ? "checked" : "")+' type="checkbox"></span>' +
+            '<span><input class="complete" ' + (data.complete ? "checked" : "") + ' type="checkbox"></span>' +
             '<span class="task-content">' + data.content + '</span>' +
             '<span class="auchor detail"> 详细  </span>' +
             '<span class="auchor delete"> 删除 &nbsp;</span>' +
