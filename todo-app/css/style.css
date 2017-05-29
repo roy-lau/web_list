@@ -3,6 +3,19 @@ body {
   background-color: #00334b;
   position: relative;
 }
+.msg {
+  display: none;
+  text-align: center;
+  background-color: yellow;
+  color: #333;
+  padding: 10px;
+}
+.msg .confirmed {
+  cursor: pointer;
+}
+.alert {
+  opacity: 0;
+}
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -90,6 +103,7 @@ body {
 .container .task-list .completed {
   color: #AAA;
   background: rgba(255, 255, 255, 0.9);
+  opacity: 0.3;
 }
 .container .task-list .completed:after {
   content: " ";

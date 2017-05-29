@@ -7,13 +7,17 @@
 </head>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/libs/normalize.css">
+<link rel="stylesheet" href="css/libs/jquery.datetimepicker.min.css">
 <!-- normalize.css  常规化css -->
 <body>
+	    <div class="msg"> <!-- 到时提醒 -->
+         <span class="msg-content"></span>
+         <span class="anchor confirmed">知道了</span>
+        </div>
     <!-- 总容器开始 -->
     <div class="container">
-	    
-	    <h1>my-todo-app</h1>
-
+        
+        <h1>jq-todo-app</h1>
         <form class="add-task">
             <input type="text" name="content" placeholder="e.g. 事项……">
             <button type="submit">submit</button>
@@ -57,9 +61,12 @@
         <!-- 任务详情结束 -->
     </div>
     <!-- 总容器结束 -->
+
+    <video class="alert" src="alert.mp3"></video>
 </body>
 <script src="../lib/js/jquery-2.1.4.js"></script>
 <script src="js/libs/store.min.js"></script>
+<script src="js/libs/jquery.datetimepicker.full.min.js"></script>
 <script src="js/script.js"></script>
 <script>
 </script>

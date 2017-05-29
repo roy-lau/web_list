@@ -6,6 +6,10 @@
         $detailTask,
         $taskDetail = $(".task-detail"),
         $taskDetailMask = $(".task-detail-mask"),
+        $msg = $(".msg"),
+        $msgContent = $msg.find(".msg-content"),
+        $msgconfirm = $msg.find(".confirmed"),
+        $alert = $(".alert"),
         $updataForm,
         $taskDetailContent,
         $taskDetailContentInput,
@@ -85,7 +89,8 @@
             '<textarea name="desc">' + (item.desc || '') + '</textarea>' +
             '</div>' +
             '<div class="remind input-item">' +
-            '<input name="remind-date" type="date" value="' + (item.remindDate || '') + '">' +
+            '<label for="date-time"> 提醒时间：</label>' +
+            '<input id="date-time" name="remind-date" type="text" value="' + (item.remindDate || '') + '">' +
             '</div>' +
             '<button type="submit">更新</button>' +
             '</form>';
@@ -93,6 +98,8 @@
         $taskDetail.html(null);
         // 用新模板替换旧模板
         $taskDetail.html(tpl);
+        // 调用时间插件datetimepicker；
+        $("#date-time").datetimepicker();
         // 选中form元素，因为之后会监听submit事件
         $updataForm = $taskDetail.find("form");
         // 选中显示task内容元素
@@ -117,6 +124,12 @@
         })
 
 
+    }
+
+    function listenMsgEvent(){
+        $msgconfirm.on("click", function(){
+            hideMsg();
+        })
     }
 
     // 查找并监听所有删除按钮的点击事件
@@ -178,12 +191,41 @@
     }
 
     function init() {
+        shoeMsg();
         taskList = store.get("taskList") || [];
         if (taskList.length) {
-            renderTaskList()
+            renderTaskList();
+            taskRemindCheck();
+            listenMsgEvent();
         }
     }
 
+    function taskRemindCheck() {
+        var timer = setInterval(function() {
+            for (var i = 0; i < taskList.length; i++) {
+                var item = getStore(i),
+                    currentTimeStamp, 
+                    taskTimeStamp;
+                if (!item || !item.remindDate || item.informed) continue;
+                currentTimeStamp = (new Date()).getTime();
+                taskTimeStamp = (new Date(item.remindDate)).getTime();
+                if (currentTimeStamp - taskTimeStamp >= 1) {
+                    updataTask(i, {informed:true});
+                    shoeMsg(item.content);
+                }
+            }
+        }, 500)
+    }
+
+    // 定时提醒
+    function shoeMsg(msg) {
+        $msgContent.html(msg);
+        $alert.get(0).play(); // 播放alert提示音
+        $msg.show();
+    }
+    function hideMsg(){
+        $msg.hide();
+    }
     // 渲染全部的task模板
     function renderTaskList() {
         var $taskList = $('.task-list'),
@@ -197,7 +239,7 @@
             } else {
                 var $task = renderTaskItem(Items, i);
             }
-                $taskList.prepend($task);
+            $taskList.prepend($task);
         };
         for (var j = 0; j < completeIetms.length; j++) {
             if (!completeIetms[j]) continue;
