@@ -3,15 +3,22 @@
     "use scrict"
     var $formAddTask = $(".add-task"),
         $deleteTask,
-        taskList = {};
+        $detailTask,
+        $taskDetail = $(".task-detail"),
+        $taskDetailMask = $(".task-detail-mask"),
+        $updataForm,
+        $taskDetailContent,
+        $taskDetailContentInput,
+        currentIdex,
+    taskList = {};
 
     init()
 
     $formAddTask.on('submit', onAddTaskFormSubmit)
+    $taskDetailMask.on('click', fadeOutTaskDetail)
 
-    function onAddTaskFormSubmit(e){
-        var newTask = {},
-            $input;
+    function onAddTaskFormSubmit(e) {
+        var newTask = {},$input;
         // 禁用默认行为
         e.preventDefault();
         // 获取新task的值
@@ -27,29 +34,112 @@
         };
 
     }
+    // 监听打开task事件
+    function listenTaskDetail() {
+        var index;
+        $('.task-item').on('click',function(){
+            index = $(this).data("index")
+            fadeInTaskDetail(index)
+        })
+        $detailTask.on("click", function() {
+            var $this = $(this),
+                $Item = $this.parent();
+            index = $Item.data("index");
+            fadeInTaskDetail(index)
+        })
+    }
+
+    function fadeInTaskDetail(i) {
+        // 生成详情模板
+        renderTaskDetail(i);
+        currentIdex = i;
+        // 显示详情模板（默认隐藏）
+        $taskDetail.fadeIn();
+        $taskDetailMask.fadeIn();
+    }
+    // 隐藏task详情
+    function fadeOutTaskDetail() {
+        $taskDetail.fadeOut();
+        $taskDetailMask.fadeOut();
+    }
+    // 更新task详细信息
+    function updataTask(i, data){
+        if (!i || !taskList[i]) return;
+        taskList[i] = data;
+        renderTaskData()
+    }
+    // 渲染指定task的详细信息
+    function renderTaskDetail(i) {
+        if (!i === undefined || !taskList[i]) return;
+        var item = taskList[i];
+        console.log(item)
+        var tpl =
+            '<form>' +
+            '<div class="content">' +
+            item.content +
+            '</div>' +
+            '<div class="input-item">'+
+            '<input type="text" name="content" value="'+ (item.content || '') +'" style="display:none;" /></div>' +
+            '<div class="desc input-item">' +
+            '<textarea name="desc">'+ (item.desc || '')+'</textarea>' +
+            '</div>' +
+            '<div class="remind input-item">' +
+            '<input name="remind-date" type="date" value="'+ (item.remindDate || '') +'">' +
+            '</div>' +
+            '<button type="submit">更新</button>' +
+            '</form>';
+            // 清空task模板
+            $taskDetail.html(null);
+            // 用新模板替换旧模板
+            $taskDetail.html(tpl);
+            // 选中form元素，因为之后会监听submit事件
+            $updataForm =  $taskDetail.find("form");
+            // 选中显示task内容元素
+            $taskDetailContent = $updataForm.find(".content");
+            // 选中task input内容元素
+            $taskDetailContentInput = $updataForm.find("[name=content]");
+            // 双击内容元素显示input，隐藏自己
+            $taskDetailContent.on("dblclick", function(){
+               $taskDetailContentInput.show()
+               $taskDetailContent.hide()
+            })
+
+            $updataForm.on('submit',function(e){
+                e.preventDefault();
+                var data = {};
+                // 获取表单中各个input的值
+                data.content = $(this).find('[name=content]').val();
+                data.desc = $(this).find('[name=desc]').val();
+                data.remindDate = $(this).find('[name=remind-date]').val();
+                updataTask(i,data);
+                fadeOutTaskDetail();
+            })
+
+            
+    }
 
     // 查找并监听所有删除按钮的点击事件
-    function listenTaskDelete(){
+    function listenTaskDelete() {
         $deleteTask.on("click", function() {
             var $this = $(this),
-            // 找到并删除按钮的task元素
+                // 找到并删除按钮的task元素
                 $Item = $this.parent(),
                 index = $Item.data("index"),
                 // 确认删除 
                 tmp = confirm("确定删除？");
             tmp ? deleteTask(index) : null;
-            
+
         })
     }
 
     function addTask(newTask) {
         // 将task push进 taskList
         taskList.push(newTask)
-        updataTask()
+        renderTaskData()
         return true;
     }
 
-    function updataTask() {
+    function renderTaskData() {
         // 更新localStorage,并更新渲染tpl
         store.set("taskList", taskList);
         renderTaskList();
@@ -58,12 +148,11 @@
     // 删除一条task
     function deleteTask(index) {
         // 如果没有index，或者taskList的index不存在，则直接return
-        if (index ===undefined || !taskList[index]) return;
-        console.log(taskList[index])
+        if (index === undefined || !taskList[index]) return;
 
         delete taskList[index];
 
-        updataTask();
+        renderTaskData();
     }
 
     function init() {
@@ -79,21 +168,23 @@
         $taskList.html("")
         for (var i = 0; i < taskList.length; i++) {
             var $task = renderTaskItem(taskList[i], i);
-            $taskList.append($task)
+            $taskList.prepend($task)
         };
         $deleteTask = $(".auchor.delete");
-        listenTaskDelete()
+        $detailTask = $(".auchor.detail");
+        listenTaskDelete();
+        listenTaskDetail();
     }
 
     // 渲染单条task模板
     function renderTaskItem(data, index) {
-        if (!data　|| !index) return;
+        if (!data　 || !index) return;
         var listItemTpl =
             '<div class="task-list">' +
             '<div class="task-item"  data-index="' + index + '">' +
             '<span><input type="checkbox"></span>' +
             '<span class="task-content">' + data.content + '</span>' +
-            '<span class="auchor"> 详细  </span>' +
+            '<span class="auchor detail"> 详细  </span>' +
             '<span class="auchor delete"> 删除 &nbsp;</span>' +
             '</div>' +
             '</div>';

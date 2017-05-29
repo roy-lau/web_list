@@ -1,12 +1,12 @@
 body {
   margin: 0;
   background-color: #00334b;
+  position: relative;
 }
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 10px;
-  position: relative;
 }
 .container h1 {
   text-align: center;
@@ -15,7 +15,8 @@ body {
 .container button,
 .container textarea,
 .container .task-item,
-.container .task-detail-mask {
+.container .task-detail-mask,
+.container .task-detail {
   padding: 10px;
   border-radius: 3px;
 }
@@ -53,12 +54,12 @@ body {
   width: 84%;
   margin-right: 1%;
 }
-.container .add-task button[type="submit"] {
+.container button[type="submit"] {
   width: 15%;
   color: #333;
   background-color: #46b1e4;
 }
-.container .add-task button[type="submit"]:hover {
+.container button[type="submit"]:hover {
   background-color: #5fb9e4;
 }
 .container .task-list {
@@ -89,23 +90,25 @@ body {
 .container .task-detail {
   width: 50%;
   position: absolute;
-  bottom: 0;
+  top: 0;
   right: 0;
   padding: 10px;
+  display: none;
   background-color: #fff;
   color: #333;
-  display: none;
+  border-radius: 3px 0 0 3px;
+  box-shadow: 0 1px 2px #000000;
 }
 .container .task-detail .content {
   padding: 10px;
   font-weight: 900;
   cursor: pointer;
 }
-.container .task-detail > * {
+.container .input-item {
   margin-bottom: 10px;
 }
 .container .task-detail-mask {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
