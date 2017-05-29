@@ -193,15 +193,15 @@
         for (var i = 0; i < taskList.length; i++) {
             var Items = taskList[i];
             if (Items && Items.complete) {
-                completeIetms.push(Items)
+                completeIetms[i] = Items
             } else {
                 var $task = renderTaskItem(Items, i);
             }
                 $taskList.prepend($task);
         };
         for (var j = 0; j < completeIetms.length; j++) {
-            $task = renderTaskItem(Items, j);
-            if (!Items) continue;
+            if (!completeIetms[j]) continue;
+            $task = renderTaskItem(completeIetms[j], j);
             $task.addClass("completed")
             $taskList.append($task);
         };
@@ -218,13 +218,11 @@
     function renderTaskItem(data, index) {
         if (!data || !index === undefined) return;
         var listItemTpl =
-            '<div class="task-list">' +
             '<div class="task-item"  data-index="' + index + '">' +
             '<span><input class="complete" ' + (data.complete ? "checked" : "") + ' type="checkbox"></span>' +
             '<span class="task-content">' + data.content + '</span>' +
             '<span class="auchor detail"> 详细  </span>' +
             '<span class="auchor delete"> 删除 &nbsp;</span>' +
-            '</div>' +
             '</div>';
 
         return $(listItemTpl);

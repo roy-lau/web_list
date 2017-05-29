@@ -87,6 +87,20 @@ body {
 .container .task-list .task-item .auchor:hover {
   color: #333;
 }
+.container .task-list .completed {
+  color: #AAA;
+  background: rgba(255, 255, 255, 0.9);
+}
+.container .task-list .completed:after {
+  content: " ";
+  height: 1px;
+  background-color: #AAA;
+  width: 97%;
+  float: right;
+  position: relative;
+  top: -10px;
+  display: block;
+}
 .container .task-detail {
   width: 50%;
   position: absolute;

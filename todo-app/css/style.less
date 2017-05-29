@@ -52,6 +52,10 @@ body {
 				&:hover{color: #333;}
 		    }
         }
+            .completed{color: #AAA;background: rgba(255, 255, 255, 0.9);
+                &:after{content: " "; height: 1px; background-color: #AAA;width: 97%;
+                        float: right;position: relative;top: -10px;display: block;}
+            }
     }
     .task-detail{width:50%;position: absolute;top: 0;right: 0;padding: 10px;         display: none;
         background-color: #fff;color: #333; border-radius: 3px 0 0 3px;box-shadow: 0 1px 2px rgb(0, 0, 0,.1);
