@@ -16,8 +16,13 @@
 _用时6 hours左右
 
 仍存在问题::bug:
+
 1. _alert()事件  line：144  res没有收到返回值  怀疑jq的promise问题
 2. 点击删除会触发详细信息。
+
+:bug:bug解决学习
+e.stopPropagation(); 阻止事件冒泡，但是不会阻止默认行为
+e.preventDefault(); 不阻止事件冒泡，但是会阻止默认行为
 
 __有网时，百度一下 详细了解了解 
 

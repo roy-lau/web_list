@@ -43,10 +43,9 @@
 
     }
     // 监听打开task事件
-    function listenTaskDetail(e) {
+    function listenTaskDetail() {
         var index;
-        $('.task-item').on('click', function(e) {
-            e.preventDefault();
+        $('.task-item').on('click', function() {
             index = $(this).data("index");
             fadeInTaskDetail(index)
         })
@@ -128,6 +127,7 @@
         })
     }
 
+    // 监听消息提醒关闭
     function listenMsgEvent() {
         $msgconfirm.on("click", function() {
             hideMsg();
@@ -137,12 +137,15 @@
     // 查找并监听所有删除按钮的点击事件
     function listenTaskDelete() {
         $deleteTask.on("click", function(e) {
+            e.stopPropagation();  // 点击删除事阻止事件冒泡 - -不会去触发详细信息显示bug解决
+
             var $this = $(this),
                 // 找到并删除按钮的task元素
                 $Item = $this.parent(),
                 index = $Item.data("index");
             // 确认删除 
             _alert("确定删除？").then(function(res){
+                debugger;
                     if (res) {
                         res ? deleteTask(index) : null;
                     }
@@ -158,7 +161,6 @@
                 isComplete = $this.is(':checked'),
                 index = $this.parent().parent().data("index");
             var item = getStore(index);
-            console.log(item)
             if (item.complete) {
                 updataTask(index, { complete: false });
             } else {
@@ -200,7 +202,6 @@
             renderTaskList();
             taskRemindCheck();
             listenMsgEvent();
-         
         }
     }
 
@@ -292,7 +293,6 @@
         }
         function onConfirm(){
             confirmed = true;
-                debugger;
         }
 
         $window.on("resize", abjustBoxPosition);
@@ -350,7 +350,7 @@
 
         $deleteTask = $("span.delete");
         $detailTask = $("span.detail");
-        $checkboxComplete = $(".task-list .complete");
+        $checkboxComplete = $(".task-list .complete");  // 获取复选框checkbox
         listenTaskDelete();
         listenTaskDetail();
         listenCheckboxComplete();
