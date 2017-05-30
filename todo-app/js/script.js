@@ -144,7 +144,6 @@
                 index = $Item.data("index");
             // 确认删除 
             _alert("确定删除？").then(function(res){
-                debugger;
                 if (res) {
                     res ? deleteTask(index) : null;
                 }
@@ -259,7 +258,8 @@
         });
         $title = $Box.find('.alert-title').css({
             "font-weight": 900,
-            "font-size":20
+            "font-size":20,
+            "line-height":"3em"
         })
         $Mask = $('<div></div>').css({
             background: "rgba(0,0,0,.6)",
@@ -273,7 +273,6 @@
         $cancel = $Box.find('button.cancel');   // 取消
         timer = setInterval(function(){
             if (confirmed !== undefined) {
-                console.log(confirmed)
                 dfd.resolve(confirmed);
                 clearInterval(timer)
                 dismiss_alert()
