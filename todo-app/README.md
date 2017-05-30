@@ -15,10 +15,14 @@
 
 _用时6 hours左右
 
-仍存在问题::bug:
+~~仍存在问题::bug:
 
-1. _alert()事件  line：144  res没有收到返回值  怀疑jq的promise问题
-2. 点击删除会触发详细信息。
+1. _alert()事件  line：144  res没有收到返回值
+	 问题分析：点击删除时触发了_alert事件，此时没有点击“确认” “取消”按钮，所以传入的是undefined。
+	 			_alert()事件需要在点击删除或取消后触发---
+	 手贱，多写了个dfd.resolve()，导致传入一直为undefined;
+
+2. 点击删除会触发详细信息。~~
 
 :bug:bug解决学习
 e.stopPropagation(); 阻止事件冒泡，但是不会阻止默认行为

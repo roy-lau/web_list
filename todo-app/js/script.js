@@ -126,7 +126,6 @@
             fadeOutTaskDetail();
         })
     }
-
     // 监听消息提醒关闭
     function listenMsgEvent() {
         $msgconfirm.on("click", function() {
@@ -146,9 +145,9 @@
             // 确认删除 
             _alert("确定删除？").then(function(res){
                 debugger;
-                    if (res) {
-                        res ? deleteTask(index) : null;
-                    }
+                if (res) {
+                    res ? deleteTask(index) : null;
+                }
             })
         })
     }
@@ -236,7 +235,6 @@
                   timer,
                   dfd;
                 dfd = $.Deferred();
-                dfd.resolve();
         if (typeof arg == 'string') {
             conf.title = arg;
         } else {
@@ -271,10 +269,11 @@
             left: 0,
             right: 0
         })
-        $confirm = $Box.find('button.confirm');
-        $cancel = $Box.find('button.cancel');
+        $confirm = $Box.find('button.confirm'); // 确定
+        $cancel = $Box.find('button.cancel');   // 取消
         timer = setInterval(function(){
             if (confirmed !== undefined) {
+                console.log(confirmed)
                 dfd.resolve(confirmed);
                 clearInterval(timer)
                 dismiss_alert()
@@ -313,7 +312,8 @@
         $Mask.appendTo($body);
         $Box.appendTo($body);
         $window.resize();
-        return dfd.resolve(confirmed);
+        // return dfd.resolve(confirmed);
+        return dfd.promise()
     }
     // 定时提醒
     function showMsg(msg) {
