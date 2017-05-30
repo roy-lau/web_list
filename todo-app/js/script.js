@@ -20,11 +20,6 @@
         taskList = {};
 
     init()
-   _alert("21").then(function(res){
-            if (res) {
-               alert(010)
-            }
-        })
 
     $formAddTask.on('submit', onAddTaskFormSubmit)
     $taskDetailMask.on('click', fadeOutTaskDetail)
@@ -48,9 +43,10 @@
 
     }
     // 监听打开task事件
-    function listenTaskDetail() {
+    function listenTaskDetail(e) {
         var index;
-        $('.task-item').on('click', function() {
+        $('.task-item').on('click', function(e) {
+            e.preventDefault();
             index = $(this).data("index");
             fadeInTaskDetail(index)
         })
@@ -62,6 +58,7 @@
         })
     }
 
+    // 显示右侧详细信息的事件
     function fadeInTaskDetail(i) {
         // 生成详情模板
         renderTaskDetail(i);
@@ -139,19 +136,21 @@
 
     // 查找并监听所有删除按钮的点击事件
     function listenTaskDelete() {
-        $deleteTask.on("click", function() {
+        $deleteTask.on("click", function(e) {
             var $this = $(this),
                 // 找到并删除按钮的task元素
                 $Item = $this.parent(),
-                index = $Item.data("index"),
-                // 确认删除 
-                tmp = confirm("确定删除？");
-            tmp ? deleteTask(index) : null;
-
+                index = $Item.data("index");
+            // 确认删除 
+            _alert("确定删除？").then(function(res){
+                    if (res) {
+                        res ? deleteTask(index) : null;
+                    }
+            })
         })
     }
 
-    // 监听完成task事件
+    // 监听完成task事件(打钩)
     function listenCheckboxComplete() {
         $checkboxComplete.on('click', function(e) {
             e.preventDefault();
@@ -173,7 +172,7 @@
     }
 
     function addTask(newTask) {
-        // 将task push进 taskList
+        // 将新的task push进 taskList
         taskList.push(newTask)
         renderTaskData()
         return true;
@@ -205,6 +204,7 @@
         }
     }
 
+    // 监听定时提醒事件
     function taskRemindCheck() {
         var timer = setInterval(function() {
             for (var i = 0; i < taskList.length; i++) {
@@ -250,7 +250,8 @@
             '</div>').css({
             padding: 10,
             width: 300,
-            height: 200,
+            height: "auto",
+            padding: "20px 10px",
             position: 'fixed',
             background: '#FFF',
             "text-align": "center",
@@ -261,28 +262,6 @@
             "font-weight": 900,
             "font-size":20
         })
-        $confirm = $Box.find('button.confirm');
-        $cancel = $Box.find('button.cancel');
-        timer = setInterval(function(){
-                console.log(confirmed)
-            if (confirmed !== undefined) {
-                console.log(confirmed)
-                dfd.resolve(confirmed);
-                clearInterval(timer)
-                dismiss_alert()
-            }
-        },50)
-
-        $confirm.on("click", function(){
-            confirmed = true;
-        })
-        $cancel.on("click", function(){
-            confirmed = false;
-        })
-        function dismiss_alert(){
-            $Mask.remove()
-            $Box.remove()
-        }
         $Mask = $('<div></div>').css({
             background: "rgba(0,0,0,.6)",
             position: 'fixed',
@@ -291,7 +270,33 @@
             left: 0,
             right: 0
         })
+        $confirm = $Box.find('button.confirm');
+        $cancel = $Box.find('button.cancel');
+        timer = setInterval(function(){
+            if (confirmed !== undefined) {
+                dfd.resolve(confirmed);
+                clearInterval(timer)
+                dismiss_alert()
+            }
+        },50)
+
+        function dismiss_alert(){
+            $Mask.remove()
+            $Box.remove()
+        }
+        $confirm.on("click", onConfirm);
+        $cancel.on("click", onClose);
+        $Mask.on("click",onClose);
+        function onClose(){
+            confirmed = false;
+        }
+        function onConfirm(){
+            confirmed = true;
+                debugger;
+        }
+
         $window.on("resize", abjustBoxPosition);
+
         function abjustBoxPosition() {
             var windowWidth = $window.width(),
                 windowHeight = $window.height(),
@@ -306,9 +311,9 @@
             })
         }
         $Mask.appendTo($body);
-        $Box.appendTo($Mask);
+        $Box.appendTo($body);
         $window.resize();
-        return dfd.promise(confirmed);
+        return dfd.resolve(confirmed);
     }
     // 定时提醒
     function showMsg(msg) {
@@ -343,8 +348,8 @@
             $taskList.append($task);
         };
 
-        $deleteTask = $(".auchor.delete");
-        $detailTask = $(".auchor.detail");
+        $deleteTask = $("span.delete");
+        $detailTask = $("span.detail");
         $checkboxComplete = $(".task-list .complete");
         listenTaskDelete();
         listenTaskDetail();
