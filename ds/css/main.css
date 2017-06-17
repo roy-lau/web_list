@@ -8,6 +8,12 @@
 .right {
   float: right;
 }
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
 .topBar {
   height: 31px;
   background-color: #F7F7F7;
@@ -116,6 +122,9 @@
 }
 .navBox .shopClass .shopClass_show .shopClass_item a {
   color: #FFF;
+}
+.navBox .shopClass .shopClass_show .shopClass_item a:hover {
+  text-decoration: underline;
 }
 .navBox .shopClass .shopClass_show .shopClass_item .b {
   font: 14px/1 "Microsoft YaHei", "微软雅黑";
