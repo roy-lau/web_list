@@ -300,6 +300,9 @@
 .shopTitle .more:hover {
   text-decoration: underline;
 }
+.shopList {
+  margin-bottom: 15px;
+}
 .shopList .leftArea {
   width: 190px;
 }
@@ -337,4 +340,60 @@
   font-size: 14px;
   color: #FF7300;
   line-height: 21px;
+}
+.shopList .rightArea .shopItem_sm {
+  width: 202px;
+  height: 106px;
+  border-right: 1px solid #999;
+  padding-top: 10px;
+  float: left;
+  margin-right: -1px;
+}
+.shopList .rightArea .shopItem_sm .shopItem_smImg {
+  width: 95px;
+  float: left;
+}
+.shopList .rightArea .shopItem_sm .shopItem_smImg img {
+  width: 95px;
+  height: 95px;
+}
+.shopList .rightArea .shopItem_sm .shopItem_text {
+  padding-top: 28px;
+  width: 103px;
+  float: left;
+}
+.shopList .rightArea .shopItem_sm .shopItem_text p {
+  color: #FF7300;
+}
+.shopList .rightArea .shopItem_sm .shopItem_text h3 {
+  font-family: "Microsoft YaHei", "微软雅黑";
+  font-size: 16px;
+  font-weight: normal;
+  color: #181818;
+  line-height: 30px;
+}
+.hr_25 {
+  height: 25px;
+}
+.footer {
+  text-align: center;
+  background-color: #D4D4D4;
+  line-height: 24px;
+  padding: 50px 0;
+}
+.footer i {
+  font-style: normal;
+  margin: 0 5px;
+}
+.footer a {
+  color: #000;
+}
+.footer a:hover {
+  color: #F60;
+}
+.footer p.web {
+  padding-top: 30px;
+}
+.footer img {
+  margin: 0 12px;
 }
