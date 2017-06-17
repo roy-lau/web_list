@@ -112,7 +112,7 @@
   top: 35px;
 }
 .navBox .shopClass .shopClass_show .shopClass_item {
-  padding: 14px 10px;
+  padding: 12px 10px;
   border-bottom: 1px solid #3487F2;
   border-top: 1px solid #5AA1FE;
 }
@@ -215,4 +215,73 @@
 }
 .navBox .nav li .active {
   background-color: #4593FD;
+}
+.banner_bar {
+  width: 810px;
+  height: 326px;
+  float: right;
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+  background-color: yellow;
+}
+.banner_bar .imgBox {
+  width: 3240px;
+  height: 326px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.banner_bar .imgBox li {
+  float: left;
+}
+.banner_bar .imgBox img {
+  width: 810px;
+  height: 326px;
+  display: block;
+}
+.banner_bar .imgNum {
+  position: absolute;
+  left: 0;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+}
+.banner_bar .imgNum a {
+  width: 20px;
+  height: 5px;
+  margin: 0 3px;
+  background-color: #FFF;
+  overflow: hidden;
+  display: inline-block;
+}
+.banner_bar .imgNum .active {
+  background-color: #FF7700;
+}
+.shopTitle {
+  height: 44px;
+  line-height: 44px;
+  font-family: "Microsoft YaHei", "微软雅黑";
+  margin-bottom: 15px;
+}
+.shopTitle h3 {
+  font-size: 24px;
+  float: left;
+  font-weight: normal;
+  padding-left: 15px;
+}
+.shopTitle .icon {
+  width: 44px;
+  height: 44px;
+  background: url(imgs/icon/shopIcon.jpg) left top no-repeat;
+}
+.shopTitle .more {
+  float: right;
+  font-family: "宋体";
+}
+.shopTitle .more:hover {
+  text-decoration: underline;
+}
+.shopList .leftArea {
+  width: 190px;
 }
