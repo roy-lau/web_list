@@ -20,7 +20,7 @@
 }
 
 // 购物车
-.shopCar{width: 145px;height: 35px;background-color: #FF9C01;margin-top: 23px;margin-right: 59px;
+.shopCar{width: 145px;height: 35px;background-color: #FF9C01;margin-top: 23px;margin-right: 59px;display: inline;
 	/* 让子元素继承后面的样式--> */font: 14px/35px  "Microsoft YaHei","微软雅黑"; color: #FFF;
 	.shopText{color: #FFF;height: 100%;width: 87px;border-right: 1px solid #E27A00;background: url(imgs/icon/shaoIcon.jpg) 10px center no-repeat;text-indent: 40px;}
 	.shopNum{width: 27px;height: 35px;border-left:1px solid #FF9C01;background: url(img/icon/sj.jpg) 33px center no-repeat;text-align: right;padding-right: 27px;}
@@ -32,9 +32,11 @@
 		i{background: url(imgs/icon/down.jpg) left center no-repeat;width: 11px;height: 7px;
 			overflow: hidden;display: inline-block;margin-left: 11px;}
 		.shopClass_show{background-color: #4593FD;width: 100%; position: absolute;left: 0;top: 35px;
-			.shopClass_item{padding:12px 10px;border-bottom: 1px solid #3487F2;border-top: 1px solid #5AA1FE;
-					 dt{height: 22px;background: url(img/icon/shop_js.jpg) right center no-repeat;}
-					 a{color: #FFF;&:hover{text-decoration: underline;}}
+			.shopClass_item{padding:12px 10px;border-bottom: 1px solid #3487F2;border-top: 1px solid #5AA1FE;line-height: 13px;
+					 dt{height: 21px;background: url(img/icon/shop_js.jpg) right center no-repeat;line-height: 1;overflow: hidden;}
+					 a{color: #FFF;
+					 	&:hover{text-decoration: underline;}
+					 }
 					 .b{font:14px/1 "Microsoft YaHei","微软雅黑";}
 					 .aLink{width: 48px;height: 20px;background: url(img/icon/aLink_bg.png) left center no-repeat;display: inline-block;
 					 	text-align: center;line-height: 20px;text-decoration: underline;}

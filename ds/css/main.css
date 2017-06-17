@@ -62,6 +62,7 @@
   background-color: #FF9C01;
   margin-top: 23px;
   margin-right: 59px;
+  display: inline;
   /* 让子元素继承后面的样式--> */
   font: 14px/35px "Microsoft YaHei", "微软雅黑";
   color: #FFF;
@@ -115,10 +116,13 @@
   padding: 12px 10px;
   border-bottom: 1px solid #3487F2;
   border-top: 1px solid #5AA1FE;
+  line-height: 13px;
 }
 .navBox .shopClass .shopClass_show .shopClass_item dt {
-  height: 22px;
+  height: 21px;
   background: url(img/icon/shop_js.jpg) right center no-repeat;
+  line-height: 1;
+  overflow: hidden;
 }
 .navBox .shopClass .shopClass_show .shopClass_item a {
   color: #FFF;
