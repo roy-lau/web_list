@@ -401,3 +401,37 @@
 .footer img {
   margin: 0 12px;
 }
+.products .leftArea {
+  width: 185px;
+}
+.products .leftArea .leftNav {
+  background-color: #F3F3F3;
+  border: 1px solid #D7D7D7;
+}
+.products .leftArea .leftNav .nav_title {
+  height: 34px;
+  line-height: 34px;
+  font-size: 14px;
+  border-bottom: 1px solid #D7D7D7;
+  text-align: center;
+}
+.products .leftArea .leftNav .nav_cont {
+  padding: 0 18px 4px;
+  border-bottom: 1px dotted #D7D7D7;
+  margin-bottom: -1px;
+}
+.products .leftArea .leftNav .nav_cont h3 {
+  font-size: 12px;
+  height: 30px;
+  line-height: 30px;
+}
+.products .leftArea .leftNav .nav_cont .navCont_list {
+  line-height: 25px;
+}
+.products .leftArea .leftNav .nav_cont .navCont_list li {
+  float: left;
+  width: 50%;
+}
+.products .rightArea {
+  width: 810px;
+}
