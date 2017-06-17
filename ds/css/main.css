@@ -88,6 +88,7 @@
 }
 .navBox .shopClass h3 {
   text-align: center;
+  font-family: "Microsoft YaHei", "微软雅黑";
 }
 .navBox .shopClass i {
   background: url(imgs/icon/down.jpg) left center no-repeat;
@@ -128,10 +129,24 @@
   line-height: 20px;
   text-decoration: underline;
 }
+.navBox .shopClass .shopClass_show .shopClass_active {
+  background-color: #FFF;
+  margin-left: 1px;
+}
+.navBox .shopClass .shopClass_show .shopClass_active dt {
+  background: none;
+}
+.navBox .shopClass .shopClass_show .shopClass_active a {
+  color: #000;
+}
+.navBox .shopClass .shopClass_show .shopClass_active .aLink {
+  color: #FFF;
+  text-decoration: none;
+}
 .navBox .shopClass .shopClass_list {
   width: 568px;
-  height: 378px;
   border: 1px solid #CCC;
+  border-left: 1px solid #FFF;
   position: absolute;
   left: 190px;
   top: 35px;
@@ -158,9 +173,24 @@
   margin-right: 12px;
   color: #000;
 }
+.navBox .shopClass .shopClass_list .shopList_cont .shopList_links {
+  padding: 15px 0;
+}
 .navBox .shopClass .shopClass_list .shopList_cont .shopList_links a {
   color: #FFF;
   background-color: #2785E6;
+  height: 26px;
+  line-height: 26px;
+  font-style: 12px;
+  display: inline-block;
+  padding: 0 8px;
+}
+.navBox .shopClass .shopClass_list .shopList_cont .shopList_links a span {
+  width: 11px;
+  height: 7px;
+  background: url(imgs/icon/shop_sj.jpg) left center no-repeat;
+  display: inline-block;
+  margin-left: 7px;
 }
 .navBox .nav {
   line-height: 35px;

@@ -26,7 +26,7 @@
 // 导航
 .navBox{height: 35px;background-color: #0067d0;color: #fff;
 	.shopClass{width: 190px;line-height: 35px;  position: relative;
-		h3{text-align: center;}
+		h3{text-align: center;font-family: "Microsoft YaHei","微软雅黑";}
 		i{background: url(imgs/icon/down.jpg) left center no-repeat;width: 11px;height: 7px;
 			overflow: hidden;display: inline-block;margin-left: 11px;}
 		.shopClass_show{background-color: #4593FD;width: 100%; position: absolute;left: 0;top: 35px;
@@ -37,8 +37,13 @@
 					 .aLink{width: 48px;height: 20px;background: url(img/icon/aLink_bg.png) left center no-repeat;display: inline-block;
 					 	text-align: center;line-height: 20px;text-decoration: underline;}
 				}
+			.shopClass_active{background-color: #FFF;margin-left: 1px;
+				dt{background: none;}
+				a{color: #000;}
+				.aLink{color: #FFF;text-decoration: none;}
+			}
 		}
-		.shopClass_list{width: 568px;height: 378px;border: 1px solid #CCC;position: absolute;left: 190px;top: 35px;
+		.shopClass_list{width: 568px;border: 1px solid #CCC;border-left:1px solid #FFF;position: absolute;left: 190px;top: 35px;
 			.shopList_cont{padding: 20px;
 				.shopList_item{padding: 10px 0;border-bottom: 1px dotted #CCC;
 					dt{color: #4B87D9;font-weight: bold;height: 24px;line-height: 24px;}
@@ -46,8 +51,10 @@
 						a{margin-right: 12px;color: #000;}
 					}
 				}
-				.shopList_links{
-					a{color:#FFF;background-color: #2785E6;}
+				.shopList_links{padding: 15px 0;
+					a{color:#FFF;background-color: #2785E6;height: 26px;line-height: 26px;font-style: 12px;display: inline-block;padding: 0 8px;
+						span{width: 11px;height: 7px;background: url(imgs/icon/shop_sj.jpg) left center no-repeat;display: inline-block;margin-left: 7px;}
+					}
 				}
 			}
 		}
