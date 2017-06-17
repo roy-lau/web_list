@@ -217,8 +217,6 @@
   background-color: #4593FD;
 }
 .banner_bar {
-  width: 810px;
-  height: 326px;
   float: right;
   margin-bottom: 15px;
   position: relative;
@@ -226,8 +224,6 @@
   background-color: yellow;
 }
 .banner_bar .imgBox {
-  width: 3240px;
-  height: 326px;
   position: absolute;
   left: 0;
   top: 0;
@@ -236,8 +232,6 @@
   float: left;
 }
 .banner_bar .imgBox img {
-  width: 810px;
-  height: 326px;
   display: block;
 }
 .banner_bar .imgNum {
@@ -257,6 +251,30 @@
 }
 .banner_bar .imgNum .active {
   background-color: #FF7700;
+}
+.banner_big {
+  width: 810px;
+  height: 326px;
+}
+.banner_big .imgBox {
+  width: 3240px;
+  height: 326px;
+}
+.banner_big .imgBox img {
+  width: 810px;
+  height: 326px;
+}
+.banner_sm {
+  width: 190px;
+  height: 400px;
+}
+.banner_sm .imgBox {
+  width: 760px;
+  height: 400px;
+}
+.banner_sm .imgBox img {
+  width: 380px;
+  height: 400px;
 }
 .shopTitle {
   height: 44px;
@@ -284,4 +302,39 @@
 }
 .shopList .leftArea {
   width: 190px;
+}
+.shopList .rightArea {
+  width: 808px;
+  height: 396px;
+  border: 1px solid #999;
+  border-bottom: 3px solid #999;
+  overflow: hidden;
+}
+.shopList .rightArea .shopList_top {
+  margin-right: -4px;
+}
+.shopList .rightArea .shopList_top .shop_item {
+  width: 202px;
+  height: 279px;
+  float: left;
+  border-right: 1px solid #999;
+  border-bottom: 1px solid #999;
+  text-align: center;
+  font-family: "Microsoft YaHei", "微软雅黑";
+}
+.shopList .rightArea .shopList_top .shop_item .shop_img {
+  height: 218px;
+}
+.shopList .rightArea .shopList_top .shop_item .shop_img img {
+  width: 100%;
+  height: 218px;
+  display: block;
+}
+.shopList .rightArea .shopList_top .shop_item h3 {
+  font-size: 16px;
+}
+.shopList .rightArea .shopList_top .shop_item p {
+  font-size: 14px;
+  color: #FF7300;
+  line-height: 21px;
 }
