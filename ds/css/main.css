@@ -379,6 +379,9 @@
 .hr_25 {
   height: 25px;
 }
+.hr_25 {
+  height: 15px;
+}
 .footer {
   text-align: center;
   background-color: #D4D4D4;
@@ -434,4 +437,51 @@
 }
 .products .rightArea {
   width: 810px;
+}
+.products .rightArea .banner_bar {
+  margin-bottom: 8px;
+}
+.products .rightArea .products_title {
+  height: 34px;
+  border-bottom: 1px solid #CCC;
+}
+.products .rightArea .products_title h3 {
+  width: 180px;
+  border-bottom: 2px solid #096DBA;
+  height: 34px;
+  line-height: 34px;
+  text-indent: 9px;
+}
+.products .rightArea .products_list .item {
+  width: 25%;
+  float: left;
+  margin-bottom: 10px;
+}
+.products .rightArea .products_list .item .item {
+  padding: 0 15px;
+}
+.products .rightArea .products_list .item .item img {
+  height: 170px;
+}
+.products .rightArea .products_list .item .item .img_item {
+  height: 170px;
+  text-align: center;
+}
+.products .rightArea .products_list .item .item a {
+  color: #000;
+}
+.products .rightArea .products_list .item .item a:hover {
+  text-decoration: underline;
+}
+.products .rightArea .products_list .item .item .money {
+  color: #D4105A;
+  font-weight: bold;
+  padding-top: 10px;
+}
+.products .rightArea .products_list .item .item .stars {
+  width: 13px;
+  height: 12px;
+  overflow: hidden;
+  background: url(imgs/icon/) left top no-repeat;
+  margin-right: 1px;
 }
