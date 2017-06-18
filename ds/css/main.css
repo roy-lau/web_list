@@ -682,3 +682,6 @@
 .select .show_select li {
   padding-left: 10px;
 }
+.bg_gray {
+  background-color: #F0F0F0;
+}
