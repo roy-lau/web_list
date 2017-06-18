@@ -561,10 +561,83 @@
 }
 .addInfo .screen_text {
   line-height: 31px;
+  padding-right: 80px;
+}
+.addInfo .screen_text .check {
+  position: relative;
+  top: -1px;
+  _top: 4px;
 }
 .addInfo .screen_text .check input,
-.addInfo .screen_text .check label {
+.addInfo .screen_text .check label,
+.addInfo .screen_text .check .shop_number {
   vertical-align: middle;
+}
+.addInfo .screen_text .shop_number {
+  position: relative;
+  _top: 4px;
+}
+.addInfo .screen_text .shop_number em {
+  color: #F00;
+  font-style: normal;
+  font-weight: bold;
+}
+.products .rightArea div.screening_list_more {
+  padding-left: 0.5%;
+}
+.products .rightArea div.screening_list_more .item {
+  width: 33.3%;
+}
+.products .rightArea div.screening_list_more .item .item_cont .addCar {
+  border: 1px solid #999;
+  height: 22px;
+  display: inline-block;
+  padding: 0 6px 13px;
+  background: url(imgs/icon/car.jpg) 6px center no-repeat;
+}
+.page {
+  text-align: center;
+}
+.page a {
+  height: 24px;
+  display: inline-block;
+  line-height: 24px;
+  border: 1px solid #CCC;
+  padding: 0 12px;
+  margin: 0 2px;
+}
+.page a,
+.page span,
+.page input {
+  vertical-align: middle;
+  position: relative;
+  z-index: 2;
+}
+.page .hl {
+  display: inline-block;
+  padding: 0 12px;
+  margin: 0 2px;
+}
+.page .morePage {
+  padding-left: 14px;
+  display: inline-block;
+  height: 24px;
+  line-height: 24px;
+}
+.page .pageNum {
+  width: 29px;
+  padding: 0 3px;
+  border: 1px solid #CCC;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  margin-left: 4px;
+}
+.page .pageBtn {
+  width: 44px;
+  height: 24px;
+  line-height: 24px;
+  background-color: #E8E8E8;
 }
 .select {
   border: 1px solid #CCC;

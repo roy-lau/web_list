@@ -202,10 +202,28 @@
 		.add_text{float: left;line-height: 31px;padding-left: 12px;padding-right: 6px;}
 		.select{margin-top: 4px;}
 	}
-	.screen_text{line-height: 31px;
-		.check input,
-		.check label{vertical-align: middle;}
+	.screen_text{line-height: 31px;padding-right: 80px;
+		.check{position: relative;top: -1px;_top:4px;
+			input,label,.shop_number{vertical-align: middle;}
+		}
+		.shop_number{position: relative;_top:4px;
+			 em{color: #F00;font-style: normal;font-weight: bold;}
+			}
 	}
+}
+.products .rightArea div.screening_list_more{padding-left: 0.5%;
+	.item{width: 33.3%;
+		.item_cont .addCar{border: 1px solid #999;height: 22px;display: inline-block;padding: 0 6px 13px;background: url(imgs/icon/car.jpg) 6px center no-repeat;}
+	}
+}
+// 分页
+.page{text-align: center;
+	a{height: 24px;display: inline-block;line-height: 24px;border: 1px solid #CCC;padding: 0 12px;margin: 0 2px;}
+	a,span,input{vertical-align: middle;position: relative;z-index: 2;}
+	.hl{display: inline-block;padding: 0 12px;margin: 0 2px;}
+	.morePage{padding-left: 14px;display: inline-block;height: 24px;line-height: 24px;}
+	.pageNum{width: 29px;padding: 0 3px;border: 1px solid #CCC;height: 24px;line-height: 24px;text-align: center;margin-left: 4px;}
+	.pageBtn{width: 44px;height: 24px;line-height: 24px;background-color: #E8E8E8;}
 }
 // 下拉框组件
 .select{border: 1px solid #CCC;height: 22px;line-height: 22px;float: left;background-color: #FFF;padding-left: 10px;padding-right: 20px; position: relative;z-index: 1;
