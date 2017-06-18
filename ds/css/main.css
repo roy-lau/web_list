@@ -587,6 +587,7 @@
 }
 .products .rightArea div.screening_list_more .item {
   width: 33.3%;
+  position: relative;
 }
 .products .rightArea div.screening_list_more .item .item_cont .addCar {
   border: 1px solid #999;
@@ -594,6 +595,14 @@
   display: inline-block;
   padding: 0 6px 13px;
   background: url(imgs/icon/car.jpg) 6px center no-repeat;
+}
+.products .rightArea div.screening_list_more .item .hot {
+  width: 12px;
+  height: 12px;
+  background: url(img/icon/hou.jpg) left center no-repeat;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 .page {
   text-align: center;
