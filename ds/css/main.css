@@ -685,3 +685,98 @@
 .bg_gray {
   background-color: #F0F0F0;
 }
+.userPosition {
+  font-size: 0px;
+  font-family: Verdana;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+.userPosition em {
+  font-style: normal;
+}
+.userPosition a:hover {
+  text-decoration: underline;
+}
+.userPosition em,
+.userPosition a,
+.userPosition strong,
+.userPosition span {
+  font-size: 12px;
+}
+.description_info {
+  background-color: #FFF;
+}
+.description_info .description {
+  border: 1px solid #CCC;
+}
+.description_info .description .leftArea {
+  width: 309px;
+}
+.description_info .description .leftArea .description_imgs {
+  height: 340px;
+}
+.description_info .description .leftArea .description_imgs .big {
+  height: 34px;
+  text-align: center;
+}
+.description_info .description .leftArea .des_smimg {
+  padding-left: 1px;
+  width: 265px;
+  margin: 0 auto;
+}
+.description_info .description .leftArea .des_smimg li {
+  float: left;
+  margin-left: -1px;
+}
+.description_info .description .leftArea .des_smimg li img {
+  border: 1px solid #CCC;
+}
+.description_info .description .leftArea .des_smimg .active {
+  border-color: #317EE7;
+  position: relative;
+}
+.description_info .description .reightArea {
+  width: 688px;
+  border-left: 1px solid #CCC;
+}
+.description_info .description .reightArea .des_content {
+  padding: 10px;
+}
+.description_info .description .reightArea .des_content h3 {
+  font: bold 16px/22px "Microsoft YaHei", "微软雅黑";
+  padding: 13px 25px;
+}
+.description_info .description .reightArea .des_content .dl {
+  margin-bottom: 8px;
+}
+.description_info .description .reightArea .des_content .dl .dt {
+  width: 75px;
+  float: left;
+  color: #666;
+  text-indent: 17px;
+  line-height: 25px;
+}
+.description_info .description .reightArea .des_content .dl .dd .des_money {
+  font-size: 18px;
+  color: red;
+  font-family: Verdana;
+}
+.description_info .description .reightArea .des_content .dl .dd .des_money em {
+  font-style: normal;
+  font-size: 12px;
+}
+.description_info .description .reightArea .des_content .dl .dd .hg {
+  padding-top: 4px;
+  display: inline-block;
+}
+.description_info .description .reightArea .des_content .dl .dd .hg .hg_icon {
+  width: 55px;
+  height: 58px;
+  display: inline-block;
+  background: url(imgs/icon/hg_icon.jpg) left top no-repeat;
+  color: #FFF;
+  font-style: normal;
+  text-indent: 16px;
+  line-height: 18px;
+  margin-right: 10px;
+}
