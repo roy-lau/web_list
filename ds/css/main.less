@@ -128,7 +128,7 @@
 	}
 }
 .hr_25{height: 25px;}
-.hr_25{height: 15px;}
+.hr_15{height: 15px;}
 // 底部
 .footer{text-align: center;background-color: #D4D4D4;line-height: 24px;padding: 50px 0;
 	i{font-style: normal;margin: 0 5px;}
@@ -150,6 +150,13 @@
 				}
 			}
 		}
+		.vertical{
+			.nav_title,
+			.nav_cont{
+				h3{font-family: "Microsoft YaHei","微软雅黑";font-size: 14px;}
+			}
+			li{width: auto;float: none;padding-left: 8px;}
+		}
 	}
 	// 商品列表区
 	.rightArea{width: 810px;
@@ -160,8 +167,8 @@
 		}
 		// 商品列表
 		.products_list{
-			.item{width: 25%;float: left;margin-bottom: 10px;
-				.item{padding: 0 15px;
+			.item{width: 25%;*width:24.9%;height:285px;float: left;margin-bottom: 10px;
+				.item_cont{padding: 0 15px;
 					img{height: 170px;}
 					.img_item{height: 170px;text-align: center;}
 					a{color: #000;
@@ -172,5 +179,39 @@
 				}
 			}
 		}
+	}
+}
+//------------------筛选页---------------------------
+.screening_box{border-bottom: 1px solid #CCC;font-family: Verdana;
+	dt{width: 74px;line-height: 32px;text-align: right;float: left;margin-right: 42px;}
+	.limit{width: 55px;float: left;line-height: 32px;}
+	a{padding: 2px;}
+	.active{background-color: #1D7AD9;color: #FFF;}
+	.screening_list{line-height: 32px;width: 626px;float: left;
+		ul{
+			li{width: 20%;float: left;}
+		}
+		.screen_more{border: 1px solid #CCC;height: 23px; line-height: 23px;margin-top: 4px;float: left;padding: 0 11px;margin-right: 10px;
+			a{background: url(imgs/icon/sj_gray.jpg) right center no-repeat;padding-right: 14px;}
+		}
+	}
+}
+.addInfo{
+	height: 31px;border: 1px solid #CCC;background-color: #F5F5F5;
+	.address{float: left;
+		.add_text{float: left;line-height: 31px;padding-left: 12px;padding-right: 6px;}
+		.select{margin-top: 4px;}
+	}
+	.screen_text{line-height: 31px;
+		.check input,
+		.check label{vertical-align: middle;}
+	}
+}
+// 下拉框组件
+.select{border: 1px solid #CCC;height: 22px;line-height: 22px;float: left;background-color: #FFF;padding-left: 10px;padding-right: 20px; position: relative;z-index: 1;
+	h3{font-size: 12px;font-weight: normal;}
+	span{position: absolute;right: 0;top: 0;height: 100%;width: 20px;background: url(imgs/icom/sj_gray.jpg) center center no-repeat;}
+	.show_select{position: absolute;left: 0;top: 22;background-color: #FFF;width: 100%;border: 1px solid #CCC;
+		li{padding-left: 10px;}
 	}
 }
