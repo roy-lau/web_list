@@ -7,9 +7,9 @@
 </head>
 <link rel="stylesheet" href="css/style.css">
 
-<body>				
+<body>
 <div class="tab-view">
-	<h3>1. 默认，没有传入任何参数</h3>			
+	<h3>1. 默认，没有传入任何参数</h3>
 					<!--data-config单双引号敏感， -->
 	    <div class="js-tab tabs">
 	        <ul class="tab-nav">
@@ -35,9 +35,9 @@
 	    </div>
 </div>
 <div class="tab-view">
-	<h3>2. 自动执行</h3>			
+	<h3>2. 自动执行</h3>
 					<!--data-config单双引号敏感， -->
-	    <div class="js-tab tabs" data-config='{ 	 
+	    <div class="js-tab tabs" data-config='{
 								        "triggerType": "click",
 								        "effect": "fade",
 								        "auto": 1000
@@ -65,9 +65,9 @@
 	    </div>
 </div>
 <div class="tab-view">
-	<h3>3. 默认选中某个</h3>			
+	<h3>3. 默认选中某个</h3>
 					<!--data-config单双引号敏感， -->
-	    <div class="js-tab tabs" data-config='{ 	 
+	    <div class="js-tab tabs" data-config='{
 								        "triggerType": "click",
 								        "effect": "fade",
 								        "invoke": 2
@@ -101,7 +101,7 @@
 $(function() {
 
 // Tab.init($(".js-tab"))  通过init方法触发tab插件，传入集和
-$(".js-tab").tab()	// 通过jq方法触发tab插件
+$(".js-tab").tab(1)	// 通过jq方法触发tab插件
 // $(".js-tab").tab().css("backgroundColor","red")		// 通过jq方法触发tab插件，加链式调用
 
 /*    var tab1 = new Tab($('.js-tab').eq(0));
