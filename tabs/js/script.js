@@ -142,8 +142,7 @@
 
     // jq初始化插件方法
     $.fn.extend({
-    	tab:function(k){
-console.log(k)
+    	tab:function(){
     		this.each(function(){
     			new Tab($(this))
     		})
