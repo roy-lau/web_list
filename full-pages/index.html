@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>全屏滚动插件</title>
+</head>
+<style>
+	*{margin: 0; padding: 0;}
+	html,body{height: 100%;}
+	.container,.sections,.section{
+		height: 100%;overflow: hidden;
+	}
+	#section_1,
+	#section_2,
+	#section_3,
+	#section_4{
+		background-color: #000;
+		background-size: cover;
+		background-position: 50% 50%;
+		text-align: center;
+		color: white;
+	}
+	#section_1{
+		background-image: url(images/1.jpg);
+	}
+	#section_2{
+		background-image: url(images/2.jpg);
+	}
+	#section_3{
+		background-image: url(images/3.jpg);
+	}
+	#section_4{
+		background-image: url(images/4.jpg);
+	}
+	.left{float: left;width: 25%;}
+</style>
+<body>
+	<div class="container" style="width: 400%">
+		<div class="sections" >
+			<div class="section left" id="section_1">
+				<h3>this is the pages</h3>
+			</div>
+			<div class="section left" id="section_2">
+				<h3>this is the pages</h3>
+			</div>
+			<div class="section left" id="section_3">
+				<h3>this is the pages</h3>
+			</div>
+			<div class="section left" id="section_4">
+				<h3>this is the pages</h3>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
