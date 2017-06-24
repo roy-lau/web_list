@@ -7,7 +7,7 @@
         // 定义公共方法
     var PageSwitch = (function() {
         function PageSwitch(element, options) {
-            this.settins = $.extend(true, $.fn.PageSwitch.default, options || {});
+            this.settings = $.extend(true, $.fn.PageSwitch.defaults, options || {});
             this.element = element;
             this.inti();
         }
@@ -70,7 +70,13 @@
                 }
             },
             // 说明：初始化插件事件
-            _initEvent: function() {}
+            _initEvent: function() {
+            	var　self = this;
+            	self.element.on('click', self.selectors.pages + ' li', function(){
+            		self.index = $(this).index();
+            		self._scrollPage();
+            	})
+            }
         };
         return PageSwitch;
     })();
@@ -86,7 +92,7 @@
             })
         }
         // 定义默认配置参数
-    $.fn.PageSwitch.default = {
+    $.fn.PageSwitch.defaults = {
         selectors: {
             sections: '.sections',
             section: '.section',
