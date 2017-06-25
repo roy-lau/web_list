@@ -35,7 +35,7 @@
 	.left{float: left;width: 25%;}
 </style>
 <body>
-	<div class="container" data-PageSwitch>
+	<div class="container"  data-PageSwitch>
 		<div class="sections" >
 			<div class="section active" id="section_1">
 				<h3>this is the pages</h3>
@@ -54,4 +54,11 @@
 </body>
     <script type="text/javascript" src="../lib/js/jquery-2.1.4.js"></script>
 	<script src="pageSwitch.js"></script>
+	<script>
+		$(".container").pageSwitch({
+			callback: function(){
+				alert(111111)
+			}
+		})
+	</script>
 </html>

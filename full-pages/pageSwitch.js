@@ -57,15 +57,17 @@
             // 说明：向前滑动 即上一页
             prev: function() {
                 var self = this;
+                alert("up")
                 if (self.index > 0) {
                     self.index--;
-                } else if (self.index < 0) {
+                } else if (self.settings.loop) {
                     self.index = self.pagesCount - 1;
                 }
                 self._scrollPage();
             },
             next: function() {
                 var self = this;
+                alert("down")
                 if (self.index < self.pagesCount) {
                     self.index++;
                 } else if (self.settings.loop) {
@@ -132,9 +134,12 @@
                     });
                 }
                 $(window).resize(function() {
-                    var currentLength = self.switchLength();
-                    offset = self.settings.direction ? self.section.eq(self.index).offset().top : self.section.eq(self.index).offset().left;
-                    if (Math.abs(offset) > currentLength / 2 && self.index < self.pagesCount - 1) {
+                    var currentLength = self.switchLength(),
+                    offset = self.settings.direction
+                    ? self.section.eq(self.index).offset().top
+                    : self.section.eq(self.index).offset().left;
+
+                    if (Math.abs(offset) > currentLength / 2 && self.index < (self.pagesCount - 1)) {
                         self.index++;
                     }
                     if (self.index) {
