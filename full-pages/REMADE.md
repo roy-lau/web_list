@@ -95,3 +95,44 @@ __但是jQuery已经解决了这个兼容问题。__
 | ------ | ------ |
 | 左 37  | 上 38  |
 | 右 39  | 下 40  |
+
+### 五、 转换Transform
+
+* 转换方式
+	- 旋转 `rotate` 例如： `transform: rotate(45deg)`
+	- 缩放 `scale`  例如： `transform: scale(2,0.5)`
+	- 移动 `translate` 例如： `transform: translate(100px,-50px)`
+	- 扭曲 `skew`   例如： `transform: skew(45deg,45deg)`
+	- 矩形变形 `matrix(<number>,<number>,<number>,<number>,<number>,<number>)`
+
+#### 动画平滑过渡Transition
+
+* 属性
+	- `transition-property:` 设置过渡的css属性名称，例如：`background`,`color`,或者`all`.
+	- `transition-duration:` 完成过渡效果需要时间，以`s/ms`为单位
+	- `transition-timing-function:` 规定速度效果的速度曲线，例如：`linear,ease,ease-in,ease-out,ease-in-out,cubic-bezier`
+	- `transition-delay:` 延迟时间，以`s/ms`为单位
+	- `transition: <transition-property><transition-duration><transition-timing-function><transition-delay>`
+
+#### 如何判断浏览器是否支持某个css属性
+
+* 实现思路
+	- 通过判断某个element的style中是否存在某个css属性
+
+* 实现代码
+	
+	(function(element){
+		if(element.style['transition']!== undefind){
+			return true;
+		}
+		return false;
+	})(document.createElement('div'));
+
+#### .animate()动画
+* 语法
+	.animate(properties[,duration][,easing][,complete])
+* 描述： 根据一组css属性，执行自定义动画
+	- `properties` 一个css属性和值的对象，动画将根据这组对象移动
+	- `duration` 一个字符串或者数字决定动画运动时间，(slow,normal,fast) ms为单位
+	- `easing` 表示动画使用哪种移动函数，`linear`和`swing`,默认`swing`
+	- `complete` 在动画完成时执行的函数。
