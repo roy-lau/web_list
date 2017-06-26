@@ -57,7 +57,6 @@
             // 说明：向前滑动 即上一页
             prev: function() {
                 var self = this;
-                alert("up")
                 if (self.index > 0) {
                     self.index--;
                 } else if (self.settings.loop) {
