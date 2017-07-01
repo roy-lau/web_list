@@ -1,15 +1,15 @@
 ;
-(function() {
+(function($) {
     // 说明：获取浏览器前缀
     // 实现：判断某个元素的css样式中是否存在transition属性
     // 参数：dom元素
     // 返回值：boolean，有则返回浏览器样式前缀，否则返回false
-    var _prefix = (function(element) {
+    var _prefix = (function(temp) {
         var aPrefix = ['webkit', 'Moz', 'o', 'ms'],
             props = '';
         for (var i in aPrefix) {
             props = aPrefix[i] + 'Transition';
-            if (element.style[props] !== undefined) {
+            if (temp.style[ props] !== undefined) {
                 return '-' + aPrefix[i].toLowerCase() + '-';
             }
         }
@@ -28,7 +28,8 @@
             init: function() {
                 var self = this;
                 self.selectors = self.settings.selectors;
-                self.sections = self.element.find(self.selectors.sections);
+                self.sections = self.element.find(self.eleme.selectors.sections);
+                // self.sections = self.element.find(self.selectors.sections);
                 self.section = self.sections.find(self.selectors.section);
 
                 self.direction = self.settings.direction == 'vertical' ? true : false;
@@ -58,23 +59,23 @@
             prev: function() {
                 var self = this;
                 if (self.index > 0) {
-                    self.index--;
+                    self.index --;
                 } else if (self.settings.loop) {
                     self.index = self.pagesCount - 1;
                 }
                 self._scrollPage();
             },
+            // 说明：向后滑动 即下一页
             next: function() {
                 var self = this;
                 alert("down")
                 if (self.index < self.pagesCount) {
-                    self.index++;
+                    self.index ++;
                 } else if (self.settings.loop) {
                     self.index = 0;
                 }
                 self._scrollPage();
             },
-            // 说明：向后滑动 即下一页
             // 说明：主要针对横屏情况进行页面布局
             _initLayout: function() {
                 var self = this,
@@ -82,14 +83,13 @@
                     cellWidth = (100 / self.pagesCount).toFixed(2) + '%';
                 self.sections.width(width);
                 self.section.width(cellWidth).css('float', 'left');
-
             },
             // 说明：实现分页的dom结构及css样式
             _initPaging: function() {
                 var self = this,
                     pageClass = self.selectors.page.substring(1);
-                	self.activeClass = self.selectors.active.substring(1);
-                    pageHtml = '<ul class=' + pageClass + '>';
+            	self.activeClass = self.selectors.active.substring(1);
+                var pageHtml = '<ul class=' + pageClass + '>';
                 for (var i = 0; i < self.pagesCount; i++) {
                     pageHtml += '<li></li>';
                 }
@@ -106,7 +106,7 @@
             },
             // 说明：初始化插件事件
             _initEvent: function() {
-                var　 self = this;
+                var self = this;
                 self.element.on('click', self.selectors.pages + ' li', function() {
                     self.index = $(this).index();
                     self._scrollPage();
@@ -146,12 +146,12 @@
                     }
                 });
 
-                self.sections.on('transitonend sebkitTransitionEnd oTransitionEnd otransitionend', function() {
+                self.sections.on('transitonend webkitTransitionEnd oTransitionEnd otransitionend', function() {
                     self.canScroll = true;
                     if (self.settings.callback && $.type(self.settings.callback) == 'function') {
                         self.settings.callback();
                     }
-                })
+                });
             },
             // 说明：滑动动画
             _scrollPage: function() {

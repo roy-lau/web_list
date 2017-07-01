@@ -33,9 +33,10 @@
 		background-image: url(images/4.jpg);
 	}
 	.left{float: left;width: 25%;}
+	.slide{transform: translateX(0);transition: all ease-in-out 500ms;}
 </style>
 <body>
-	<div class="container"  data-PageSwitch>
+	<div class="container" style="width: 400%" data-PageSwitch>
 		<div class="sections" >
 			<div class="section active" id="section_1">
 				<h3>this is the pages</h3>
@@ -55,7 +56,12 @@
     <script type="text/javascript" src="../lib/js/jquery-2.1.4.js"></script>
 	<script src="pageSwitch.js"></script>
 	<script>
-		$(".container").pageSwitch({
+		// $(".container").PageSwitch({
+		// 	dirction:'herizontal'
+		// });
+		// $(".container").PageSwitch("init");
+
+		$(".container").PageSwitch({
 			callback: function(){
 				alert(111111)
 			}
