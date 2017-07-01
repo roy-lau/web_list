@@ -1,0 +1,26 @@
+#main {
+  -webkit-column-width: 202px;
+  -moz-column-width: 202px;
+  -o-column-width: 202px;
+  -ms-column-width: 202px;
+  -webkit-column-rule: 5px dashed yellow;
+  -moz-column-rule: 5px dashed yellow;
+  -o-column-rule: 5px dashed yellow;
+  -ms-column-rule: 5px dashed yellow;
+}
+#main .box {
+  padding: 10px 0 0 15px;
+}
+#main .box .pic {
+  height: 165px;
+  height: auto;
+  padding: 10px;
+  border: 1px solid #CCC;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #CCC;
+}
+#main .box .pic img {
+  display: block;
+  width: 165px;
+  height: auto;
+}
