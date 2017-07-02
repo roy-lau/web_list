@@ -13,14 +13,14 @@
 
         // 渲染剩余的DOM，并且插入到body里
 		this.renderDOM();
-		this.picViewArea    = this.popupWin.find("div.lightbox-pic-view"); // 获取图片的预览区域      
-		this.popupPic       = this.popupWin.find("img.lightbox-image"); // 获取图片                              
+		this.picViewArea    = this.popupWin.find("div.lightbox-pic-view"); // 获取图片的预览区域
+		this.popupPic       = this.popupWin.find("img.lightbox-image"); // 获取图片
 		this.picCaptionArea = this.popupWin.find("div.lightbox-pic-caption"); // 获取图片描述区域
-		this.nextBtn        = this.popupWin.find("span.lightbox-next-btn"); // 向右按钮                  
-		this.prevBtn        = this.popupWin.find("span.lightbox-prev-btn"); // 向左按钮                  
-		this.captionText    = this.popupWin.find("p.lightbox-pic-desc"); // 图片描述文字                     
-		this.currentIndex   = this.popupWin.find("span.lightbox-of-index"); // 图片当前索引            
-		this.closeBtn       = this.popupWin.find("span.lightbox-close-btn"); // 关闭按钮               
+		this.nextBtn        = this.popupWin.find("span.lightbox-next-btn"); // 向右按钮
+		this.prevBtn        = this.popupWin.find("span.lightbox-prev-btn"); // 向左按钮
+		this.captionText    = this.popupWin.find("p.lightbox-pic-desc"); // 图片描述文字
+		this.currentIndex   = this.popupWin.find("span.lightbox-of-index"); // 图片当前索引
+		this.closeBtn       = this.popupWin.find("span.lightbox-close-btn"); // 关闭按钮
         //--- 准备开始事件委托，获取组的数据
 
         this.groupName = null;
@@ -134,7 +134,7 @@
         loadPicSize: function(sourceSrc) {
             var self = this;
             self.popupPic.css({ width: "auto", height: "auto" }).hide();
-            this.picCaptionArea.hide();           
+            this.picCaptionArea.hide();
             // 预加载图片，接收相应的原地址
             this.preloadImg(sourceSrc, function() {
                 self.popupPic.attr("src", sourceSrc);
@@ -208,6 +208,7 @@
                 width: winWidth / 2,
                 height: winHeight / 2
             });
+            // debugger;
             this.popupWin.fadeIn(); // 图片预览区域淡出
 
             var viewHeight = winHeight / 2 + 10; // 视图宽度
@@ -224,7 +225,7 @@
                     // 加载图片
                     self.loadPicSize(sourceSrc);
                 })
-                // 根据当前点击的元素ID获取在当前组别里的索引
+            // 根据当前点击的元素ID获取在当前组别里的索引
             this.index = this.getIndexOf(currentId);
 
             var groupDataLength = this.groupData.length;
@@ -243,8 +244,7 @@
             }else {
                 this.prevBtn.addClass("disabled");
                 this.nextBtn.addClass("disabled");
-            }; 
-
+            };
         },
         getIndexOf: function(currentId) {
             var index = 0;
@@ -261,13 +261,12 @@
                 currentId = currentObj.attr("data-id") // 获取ID值
 
             this.showMaskAndPopup(sourceSrc.currentId);
-
         },
         getGroup: function() {
             var self = this;
             // 根据当前的组别名称获取页面中所有相同组名的对象
             var groupList = this.bodyNode.find("*[data-group=" + this.groupName + "]")
-                // 清空数组数据
+            // 清空数组数据
             self.groupData.length = 0;
             groupList.each(function() {
                 self.groupData.push({
@@ -277,11 +276,12 @@
                 });
             })
         },
+        // 渲染模板
         renderDOM: function() {
             var strDom =
                 '<div class="lightbox-pic-view">' +
                 '<span class="lightbox-btn lightbox-prev-btn"> < </span>' +
-                '<img class="lightbox-image" src="images/img (1).png">' +
+                '<img class="lightbox-image" src="images/1-1.jpg">' +
                 '<span class="lightbox-btn lightbox-next-btn" > > </span>' +
                 '</div>' +
                 '<div class="lightbox-pic-caption">' +
