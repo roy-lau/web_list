@@ -143,7 +143,6 @@
                 self.popupPic.attr("src", sourceSrc);
                 var picWidth = self.popupPic.width(),
                     picHeight = self.popupPic.height();
-            console.log(picWidth, picHeight)
                 // 改变图片的宽高
                 self.changePic(picWidth, picHeight);
             })
@@ -154,9 +153,11 @@
                 winWidth = $(window).width(), // 获取当前视口的宽度
                 winHeight = $(window).height(); // 获取当前视口的高度
             // 如果图片的宽高大于浏览器视口的宽高比例。我们就判断是否溢出
-            var scale = Math.min(winWidth / (width + 10), winHeight / (height + 10), 1),
-            width = width * scale,
-            height = height * scale;
+            var scale = Math.min(winWidth / (picWidth + 10), winHeight / (picHeight + 10), 1),
+            width =  picWidth * scale,
+            height =  picHeight * scale;
+            console.log(winWidth,winHeight)
+            console.log(scale,width,height)
 
             this.picViewArea.animate({
                 width: width - 10,
