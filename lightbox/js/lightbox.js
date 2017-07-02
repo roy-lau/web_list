@@ -56,11 +56,11 @@
         this.flag = true;
         // 绑定左右切换按钮事件
         this.nextBtn.hover(function() {
-            if ($(this).hasClass("disabled") && self.groupData > 1) {
+            if (!$(this).hasClass("disabled") && self.groupData.length > 1) {
                 $(this).addClass("lightbox-next-btn-show");
             };
         }, function() {
-            if ($(this).hasClass("disabled") && self.groupData > 1) {
+            if (!$(this).hasClass("disabled") && self.groupData.length > 1) {
                 $(this).removeClass("lightbox-next-btn-show");
             };
         }).click(function(e) {
@@ -71,11 +71,11 @@
             };
         });
         this.prevBtn.hover(function() {
-            if ($(this).hasClass("disabled") && self.groupData > 1) {
+            if (!$(this).hasClass("disabled") && self.groupData.length > 1) {
                 $(this).addClass("lightbox-prev-btn-show");
             };
         }, function() {
-            if ($(this).hasClass("disabled") && self.groupData > 1) {
+            if (!$(this).hasClass("disabled") && self.groupData.length > 1) {
                 $(this).removeClass("lightbox-prev-btn-show");
             };
         }).click(function(e) {
@@ -89,7 +89,6 @@
         var timer = null
         this.clear = false
         $(window).resize(function(){
-            console.log($(window).height())
             if(self.clear){
                 window.clearTimeout(timer);
                 timer = window.setTimeout(function(){
@@ -97,7 +96,6 @@
                 },500)
             }
         }).keyup(function(e){  // 使用上下左右按键也能切换图片
-                console.log(e)
             if (self.clear) {
                 var keyValue = e.which;
                 if(keyValue == 38||keyValue == 37){
@@ -156,8 +154,6 @@
             var scale = Math.min(winWidth / (picWidth + 10), winHeight / (picHeight + 10), 1),
             width =  picWidth * scale,
             height =  picHeight * scale;
-            console.log(winWidth,winHeight)
-            console.log(scale,width,height)
 
             this.picViewArea.animate({
                 width: width - 10,
@@ -239,10 +235,10 @@
             if (groupDataLength > 1) {
                 if (this.index === 0) {
                     this.prevBtn.addClass('disabled');
-                    this.prevBtn.removeClass('disabled');
-                } else if (this.index === groupDataLength - 1) {
-                    this.prevBtn.addClass('disabled');
                     this.nextBtn.removeClass('disabled');
+                } else if (this.index === groupDataLength - 1) {
+                    this.nextBtn.addClass('disabled');
+                    this.prevBtn.removeClass('disabled');
                 } else {
                     this.prevBtn.removeClass('disabled');
                     this.nextBtn.removeClass('disabled');
@@ -254,7 +250,7 @@
         },
     // 获取数组的下标(图片的位置)
         getIndexOf: function(currentId) {
-            var index;
+            var index =0;
             $(this.groupData).each(function(i) {
                 index = i;
                 if (this.id === currentId) {

@@ -1,3 +1,7 @@
+.img-box img {
+  width: 200px;
+  height: 200px;
+}
 #G-lightbox-mask {
   position: fixed;
   left: 0;
@@ -56,8 +60,7 @@
 #G-lightbox-popup .lightbox-pic-caption {
   position: relative;
   z-index: 2;
-  margin: 0 5px;
-  margin-top: -70px;
+  margin: -70px -5px 0 5px;
   background-color: rgba(0, 0, 0, 0.5);
   background: url(../icon/opacity.png) repeat left top;
 }
@@ -78,4 +81,5 @@
   width: 27px;
   height: 27px;
   background: url(../icon/close.png) no-repeat center center;
+  cursor: pointer;
 }

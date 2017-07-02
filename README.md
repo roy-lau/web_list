@@ -16,7 +16,7 @@
 
 8、 particles(颗粒) https://roy-lau.github.io/web_list/particles/particles-canvas.html
 
-9、 图片画廊     https://roy-lau.github.io/web_list/lightbox (完善中)
+9、 图片画廊     https://roy-lau.github.io/web_list/lightbox :flower_playing_cards:
 
 10、 弹性盒子     https://roy-lau.github.io/web_list/flex
 
