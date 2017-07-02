@@ -87,15 +87,17 @@
         });
         // 绑定窗口调整事件
         var timer = null
-        var clear = false
+        this.clear = false
         $(window).resize(function(){
-            if(clear){
+            console.log($(window).height())
+            if(self.clear){
                 window.clearTimeout(timer);
                 timer = window.setTimeout(function(){
                 self.loadPicSize(self.groupData[self.index].src);
                 },500)
             }
-        }).keyup(function(e){
+        }).keyup(function(e){  // 使用上下左右按键也能切换图片
+                console.log(e)
             if (self.clear) {
                 var keyValue = e.which;
                 if(keyValue == 38||keyValue == 37){
@@ -108,6 +110,7 @@
 
     };
     lightBox.prototype = {
+    // 判断左右切换按钮事件
         goto: function(dir) {
             if (dir === "next") {
                 this.index++;
@@ -140,18 +143,19 @@
                 self.popupPic.attr("src", sourceSrc);
                 var picWidth = self.popupPic.width(),
                     picHeight = self.popupPic.height();
-
+            console.log(picWidth, picHeight)
                 // 改变图片的宽高
                 self.changePic(picWidth, picHeight);
             })
         },
+    // 根据图片大小变换弹出窗口大小
         changePic: function(picWidth, picHeight) {
             var self = this,
                 winWidth = $(window).width(), // 获取当前视口的宽度
                 winHeight = $(window).height(); // 获取当前视口的高度
             // 如果图片的宽高大于浏览器视口的宽高比例。我们就判断是否溢出
-            var scale = Math.min(winWidth / (width + 10), winHeight / (height + 10), 1);
-            width = width * scale;
+            var scale = Math.min(winWidth / (width + 10), winHeight / (height + 10), 1),
+            width = width * scale,
             height = height * scale;
 
             this.picViewArea.animate({
@@ -168,14 +172,15 @@
                     width: width - 10,
                     height: height - 10
                 }).fadeIn();
-                self.picCaptionArea.fade();
+                self.picCaptionArea.fadeIn();
                 self.flag = true;
-                this.clear = true;
+                self.clear = true;
             });
             // 设置描述文字和当前索引
             this.captionText.text(this.groupData[this.index].caption);
             this.currentIndex.text("当前索引：" + (this.index + 1) + "of" + this.groupData.length)
         },
+    // 加载图片，在img标签内放置图片路径
         preloadImg: function(src, callback) {
 
             var img = new Image();
@@ -188,7 +193,7 @@
                 }
             } else {
                 //- 其他浏览器,直接执行callback
-                img.onloand = function() {
+                img.onload = function() {
                     callback();
                 }
             };
@@ -197,8 +202,8 @@
         showMaskAndPopup: function(sourceSrc, currentId) {
             var self = this;
 
-            this.popupPic.hide();		// 隐藏图片
-            this.picCaptionArea.hide();	// 隐藏描述区域
+            this.popupPic.hide();       // 隐藏图片
+            this.picCaptionArea.hide(); // 隐藏描述区域
             this.popupMask.fadeIn(); // 遮罩层淡出
             // 保存当前视口的宽高
             var winWidth = $(window).width(),
@@ -246,21 +251,22 @@
                 this.nextBtn.addClass("disabled");
             };
         },
+    // 获取数组的下标(图片的位置)
         getIndexOf: function(currentId) {
-            var index = 0;
+            var index;
             $(this.groupData).each(function(i) {
                 index = i;
                 if (this.id === currentId) {
                     return false;
                 }
             });
+            return index;
         },
         initPopup: function(currentObj) {
             var self = this,
                 sourceSrc = currentObj.attr("data-scource"), // 获取原图
                 currentId = currentObj.attr("data-id") // 获取ID值
-
-            this.showMaskAndPopup(sourceSrc.currentId);
+            this.showMaskAndPopup(sourceSrc,currentId);
         },
         getGroup: function() {
             var self = this;
@@ -280,16 +286,16 @@
         renderDOM: function() {
             var strDom =
                 '<div class="lightbox-pic-view">' +
-                '<span class="lightbox-btn lightbox-prev-btn"> < </span>' +
+                '<span class="lightbox-btn lightbox-prev-btn">  </span>' +
                 '<img class="lightbox-image" src="images/1-1.jpg">' +
-                '<span class="lightbox-btn lightbox-next-btn" > > </span>' +
+                '<span class="lightbox-btn lightbox-next-btn">  </span>' +
                 '</div>' +
                 '<div class="lightbox-pic-caption">' +
                 '<div class="lightbox-caption-area">' +
-                '<p class="lightbox-pic-desc"></p>' +
+                '<p class="lightbox-pic-desc"> 图片标题 </p>' +
                 '<span class="lightbox-of-index">当前索引：0 of 0</span>' +
                 '</div>' +
-                '<span class="lightbox-close-btn" title="关闭"> X </span>' +
+                '<span class="lightbox-close-btn" title="关闭"> </span>' +
                 '</div>';
 
             // alert('优雅的弹出框')
