@@ -2,6 +2,7 @@
 @import 'property.less';
 @import 'template/head.less';
 @import 'template/foot.less';
+@import 'template/positionList.less';
 
 // font-size文字大小
 .fs(@px){
@@ -16,6 +17,10 @@
 // 行高
 .lh(@px){
 	line-height: unit(@px / 37.5, rem);
+}
+// 背景颜色
+.bg-w{
+	background-color: #FFF;
 }
 // margin的四个方位
 .mt(@px){
@@ -51,5 +56,6 @@ html,body{
 	margin: 0;
 }
 body{
+	background-color: @bodyBgColor;
 	.fs(16);
 }

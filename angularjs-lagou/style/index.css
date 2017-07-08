@@ -65,6 +65,10 @@
   width: 33.3%;
   color: #9F9D9E;
 }
+.foot li.select {
+  background-color: #DBF9F4;
+  color: #01C2A3;
+}
 .foot .icon-document {
   background: url(../public/image/document.png);
   width: 25px;
@@ -80,6 +84,28 @@
   width: 23px;
   height: 21px;
 }
+.position-list {
+  margin: 0;
+  padding: 0;
+}
+.position-list .item {
+  padding: 7px 3px;
+  list-style: none;
+  border-bottom: 1px solid #EEE;
+}
+.position-list .item .logo {
+  height: 1.73333333rem;
+  margin-right: 0.34666667rem;
+}
+.position-list .item .title {
+  margin: 0;
+}
+.position-list .item .text {
+  margin: 0;
+}
+.bg-w {
+  background-color: #FFF;
+}
 html,
 body {
   width: 100%;
@@ -88,5 +114,6 @@ body {
   margin: 0;
 }
 body {
+  background-color: #EEE;
   font-size: 0.42666667rem;
 }
