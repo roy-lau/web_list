@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  ng-app="app">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1,maximun-scale=1,minimun-scale=1,user-scalable=no">
 	<title>angularjs-lg</title>
+	<link rel="stylesheet" href="style/index.css">
 </head>
 <body>
 
+<div ui-view>
+	main
+</div>
+
 </body>
+<script>
+// 设置HTML是字体大小为窗口大小除以10
+	document.getElementsByTagName('html')[0].style.fontSize = window.screen.width / 10+'px';
+</script>
+<script src="public/js/angular.min.js"></script>
+<script src="public/js/angular-ui-router.min.js"></script>
+<script src="public/js/angular-animate.min.js"></script>
+<script src="public/js/angular-validation.min.js"></script>
+<script src="public/js/angular-validation-rule.min.js"></script>
+<script src="public/js/angular-cookier.min.js"></script>
+<script src="script/app.js"></script>
+<script src="script/config/router.js"></script>
+<script src="script/controller/mainCtr.js"></script>
+<script src="script/directive/head.js"></script>
+<script src="script/directive/foot.js"></script>
 </html>
