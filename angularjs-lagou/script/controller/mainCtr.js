@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('app').controller("mainCtr", ['$scope', function($scope) {
+angular.module('app').controller('mainCtr', ['$scope', function($scope) {
     $scope.list = [{
         id: 1,
         name: 'WEB前端',
