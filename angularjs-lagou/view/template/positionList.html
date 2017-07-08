@@ -1,10 +1,17 @@
-<ul class="position-list bg-w">
-	<li class="item">
-		<img class="logo f-l" src="public/image/company-3.png" alt="">
-		<h3 class="title">web前端</h3>
-		<p class="text">
-		百度[北京] 互联网<br>
-		2017-07-09 0:22
-		</p>
-	</li>
+<ul class="position-list bg-w" ng-controller="mainCtr">
+<!--     <li class="item">
+        <img class="logo f-l" src="public/image/company-3.png" alt="" />
+        <h3 class="title">web前端</h3>
+        <p class="text">
+            百度[北京] 互联网
+            <br /> 2017-07-09 0:22
+        </p>
+    </li>  -->
+    <li class="item" ng-repeat="item in list">
+        <img class="logo f-l" ng-src="{{item.imgSrc}}" alt="" />
+        <h3 class="title" ng-bind="item.name"></h3>
+        <p class="text" ng-bind="item.companyName +' ['+ item.city +'] '+ item.industry">
+        </p>
+        <p class="text" ng-bind="item.time"></p>
+    </li>
 </ul>
