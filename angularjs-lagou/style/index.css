@@ -31,6 +31,18 @@
 .va-m {
   vertical-align: middle;
 }
+.c-w {
+  color: white;
+}
+.p-r {
+  position: relative;
+}
+.p-a {
+  position: absolute;
+}
+.c-r {
+  color: red;
+}
 .head {
   background-color: #12D5B5;
   height: 1.06666667rem;
@@ -48,6 +60,11 @@
   margin-top: 0.18666667rem;
   padding-left: 0.4rem;
   padding-right: 0.4rem;
+}
+.head .back-btn {
+  font-size: 20px;
+  width: 1rem;
+  left: 10px;
 }
 .foot {
   padding: 0;
@@ -89,9 +106,10 @@
   padding: 0;
 }
 .position-list .item {
+  margin: 0;
   padding: 7px 3px;
   list-style: none;
-  border-bottom: 1px solid #EEE;
+  border-bottom: 1px solid #DDD;
 }
 .position-list .item .logo {
   height: 1.73333333rem;
@@ -102,6 +120,52 @@
 }
 .position-list .item .text {
   margin: 0;
+}
+.bottom-btn {
+  height: 1.2rem;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #12D5B5;
+}
+.position-desc {
+  margin-top: 10px;
+}
+.position-desc h5 {
+  font-size: 0.42666667rem;
+  border-bottom: 1px solid #CCC;
+  margin-top: 0;
+  margin-left: 10px;
+  height: 1.06666667rem;
+  line-height: 1.06666667rem;
+}
+.position-desc pre {
+  padding-left: 10px;
+  margin-left: 0;
+}
+.position-info {
+  border-bottom: 1px solid #CCC;
+  padding: 26px 10px 10px 10px;
+}
+.position-info .ml {
+  margin-left: 20px;
+}
+.position-info img {
+  right: 24px;
+  top: 40px;
+}
+.compary-info {
+  padding: 20px 15px 13px 85px;
+}
+.compary-info img {
+  width: 1.6rem;
+  height: 1.6rem;
+  left: 15px;
+}
+.compary-info p {
+  margin-top: 0;
 }
 .bg-w {
   background-color: #FFF;
@@ -116,4 +180,8 @@ body {
 body {
   background-color: #EEE;
   font-size: 0.42666667rem;
+}
+button {
+  border-width: 0;
+  outline-width: 0;
 }

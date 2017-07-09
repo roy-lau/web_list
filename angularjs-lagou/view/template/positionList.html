@@ -1,13 +1,5 @@
 <ul class="bg-w position-list">
-<!--     <li class="item">
-        <img class="logo f-l" src="public/image/company-3.png" alt="" />
-        <h3 class="title">web前端</h3>
-        <p class="text">
-            百度[北京] 互联网
-            <br /> 2017-07-09 0:22
-        </p>
-    </li> -->
-    <li class="item" ng-repeat="item in data">
+    <li ui-sref="position({id:item.id})" class="item" ng-repeat="item in data">
         <img class="logo f-l" ng-src="{{item.imgSrc}}" alt="" />
         <h3 class="title" ng-bind="item.name"></h3>
         <p class="text" ng-bind="item.companyName +' ['+ item.city +'] '+ item.industry">
