@@ -11,7 +11,7 @@ angular.module('app').directive('appPositionClass', [function() {
         link: function(scope){
             alert("positionClass")
         	scope.showPositionList = function(i){
-        		scope.positionList = scope.som.compositionClass[i].positionList;
+        		scope.positionList = scope.com.compositionClass[i].positionList;
         		scope.isActive = i;
         	}
         	scope.showPositionList(0)

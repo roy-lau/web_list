@@ -3,8 +3,8 @@
 	<button
 	class="{{$index===isActive?'active':''"
 	ng-click="showPositionList($index)"
-	ng-repeat="item in positionClass"
-	ng-bind="item.name"></button>
+	ng-repeat="cls in positionClass"
+	ng-bind="cls.name"></button>
 	<ul>
 		<li class="p-r" ng-repeat="pos in positionList">
 			<p ng-bind="pos.name">IOS前端工程师</p>
