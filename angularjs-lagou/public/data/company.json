@@ -1,6 +1,6 @@
 {
     "id": "c1",
-    "imageUrl": "/image/company-1.png",
+    "imageUrl": "public/image/company-1.png",
     "name": "慕课网",
     "industry": "移动互联网",
     "state": "A轮",

@@ -9,6 +9,7 @@ angular.module('app').directive('appHeadBar', [function() {
             text: '@'
         },
         link: function(scope, element, attr) {
+            console.log(scope.text)
             scope.back = function() {
                 window.history.back();
             }
