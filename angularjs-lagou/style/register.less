@@ -1,0 +1,97 @@
+.register {
+    background-image: url(../public/image/background.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    form {
+        .mt(55);
+        .form-line {
+            margin-left: auto;
+            margin-right: auto;
+            .w(300);
+            .h(40);
+            .lh(40);
+            font-size: 0;
+            border-width: 0;
+            color: @defaultColor;
+            background-color: @formBgColor;
+            &:first-child {
+                border-bottom: 1px solid @defaultColor;
+            }
+            i {
+                height: 100%;
+                .w(55);
+            }
+            .account {
+                background: url(../public/image/account.png) center center no-repeat;
+                background-color: @iconBgColor;
+            }
+            .lock {
+                background: url(../public/image/lock.png) center center no-repeat;
+                background-color: @iconBgColor;
+            }
+            input {
+                background-color: @formBgColor;
+                border: 0;
+                height: 100%;
+                .w(245);
+                .fs(14);
+                .pl(30);
+                color: @defaultColor;
+                box-sizing: border-box;
+                &::-moz-input-placeholder,
+                &::-webkit-input-placeholder {
+                    color: @defaultColor;
+                }
+            }
+        }
+        .message-wrap{
+        	.mt(40);
+        	.w(300);
+			margin-left: auto;
+			margin-right: auto;
+            .message-box {
+                background-color: @formBgColor;
+                border: 0;
+                height: 100%;
+                .w(225);
+				.h(40);
+                .fs(14);
+                .pl(30);
+                color: @defaultColor;
+                box-sizing: border-box;
+                &::-moz-input-placeholder,
+                &::-webkit-input-placeholder {
+                    color: @defaultColor;
+                }
+            }
+            .message{
+				.fs(14);
+				color: @headBgColor;
+				border: 1px solid @headBgColor;
+				padding: 7px;
+            }
+        }
+        button {
+            .w(300);
+            .h(35);
+            font-weight: bold;
+            font-size: 18px;
+            &.login-btn {
+                margin-top: 70px;
+                background-color: @headBgColor;
+                color: @defaultColor;
+            }
+            &.register-btn {
+                color: @headBgColor;
+                margin-top: 15px;
+                background-color: @btnBgColor;
+                border: 1px solid @headBgColor;
+            }
+        }
+    }
+}

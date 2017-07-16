@@ -38,5 +38,5 @@ angular.module("app").config(['$stateProvider', '$urlRouterProvider', function($
         templateUrl: 'view/favorite.html',
         controller: 'favoriteCtr'
     });
-    $urlRouterProvider.otherwise('main')
+    $urlRouterProvider.otherwise('login')
 }])

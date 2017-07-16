@@ -42,3 +42,5 @@
 
 * 内置过滤器: currency,nubmer,date,lowercase,uppercase,limitTo,orderBy
 * 自定义过滤器
+
+下周从 第六章5-8节 开始
