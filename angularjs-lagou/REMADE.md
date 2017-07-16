@@ -17,3 +17,17 @@
  	- template：模板 (html片段 和transclude配合使用、ng-transclude插入外部元素)
  	- transclude：内嵌html（true，false）
  	- lick：行为（function）
+
+### 服务总结(service)
+
+> 服务(service)和服务工厂(factory)
+
+* 特点：单例，懒加载，公用函数
+* 常用的服务：
+	- $http (发出ajax)
+	- $q (处理并发的请求`Promise`)
+	- $timeout (延迟ms执行)
+	- $interval (循环ms执行)
+	- $rootScope (根作用域)
+	
+* 自定义服务——cache
