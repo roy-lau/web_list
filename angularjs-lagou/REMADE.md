@@ -35,3 +35,10 @@
 	- $rootScope： 根作用域
 	
 * [自定义服务——cache](script/services/cache.js)
+
+### 过滤器(filter)
+
+> 用来`格式化`或者`过滤`数据
+
+* 内置过滤器: currency,nubmer,date,lowercase,uppercase,limitTo,orderBy
+* 自定义过滤器

@@ -204,6 +204,7 @@
   position: fixed;
   left: 0;
   right: 0;
+  top: 0;
   height: 1.06666667rem;
   line-height: 1.06666667rem;
 }
@@ -230,6 +231,9 @@
   padding-left: 20px;
   margin-left: 10px;
   color: #9F9D9E;
+}
+.search-list {
+  margin-left: 2.13333333rem;
 }
 .tab {
   background-color: #f7f7f7;
@@ -291,6 +295,74 @@
 .sheet .wrap ul li {
   list-style: none;
   border-bottom: 1px solid #D4D4D4;
+}
+.login {
+  background-image: url(../public/image/background.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.login form {
+  margin-top: 4rem;
+}
+.login form .form-line {
+  margin-left: auto;
+  margin-right: auto;
+  width: 8rem;
+  height: 1.06666667rem;
+  line-height: 1.06666667rem;
+  font-size: 0;
+  border-width: 0;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.login form .form-line:first-child {
+  border-bottom: 1px solid #fff;
+}
+.login form .form-line i {
+  height: 100%;
+  width: 1.46666667rem;
+}
+.login form .form-line .account {
+  background: url(../public/image/account.png) center center no-repeat;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.login form .form-line .lock {
+  background: url(../public/image/lock.png) center center no-repeat;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.login form .form-line input {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 0;
+  height: 100%;
+  width: 6.53333333rem;
+  font-size: 0.37333333rem;
+  padding-left: 0.8rem;
+  box-sizing: border-box;
+}
+.login form .form-line input::-webkit-input-placeholder {
+  color: #fff;
+}
+.login form button {
+  width: 8rem;
+  height: 0.93333333rem;
+  font-weight: bold;
+  font-size: 18px;
+}
+.login form button.login-btn {
+  margin-top: 70px;
+  background-color: #12D5B5;
+  color: #fff;
+}
+.login form button.register-btn {
+  color: #12D5B5;
+  margin-top: 15px;
+  background-color: rgba(18, 213, 181, 0.2);
+  border: 1px solid #12D5B5;
 }
 .bg-w {
   background-color: #FFF;

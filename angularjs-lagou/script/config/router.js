@@ -17,6 +17,26 @@ angular.module("app").config(['$stateProvider', '$urlRouterProvider', function($
         url: '/search',
         templateUrl: 'view/search.html',
         controller: 'searchCtr'
+    }).state('login', {
+        url: '/login',
+        templateUrl: 'view/login.html',
+        controller: 'loginCtr'
+    }).state('register', {
+        url: '/register',
+        templateUrl: 'view/register.html',
+        controller: 'registerCtr'
+    }).state('me', {
+        url: '/me',
+        templateUrl: 'view/me.html',
+        controller: 'meCtr'
+    }).state('post', {
+        url: '/post',
+        templateUrl: 'view/post.html',
+        controller: 'postCtr'
+    }).state('favorite', {
+        url: '/favorite',
+        templateUrl: 'view/favorite.html',
+        controller: 'favoriteCtr'
     });
     $urlRouterProvider.otherwise('main')
 }])
