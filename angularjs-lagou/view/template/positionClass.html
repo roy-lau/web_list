@@ -1,7 +1,7 @@
 <div class="position-class">
 	<h5>职位分类</h5>
 	<button
-	class="{{$index===isActive?'active':''"
+	class="{{$index===isActive?'active':''}}"
 	ng-click="showPositionList($index)"
 	ng-repeat="item in com.positionClass"
 	ng-bind="item.name"></button>

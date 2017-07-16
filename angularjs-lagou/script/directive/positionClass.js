@@ -9,12 +9,16 @@ angular.module('app').directive('appPositionClass', [function() {
             com: '='
         },
         link: function(scope){
-            alert("positionClass")
-        	scope.showPositionList = function(i){
-        		scope.positionList = scope.com.compositionClass[i].positionList;
-        		scope.isActive = i;
+            // 点击职位分类
+            scope.showPositionList = function(i){
+                // 切换不同样式(button)
+                scope.isActive = i;
+                // 显示不同职位描述
+                scope.positionList = scope.com.positionClass[i].positionList;
         	}
-        	scope.showPositionList(0)
+        	 scope.$watch('com', function(newVal){
+                if(newVal) scope.showPositionList(0);
+              });
         }
     }
 }])
