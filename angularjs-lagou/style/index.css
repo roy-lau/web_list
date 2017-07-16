@@ -199,6 +199,99 @@
   right: 10px;
   top: 20px;
 }
+.search-bar {
+  background-color: #12D5B5;
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 1.06666667rem;
+  line-height: 1.06666667rem;
+}
+.search-bar input {
+  background-color: #EEE;
+  border-radius: 80px;
+  border-style: none;
+  box-sizing: border-box;
+  outline-width: 0;
+  padding-left: 0.53333333rem;
+  height: 0.66666667rem;
+  width: 5.06666667rem;
+}
+.search-bar button {
+  background-color: #12D5B5;
+}
+.search-bar button:first-child {
+  color: #fff;
+}
+.search-bar button:last-child {
+  background: url(../public/image/search.png) no-repeat;
+  background-size: 15px 15px;
+  background-position: 0 4px;
+  padding-left: 20px;
+  margin-left: 10px;
+  color: #9F9D9E;
+}
+.tab {
+  background-color: #f7f7f7;
+  position: fixed;
+  left: 0;
+  right: 0;
+  marigin: 0;
+  padding: 0;
+  top: 0;
+  margin-top: 1.06666667rem;
+  font-size: 0;
+}
+.tab li {
+  font-size: 0.37333333rem;
+  width: 33.3%;
+  height: 1.06666667rem;
+  line-height: 1.06666667rem;
+  border-bottom: 2px solid #f7f7f7;
+}
+.tab li.active {
+  border-bottom: 2px solid #12D5B5;
+}
+.sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 99;
+}
+.sheet .wrap {
+  position: fixed;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  z-index: 100;
+}
+.sheet .wrap li,
+.sheet .wrap button {
+  background-color: #F1F2F3;
+  color: #1063E5;
+  font-size: 0.42666667rem;
+  height: 1.33333333rem;
+  line-height: 1.33333333rem;
+  width: 100%;
+}
+.sheet .wrap button {
+  border-radius: 5px;
+  margin-top: 8px;
+}
+.sheet .wrap ul {
+  border-radius: 5px;
+  margin: 0;
+  padding: 0;
+  overflow: scroll;
+  max-height: 500px;
+}
+.sheet .wrap ul li {
+  list-style: none;
+  border-bottom: 1px solid #D4D4D4;
+}
 .bg-w {
   background-color: #FFF;
 }

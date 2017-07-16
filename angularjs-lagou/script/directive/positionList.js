@@ -6,7 +6,8 @@ angular.module('app').directive('appPositionList', [function() {
         replace: true,
         templateUrl: 'view/template/positionList.html',
         scope:{
-        	data: '='
+        	data: '=',
+        	filterObj: '='
         }
     }
 }])
