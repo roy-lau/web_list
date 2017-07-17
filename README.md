@@ -24,9 +24,9 @@
 
 12、 [图片预加载（封装插件）：](https://wwww.github.com/roy-lau/web_list/preload)
 
-	- 无序加载：https://roy-lau.github.io/web_list/preload/unordereds-by-img
-	- 无序加载：https://roy-lau.github.io/web_list/preload/unordereds-by-icon
-	- 有序加载：https://roy-lau.github.io/web_list/preload/orders
+- 无序加载：https://roy-lau.github.io/web_list/preload/unordereds-by-img
+- 无序加载：https://roy-lau.github.io/web_list/preload/unordereds-by-icon
+- 有序加载：https://roy-lau.github.io/web_list/preload/orders
 
 13、vuejs搭建的售卖平台  https://github.com/roy-lau/web_list/tree/master/vuejs-shopping
 
@@ -38,6 +38,8 @@
 
 17、 [瀑布流布局：](https://wwww.github.com/roy-lau/web_list/waterfallFlow-layout)
 
-	- 原生js： https://roy-lau.github.io/web_list/waterfallFlow-layout\js-method
-	- jquery： https://roy-lau.github.io/web_list/waterfallFlow-layout\jq-method
-	- css3： https://roy-lau.github.io/web_list/waterfallFlow-layout\css-method
+- 原生js： https://roy-lau.github.io/web_list/waterfallFlow-layout/js-method
+- jquery： https://roy-lau.github.io/web_list/waterfallFlow-layout/jq-method
+- css3： https://roy-lau.github.io/web_list/waterfallFlow-layout/css-method
+
+18、angularjs仿拉钩： https://roy-lau.github.io/web_list/angularjs-lagou
