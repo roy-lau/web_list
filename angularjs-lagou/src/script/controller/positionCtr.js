@@ -6,7 +6,7 @@ angular.module('app').controller('positionCtr',['$scope', '$q', '$state', '$http
     $scope.isLogin = false;
     function getPosition() {
         var def = $q.defer();       // 定义一个promise对象
-        $http.get('public/data/position.json?id' + $state.params.id).success(function(res) {
+        $http.get('data/position.json?id' + $state.params.id).success(function(res) {
             $scope.position = res;
             def.resolve(res);    // 调用promise对象resolve方法传递成功的数据
         }).error(function(err) {
@@ -16,7 +16,7 @@ angular.module('app').controller('positionCtr',['$scope', '$q', '$state', '$http
     }
 
     function getCompany(id) {
-        $http.get('public/data/company.json?id' + id).success(function(res) {
+        $http.get('data/company.json?id' + id).success(function(res) {
             $scope.company = res;
         })
     }

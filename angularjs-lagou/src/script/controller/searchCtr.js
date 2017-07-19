@@ -3,7 +3,7 @@
 angular.module('app').controller('searchCtr', ['$scope', '$http','dict', function($scope, $http,dict) {
     $scope.name = "";
     $scope.search = function() {
-        $http.get('public/data/positionList.json?name' + $scope.name).success(function(res) {
+        $http.get('data/positionList.json?name' + $scope.name).success(function(res) {
             $scope.positionList = res;
         })
     }
