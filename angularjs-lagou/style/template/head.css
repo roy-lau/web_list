@@ -1,0 +1,11 @@
+.head {
+  background-color: #E2D5B5;
+}
+.head .text {
+  color: #fff;
+}
+.head .costom {
+  background-color: #FEAE11;
+  border-color: #FEAE11;
+  color: #fff;
+}

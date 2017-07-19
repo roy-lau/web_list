@@ -1,0 +1,7 @@
+.position-list {
+  margin: 0;
+  padding: 7px 3px;
+}
+.position-list .item {
+  list-style: none;
+}
