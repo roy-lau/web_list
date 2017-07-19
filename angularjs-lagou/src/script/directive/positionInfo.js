@@ -11,7 +11,7 @@ angular.module('app').directive('appPositionInfo', [function() {
             pos:'='
         },
         link: function(scope){
-        	scope.imagePath = scope.isActive?"public/image/star-active.png":"public/image/star.png";
+        	scope.imagePath = scope.isActive?"image/star-active.png":"image/star.png";
         }
     }
 }])
