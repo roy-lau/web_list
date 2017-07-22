@@ -121,6 +121,20 @@
 .position-list .item .text {
   margin: 0;
 }
+.position-list .item .icon {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 0.8rem;
+  height: 0.74666667rem;
+  top: 14px;
+  right: 12px;
+}
+.position-list .item .icon.star {
+  background-image: url(../public/image/star.png);
+}
+.position-list .item .icon.star-active {
+  background-image: url(../public/image/star-active.png);
+}
 .bottom-btn {
   height: 1.2rem;
   position: fixed;
@@ -231,6 +245,9 @@
   padding-left: 20px;
   margin-left: 10px;
   color: #9F9D9E;
+}
+.search-list {
+  margin-top: 2.13333333rem;
 }
 .tab {
   background-color: #f7f7f7;
@@ -485,6 +502,13 @@
   width: 9.06666667rem;
   height: 1.06666667rem;
   margin-top: 0.53333333rem;
+}
+.ng-enter {
+  transition: .6s linear all;
+  opacity: 0;
+}
+.ng-enter-active {
+  opacity: 1;
 }
 .bg-w {
   background-color: #FFF;

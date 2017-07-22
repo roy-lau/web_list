@@ -1,4 +1,5 @@
 <div class="head">
-	<span class="text">10秒定制职位</span>
-	<button class="custom f-r">去定制</button>
+	<span ng-hide="name" class="text">10秒定制职位</span>
+	<button ng-hide="name" class="custom f-r" ui-sref="login">去登陆</button>
+	<span class="f-r text"  ng-show="name" ng-bind="'您好,'+name"></span>
 </div>

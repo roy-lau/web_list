@@ -1,7 +1,7 @@
 [
   {
     "id": "p1",
-    "imageUrl": "/image/company-1.png",
+    "imageUrl": "public/image/company-1.png",
     "job": "WEB前端",
     "companyId": "c1",
     "companyName": "慕课网",
