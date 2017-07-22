@@ -9,6 +9,21 @@
     bottom: 0;
     form {
         .mt(55);
+        .ng-invalid{
+            &+span{
+                position: absolute;
+                right: 0px;
+                width: 30%;
+                height: 100%;
+                color: @dangerColor;
+                text-align: right;
+                font-size: 12px;
+                p{
+                    margin:0;
+                }
+            }
+        }
+
         .form-line {
             margin-left: auto;
             margin-right: auto;
@@ -56,6 +71,7 @@
 			margin-right: auto;
             .message-box {
                 background-color: @formBgColor;
+                color: @defaultColor;
                 border: 0;
                 height: 100%;
                 .w(225);
@@ -64,6 +80,12 @@
                 .pl(30);
                 color: @defaultColor;
                 box-sizing: border-box;
+                &+span {
+                    width: 50%;
+                        p{
+                        margin:8px 70px 0px 0px;
+                    }
+                }
                 &::-moz-input-placeholder,
                 &::-webkit-input-placeholder {
                     color: @defaultColor;
@@ -74,6 +96,10 @@
 				color: @headBgColor;
 				border: 1px solid @headBgColor;
 				padding: 7px;
+                &.disabled{
+                    color: @lineColor;
+                    border-color: @lineColor;
+                }
             }
         }
         button {

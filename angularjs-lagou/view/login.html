@@ -1,12 +1,18 @@
 <div class="login">
-    <form class="d-b ta-c" name="from">
+    <form class="d-b ta-c" name="form">
         <div class="form-line ta-l p-r"><i class="account va-t d-ib"></i>
-            <input ng-model="name" type="text" class="d-ib" placeholder="请输入手机号">
+        <input name="phone"
+          ng-model="user.phone"
+          validator="required,phone"
+          class="d-ib" type="text" placeholder="输入手机号">
         </div>
         <div class="form-line ta-l p-r"><i class="lock va-t d-ib"></i>
-            <input ng-model="pwd" type="text" class="d-ib" placeholder="输入密码">
+        <input name="pwd"
+          ng-model="user.pwd"
+          validator="required,pwd"
+          class="d-ib" type="password" placeholder="输入密码">
         </div>
-        <button ng-click="login(name,pwd)" class="login-btn">登陆</button>
-        <button class="register-btn">注册</button>
+        <button validation-submit="form" ng-click="submit()" class="login-btn">登陆</button>
+        <button class="register-btn" ui-sref="register">注册</button>
     </form>
 </div>

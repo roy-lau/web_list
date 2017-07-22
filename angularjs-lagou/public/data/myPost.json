@@ -1,6 +1,6 @@
 [{
   "id": "p1",
-  "imageUrl": "/image/company-1.png",
+  "imageUrl": "public/image/company-1.png",
   "job": "WEB前端",
   "companyId": "c1",
   "companyName": "慕课网",
@@ -20,7 +20,7 @@
   "state": "1"
 }, {
   "id": "p3",
-  "imageUrl": "/image/company-3.png",
+  "imageUrl": "public/image/company-3.png",
   "job": "销售",
   "companyId": "c3",
   "companyName": "千度",

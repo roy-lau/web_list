@@ -1,9 +1,12 @@
 'use strict';
 
-angular.module('app').controller('loginCtr',['$scope', 'cache', '$state', function($scope, cache, $state) {
-	$scope.login = function(name,pwd){
-		cache.put("name",name);
-		$state.go('main')
-		// console.log(window.history)
+angular.module('app').controller('loginCtr',['$scope', 'cache', '$state','$http', function($scope, cache, $state,$http) {
+	$scope.submit = function(){
+		$http.post('public/data/login.json').success(function(res){
+			cache.put("name",res.name);
+			cache.put("id",res.id);
+			cache.put("image",res.image);
+			$state.go('main')
+		})
 	}
 }])
