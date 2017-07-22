@@ -13,7 +13,18 @@
 @import 'login.less';
 @import 'register.less';
 @import 'me.less';
+@import 'post.less';
 
+// 切换动画
+.ng-enter{
+	transition: .6s linear all;
+	opacity: 0;
+	// filter: alpha(0);
+}
+.ng-enter-active{
+	opacity: 1;
+	// filter: alpha(100);
+}
 
 // font-size文字大小
 .fs(@px){

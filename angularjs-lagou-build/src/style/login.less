@@ -1,5 +1,5 @@
 .login{
-	background-image: url(../image/background.png);
+	background-image: url(../public/image/background.png);
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	position: fixed;
@@ -9,6 +9,20 @@
 	bottom: 0;
 	form{
 		.mt(150);
+        .ng-invalid{
+            &+span{
+                position: absolute;
+                right: 0px;
+                width: 50%;
+                height: 100%;
+                color: @dangerColor;
+                text-align: right;
+                font-size: 12px;
+                p{
+                    margin:0;
+                }
+            }
+        }
 		.form-line{
 			margin-left: auto;
 			margin-right: auto;
@@ -27,11 +41,11 @@
 				.w(55);
 			}
 			.account{
-				background: url(../image/account.png) center center no-repeat;
+				background: url(../public/image/account.png) center center no-repeat;
 				background-color: @iconBgColor;
 			}
 			.lock{
-				background: url(../image/lock.png) center center no-repeat;
+				background: url(../public/image/lock.png) center center no-repeat;
 				background-color: @iconBgColor;
 			}
 			input{
