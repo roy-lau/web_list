@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+    <title>用于开发测试 H5ComponentBase 对象（基本的图文组件）</title>
+    <link rel="stylesheet" href="../css/H5ComponentBase.css">
+</head>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background-color:#000;
+    font-size: 12px;
+}
+.iphone{
+    width: 340px;
+    height: 540px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -270px 0 0 -170px;
+}
+.h5_component_base{
+    transition: all 1s;
+}
+
+</style>
+
+<body>
+<div class="iphone"></div>
+</body>
+<script src="../js/lib/jquery.js"></script>
+<script src="../js/H5ComponentBase.js"></script>
+<script>
+    var cfg = {
+        type: 'base',
+        text: '文本内容',
+        bg: '../imgs/p1_people.png',
+        width: 514,
+        height: 306,
+        css:{
+            bottom: 0,
+            opacity: 0,
+        },
+        animateIn:{ bottom: 80,opacity:1},
+        animateOut:{ bottom: 0,opacity:0},
+        center: true,
+    }
+    var h5 = new H5ComponentBase( "MyName", cfg );
+    $('.iphone').append(h5);
+
+    var load = true;
+    $('body').click(function(){
+        load = !load
+        $('.h5_component').trigger( load ? 'onLeave' : 'onLoad')
+    })
+</script>
+</html>
