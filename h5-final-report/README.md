@@ -63,7 +63,7 @@
 
 二、页面切换功能  
 
-* 技术选型：`FullPage.js`插件  
+* 技术选型：[`FullPage.js`](http://www.uedsc.com/fullpage.html)插件  
 * 简介：JQuery插件  
 * 特点：API简单、易用、跨浏览器 
 

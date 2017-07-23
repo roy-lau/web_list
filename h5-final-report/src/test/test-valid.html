@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+    <title>用于验证fullpage.js 切换页面，以及内容组织结构可用，组件能够进行动画</title>
+</head>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.component {
+    width: 50%;
+    height: 50px;
+    margin-bottom: 20px;
+    background-color: #EEE;
+}
+</style>
+
+<body>
+    <div id="h5">
+        <div class="page section" id="page-1">
+            <div class="cpmponent log">log</div>
+            <div class="component slogan">slogan</div>
+        </div>
+        <div class="page section" id="page-2">
+            <div class="cpmponent log">log</div>
+            <div class="component desc">描述信息</div>
+        </div>
+        <div class="page section" id="page-3">
+            <div class="cpmponent log">log</div>
+            <div class="component bar">柱状图</div>
+        </div>
+    </div>
+</body>
+<script src="../js/lib/jquery.js"></script>
+<script src="../js/lib/jquery.fullPage.js"></script>
+<script src="../js/lib/jquery-ui.min.js"></script>
+<script>
+$(function() {
+    $('#h5').fullpage({
+        'sectionsColor': ['#254875', '#00FF00', '#254587', '#695684'],
+        onLeave: function(index, nextIndex, direction) {
+            debugger;
+        },
+        aferLoad: function(anchorLink, index) {
+            debugger;
+        }
+    });
+    $('.page').on('onLeave', function() {
+        console.log($(this).attr('id'), '==>', 'onLeave')
+    })
+});
+</script>
+
+</html>
