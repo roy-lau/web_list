@@ -8,3 +8,5 @@
 	3. npm install
 	4. npm run dev
 ```
+
+bulid path :  https://roy-lau.github.io/web_list/vuejs-shopping
