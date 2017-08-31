@@ -1,3 +1,9 @@
-*node_modules/
-*Collection-by-learning/
-.idea/
+node_modules/
+Collection-by-learning/
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
