@@ -38,6 +38,11 @@ var initGame = function(){
     for(var i = 0; i<gameData.length; i++){
         var gameDiv = [];
         for(var j=0; j<gameData[0].length; j++){
+            /***
+             * @type {Element}
+             * @description{ 创建一个div,设置div的className为‘none’,设置div的位置（上，左）,
+             * 将创建的div插入到id为game的元素中,将div push到gameDiv中}
+             */
             var newNode = document.createElement('div');
             newNode.classname = 'none';
             newNode.style.top = (i*20) + 'px';
@@ -45,23 +50,28 @@ var initGame = function(){
             document.getElementById('game').appendChild(newNode);
             gameDiv.push(newNode);
         }
-       gameDivs.push(gameDiv);
-   }
+        gameDivs.push(gameDiv);
+    }
 };
 //根据 nextData循环创建 nestDivs
 var initNext = function(){
     for(var i = 0; i<nextData.length; i++){
         var nextDiv = [];
         for(var j=0; j<nextData[0].length; j++){
+            /***
+             * @type {Element}
+             * @description{ 创建一个div,设置div的className为‘none’,设置div的位置（上，左）,
+             * 将创建的div插入到id为next的元素中,将div push到nextDiv中}
+             */
             var newNode = document.createElement('div');
             newNode.classname = 'none';
             newNode.style.top = (i*20) + 'px';
             newNode.style.left = (j*20) + 'px';
-            document.getElementById('game').appendChild(newNode);
+            document.getElementById('next').appendChild(newNode);
             nextDiv.push(newNode);
         }
         nextDivs.push(nextDiv);
-   }
+    }
 };
 var refreshGame = function(){
     for(var i = 0; i < gameData.length;i++){
