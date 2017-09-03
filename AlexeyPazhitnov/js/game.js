@@ -159,6 +159,60 @@ var Game = function(){
             refreshDiv(gameData,gameDivs);
         }
     }
+    // 方块移动到底部，位置固定
+    var fixed = function(){
+        for(var i = 0; i<cur.data.length; i++){
+            for(var j=0; j<cur.data[0].length; j++){
+                if(check(cur.origin,i,j)){
+                    if(gameData[cur.origin.x +i][cur.origin.y +j] == 2){
+                        gameData[cur.origin.x + i][cur.origin.y +j] =1;
+                    }
+                }
+            }
+        }
+        refreshDiv(gameData, gameDivs);
+    }
+    // 消行
+    var checkClear = function(){
+        for(var i = gameData.length-1; i>=0; i--){
+            var clear = true;
+            for(var j = 0; j<gameData[0].length; j++){
+                if(gameData[i][j] !=1){
+                    clear = false;
+                    break;
+                }
+            }
+            if(clear){ 
+                for(var m=i; m>=0; m--){
+                    for(var n=0; n<gameData[0].length; n++){
+                        gameData[m][n] = gameData[m-1][n];
+                    }
+                }
+                for(var n=0; n<gameData[0].length; n++){
+                    gameData[0][n] = 0; 
+                }
+                i++;
+            }
+        }
+    }
+    // 判定游戏结束
+    var checkGameOver = function(){
+        var gameOver = false;
+        for(var i=0; i<gameData[0].length; i++){
+            if(gameData[1][i] ==1){
+                gameOver = true;
+            }
+        }
+        return gameOver;
+    }
+    // 使用下一个方块
+    var performNext = function(type,dir){
+        cur = next;
+        setData();
+        next = SquareFactory.prototype.make(type,dir)
+        refreshDiv(gameData, gameDivs);
+        refreshDiv(next.data, nextDivs)
+    }
     //初始化
     var init = function(doms){
         gameDiv = doms.gameDiv;
@@ -178,4 +232,8 @@ var Game = function(){
     this.right = right;
     this.rotate = rotate;
     this.fall = function(){ while(down());}
+    this.fixed = fixed;
+    this.performNext = performNext;
+    this.checkClear = checkClear;
+    this.checkGameOver = checkGameOver;
 };

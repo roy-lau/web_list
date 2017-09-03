@@ -66,7 +66,7 @@ var Square2 = function(){
     ];
 };
 // Ô­ÐÍ¼Ì³Ð
-Square2.prototype = Square2.prototype;
+Square2.prototype = Square.prototype;
 
 var Square3 = function(){
     Square.call(this)
