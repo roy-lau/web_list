@@ -1,12 +1,16 @@
 /**
  * Created by roy-lau on 2017/8/31 0031.
- * ÓÎÏ·µÄºËĞÄ
+ * æ¸¸æˆçš„æ ¸å¿ƒ
  */
 var Game = function(){
-    //domÔªËØ
+    //domå…ƒç´ 
     var gameDiv,
-        nextDiv;
-    //ÓÎÏ·¾ØÕó
+        nextDiv,
+        timeDiv,
+        scoreDiv,
+        resultDiv;
+    var score = 0;
+    //æ¸¸æˆçŸ©é˜µ
     var gameData = [
         [0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0],
@@ -29,23 +33,23 @@ var Game = function(){
         [0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0]
     ];
-    //µ±Ç°·½¿é
+    //å½“å‰æ–¹å—
     var cur;
-    //ÏÂÒ»¸ö·½¿é
+    //ä¸‹ä¸€ä¸ªæ–¹å—
     var next;
     //divs
     var nextDivs = [];
     var gameDivs = [];
 
-    // ³õÊ¼»¯Div
+    // åˆå§‹åŒ–Div
     var initDiv = function(container,data,divs){
         for(var i = 0; i<data.length; i++){
             var div = [];
             for(var j=0; j<data[0].length; j++){
                 /***
                  * @type {Element}
-                 * @description{ ´´½¨Ò»¸ödiv,ÉèÖÃdivµÄclassNameÎª¡®none¡¯,ÉèÖÃdivµÄÎ»ÖÃ£¨ÉÏ£¬×ó£©,
-                 * ½«´´½¨µÄdiv²åÈëµ½idÎªgameµÄÔªËØÖĞ,½«div pushµ½divÊı×éÖĞ}
+                 * @description{ åˆ›å»ºä¸€ä¸ªdiv,è®¾ç½®divçš„classNameä¸ºâ€˜noneâ€™,è®¾ç½®divçš„ä½ç½®ï¼ˆä¸Šï¼Œå·¦ï¼‰,
+                 * å°†åˆ›å»ºçš„divæ’å…¥åˆ°idä¸ºgameçš„å…ƒç´ ä¸­,å°†div pushåˆ°divæ•°ç»„ä¸­}
                  */
                 var newNode = document.createElement('div');
                 newNode.className = 'none';
@@ -57,7 +61,7 @@ var Game = function(){
             divs.push(div);
         }
     };
-    //Ë¢ĞÂdiv
+    //åˆ·æ–°div
     var refreshDiv = function(data,divs){
         for(var i = 0; i < data.length;i++){
             for(var j = 0; j<data[0].length; j++) {
@@ -71,7 +75,7 @@ var Game = function(){
             }
         }
     };
-    // ¼ì²âµãÊÇ·ñºÏ·¨
+    // æ£€æµ‹ç‚¹æ˜¯å¦åˆæ³•
     var check = function(pos, x,y){
         if(pos.x + x <0){
             return false;
@@ -87,7 +91,7 @@ var Game = function(){
             return true;
         }
     }
-    // ¼ì²âÊı¾İÊÇ·ñºÏ·¨
+    // æ£€æµ‹æ•°æ®æ˜¯å¦åˆæ³•
     var isValid = function(pos, data){
         for(var i = 0; i<data.length;i++){
             for(var j = 0; j<data[0].length; j++){
@@ -100,8 +104,8 @@ var Game = function(){
         }
         return true;
     }
-    // Çå³ıÊı¾İ
-    var clearData = function(){ 
+    // æ¸…é™¤æ•°æ®
+    var clearData = function(){
         for(var i = 0; i<cur.data.length;i++){
             for(var j =0; j<cur.data[0].length;j++){
                 if(check(cur.origin,i,j)){
@@ -110,8 +114,8 @@ var Game = function(){
             }
         }
     }
-    // ÉèÖÃÊı¾İ
-    var setData = function(){ 
+    // è®¾ç½®æ•°æ®
+    var setData = function(){
         for(var i = 0; i<cur.data.length;i++){
             for(var j =0; j<cur.data[0].length;j++){
                 if(check(cur.origin,i,j)){
@@ -120,7 +124,7 @@ var Game = function(){
             }
         }
     }
-    // ÏÂÒÆ
+    // ä¸‹ç§»
     var down = function(){
         if(cur.canDown(isValid)){
             clearData();
@@ -132,7 +136,7 @@ var Game = function(){
             return false;
         }
     }
-    // Ğı×ª
+    // æ—‹è½¬
     var rotate = function(){
         if(cur.canRotate(isValid)){
             clearData();
@@ -141,7 +145,7 @@ var Game = function(){
             refreshDiv(gameData,gameDivs);
         }
     }
-    // ×óÒÆ
+    // å·¦ç§»
     var left = function(){
         if(cur.canLeft(isValid)){
             clearData();
@@ -150,7 +154,7 @@ var Game = function(){
             refreshDiv(gameData,gameDivs);
         }
     }
-    // ÓÒÒÆ
+    // å³ç§»
     var right = function(){
         if(cur.canRight(isValid)){
             clearData();
@@ -159,7 +163,7 @@ var Game = function(){
             refreshDiv(gameData,gameDivs);
         }
     }
-    // ·½¿éÒÆ¶¯µ½µ×²¿£¬Î»ÖÃ¹Ì¶¨
+    // æ–¹å—ç§»åŠ¨åˆ°åº•éƒ¨ï¼Œä½ç½®å›ºå®š
     var fixed = function(){
         for(var i = 0; i<cur.data.length; i++){
             for(var j=0; j<cur.data[0].length; j++){
@@ -172,8 +176,9 @@ var Game = function(){
         }
         refreshDiv(gameData, gameDivs);
     }
-    // ÏûĞĞ
+    // æ¶ˆè¡Œ
     var checkClear = function(){
+        var line = 0;
         for(var i = gameData.length-1; i>=0; i--){
             var clear = true;
             for(var j = 0; j<gameData[0].length; j++){
@@ -182,20 +187,22 @@ var Game = function(){
                     break;
                 }
             }
-            if(clear){ 
-                for(var m=i; m>=0; m--){
+            if(clear){
+                line +=1;
+                for(var m=i; m>0; m--){
                     for(var n=0; n<gameData[0].length; n++){
                         gameData[m][n] = gameData[m-1][n];
                     }
                 }
                 for(var n=0; n<gameData[0].length; n++){
-                    gameData[0][n] = 0; 
+                    gameData[0][n] = 0;
                 }
                 i++;
             }
         }
+        return line;
     }
-    // ÅĞ¶¨ÓÎÏ·½áÊø
+    // åˆ¤å®šæ¸¸æˆç»“æŸ
     var checkGameOver = function(){
         var gameOver = false;
         for(var i=0; i<gameData[0].length; i++){
@@ -205,7 +212,7 @@ var Game = function(){
         }
         return gameOver;
     }
-    // Ê¹ÓÃÏÂÒ»¸ö·½¿é
+    // ä½¿ç”¨ä¸‹ä¸€ä¸ªæ–¹å—
     var performNext = function(type,dir){
         cur = next;
         setData();
@@ -213,19 +220,67 @@ var Game = function(){
         refreshDiv(gameData, gameDivs);
         refreshDiv(next.data, nextDivs)
     }
-    //³õÊ¼»¯
-    var init = function(doms){
+    // è®¾ç½®æ—¶é—´
+    var setTime = function(time){
+        timeDiv.innerHTML = time;
+    }
+    // åŠ åˆ†
+    var addScore = function(line){
+        var s = 0;
+        switch(line){
+            case 1:
+                s = 10;
+                break;
+            case 2:
+                s = 30;
+                break;
+            case 3:
+                s = 60;
+                break;
+            case 4:
+                s = 100;
+                break;
+            default:
+                break;
+        }
+        score = score + s;
+        scoreDiv.innerHTML = score;
+    }
+    // æ¸¸æˆç»“æŸ
+    var gameover = function(win){
+        if(win){
+            resultDiv.innerHTML = "æ¸¸æˆèµ¢äº†ï¼Œäººç”Ÿå‘¢ï¼Ÿ";
+        }else{
+            resultDiv.innerHTML = "è¾“èµ¢ä¸é‡è¦ï¼Œå¼€å¿ƒæ‰é‡è¦ï¼";
+        }
+    }
+    // ç»™å¯¹æ–¹åº•éƒ¨å¢åŠ è¡Œ
+    var addTailLines = function(lines){
+        for(var i=0; i<gameData.length - lines.length; i++){
+            gameData[i] = gameData[i+lines.length];
+        }
+        for(var i=0; i<lines.length; i++){
+            gameData[gameData.length - lines.length + i] = lines[i]
+        }
+        cur.origin.x = cur.origin.x - lines.length;
+        if(cur.origin.x < 0){
+            cur.origin.x =0;
+        }
+        refreshDiv(gameData, gameDivs);
+    }
+    //åˆå§‹åŒ–
+    var init = function(doms,type,dir){
         gameDiv = doms.gameDiv;
         nextDiv = doms.nextDiv;
-        cur = SquareFactory.prototype.make(2,2);
-        next = SquareFactory.prototype.make(3,3);
+        timeDiv = doms.timeDiv;
+        scoreDiv = doms.scoreDiv;
+        resultDiv = doms.resultDiv;
+        next = SquareFactory.prototype.make(type,dir);
         initDiv(gameDiv,gameData,gameDivs);
         initDiv(nextDiv,next.data,nextDivs);
-        setData();
-        refreshDiv(gameData,gameDivs);
         refreshDiv(next.data,nextDivs)
     };
-    //µ¼³öAPI
+    //å¯¼å‡ºAPI
     this.init = init;
     this.down = down;
     this.left = left;
@@ -236,4 +291,8 @@ var Game = function(){
     this.performNext = performNext;
     this.checkClear = checkClear;
     this.checkGameOver = checkGameOver;
+    this.setTime = setTime;
+    this.addScore = addScore;
+    this.gameover = gameover;
+    this.addTailLines = addTailLines;
 };

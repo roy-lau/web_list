@@ -1,24 +1,24 @@
 /***
  * Created by roy-lau on 2017/8/31 0031.
- * 控制方块运动
+ * 鎺у埗鏂瑰潡杩愬姩
  */
 var Square = function(){
-    //方块数据
+    //鏂瑰潡鏁版嵁
     this.data = [
         [0,0,0,0],
         [0,0,0,0],
         [0,0,0,0],
         [0,0,0,0]
     ];
-    //原点
+    //鍘熺偣
     this.origin = {
         x: 0,
         y: 0
     };
-    // 方向
+    // 鏂瑰悜
     this.dir = 0;
 };
-// 旋转
+// 鏃嬭浆
 Square.prototype.canRotate = function(isValid){
     var d = (this.dir + 1) % 4;
     var test = [
@@ -43,7 +43,7 @@ Square.prototype.rotate = function(num){
         }
     }
 };
-// 下移
+// 涓嬬Щ
 Square.prototype.canDown = function(isValid){
     var test = {};
     test.x = this.origin.x +1;
@@ -53,7 +53,7 @@ Square.prototype.canDown = function(isValid){
 Square.prototype.down = function(){
     this.origin.x = this.origin.x +1;
 }
-// 左移
+// 宸︾Щ
 Square.prototype.canLeft = function(isValid){
     var test = {};
     test.x = this.origin.x;
@@ -63,7 +63,7 @@ Square.prototype.canLeft = function(isValid){
 Square.prototype.left = function(){
     this.origin.y = this.origin.y - 1;
 }
-// 右移
+// 鍙崇Щ
 Square.prototype.canRight = function(isValid){
     var test = {};
     test.x = this.origin.x;

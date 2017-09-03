@@ -1,21 +1,25 @@
 /**
  * Created by roy-lau on 2017/8/31 0031.
- * ¼º·½ÓÎÏ·Çø
+ * å·±æ–¹æ¸¸æˆåŒº
  */
 var Local = function(){
-  //ÓÎÏ·¶ÔÏó
+    //æ¸¸æˆå¯¹è±¡
     var game;
-    // Ê±¼ä¼ä¸ô
+    // æ—¶é—´é—´éš”
     var INTERVAL = 200;
-    // ¶¨Ê±Æ÷
+    // å®šæ—¶å™¨
     var timer = null;
-    // °ó¶¨¼üÅÌÊÂ¼ş
+    // æ—¶é—´è®¡æ•°å™¨
+    var timeConut = 0;
+    // æ—¶é—´
+    var time = 0;
+    // ç»‘å®šé”®ç›˜äº‹ä»¶
     var bindKeyEvent = function(){
         document.onkeydown = function(e){
             if(e.keyCode == 38){ // up
                 game.rotate();
             }else if(e.keyCode == 39){ // right
-                game.right(); 
+                game.right();
             }else if(e.keyCode == 40){ // down
                 game.down();
             }else if(e.keyCode == 37){ // left
@@ -25,39 +29,72 @@ var Local = function(){
             }
         }
     }
-    // ×Ô¶¯ÏÂÂä
+    // è‡ªåŠ¨ä¸‹è½
     var move = function(){
+        timeFunc();
         if(!game.down()){
             game.fixed();
-            game.checkClear();
+            var line = game.checkClear();
+            if(line){
+                game.addScore(line);
+            }
             var gameOver = game.checkGameOver();
             if(gameOver){
+                game.gameover(false);
                 stop();
             }else{
                 game.performNext(generateType(),generateDir())
             }
         }
     }
-    // Ëæ»úÉú³ÉÒ»¸ö·½¿éÖÖÀà
+    // éšæœºç”Ÿæˆå¹²æ‰°
+    var generataBottomLine = function(lineNum){
+        var lines =[];
+        for(var i=0; i<lineNum; i++){
+            var line = [];
+            for(var j=0; j<10; j++){
+                line.push(Math.ceil(Math.random() *2) - 1);
+            }
+            lines.push(line)
+        }
+        return lines;
+    }
+    // è®¡æ—¶å‡½æ•°
+    var timeFunc = function(){
+        timeConut = timeConut + 1;
+        if(timeConut == 5){
+            timeConut = 0;
+            time = time + 1;
+            game.setTime(time);
+            if(time % 10 == 0){
+                game.addTailLines(generataBottomLine(1));
+            }
+        }
+    }
+    // éšæœºç”Ÿæˆä¸€ä¸ªæ–¹å—ç§ç±»
     var generateType = function(){
-        return Math.ceil(Math.random() * 7) -1; // Ëæ»úÒ»¸ö0-6µÄÊı×Ö
+        return Math.ceil(Math.random() * 7) -1; // éšæœºä¸€ä¸ª0-6çš„æ•°å­—
     }
-    // Ëæ»úÉú³ÉÒ»¸öĞı×ªµÄ´ÎÊı
+    // éšæœºç”Ÿæˆä¸€ä¸ªæ—‹è½¬çš„æ¬¡æ•°
     var generateDir = function(){
-        return Math.ceil(Math.random() * 4) -1; // Ëæ»úÒ»¸ö0-4µÄÊı×Ö
+        return Math.ceil(Math.random() * 4) -1; // éšæœºä¸€ä¸ª0-4çš„æ•°å­—
     }
-    // ¿ªÊ¼
+    // å¼€å§‹
     var start = function(){
         var doms = {
             gameDiv: document.getElementById('game'),
-            nextDiv: document.getElementById('next')
+            nextDiv: document.getElementById('next'),
+            timeDiv: document.getElementById('time'),
+            scoreDiv: document.getElementById('score'),
+            resultDiv: document.getElementById('gameover')
         };
         game = new Game();
-        game.init(doms);
+        game.init(doms,generateType(),generateDir());
         bindKeyEvent();
+        game.performNext(generateType(),generateDir());
         timer = setInterval(move, INTERVAL);
     };
-    // ½áÊø
+    // ç»“æŸ
     var stop = function(){
         if(timer){
             clearInterval(timer);
@@ -65,6 +102,6 @@ var Local = function(){
         }
         document.onkeydown = null;
     }
-    //µ¼³öAPI
+    //å¯¼å‡ºAPI
     this.start = start;
 };
