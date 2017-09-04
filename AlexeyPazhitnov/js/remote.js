@@ -2,56 +2,58 @@
  * Created by roy-lau on 2017/8/31 0031.
  * 对方游戏区
  */
-var Remote = function(){
+var Remote = function() {
     // 游戏对象
     var game;
     // 绑定按钮事件
-    var bindEvents = function(){
-        document.getElementById('down').onclick = function(){
+    var bindEvents = function() {
+        document.getElementById('down').onclick = function() {
             game.down();
         };
-     document.getElementById('left').onclick = function(){
-      game.left();
-     };
-     document.getElementById('right').onclick = function(){
-      game.right();
-     };
-     document.getElementById('rotate').onclick = function(){
-      game.rotate();
-     };
-     document.getElementById('fall').onclick = function(){
-      game.fall();
-     };
-     document.getElementById('fixed').onclick = function(){
-      game.fixed();
-     };
-     document.getElementById('performNext').onclick = function(){
-      game.performNext(2,2);
-     };
-     document.getElementById('checkClear').onclick = function(){
-      game.checkClear();
-     };
-     document.getElementById('checkGameOver').onclick = function(){
-      game.checkGameOver();
-     };
-     document.getElementById('setTime').onclick = function(){
-      game.setTime(20);
-     };
-     document.getElementById('addScore').onclick = function(){
-      game.addScore(1);
-     };
-     document.getElementById('checkGameOver').onclick = function(){
-      game.checkGameOver(true);
-     };
-     document.getElementById('gameover').onclick = function(){
-      game.gameover();
-     };
-     document.getElementById('addTailLines').onclick = function(){
-      game.addTailLines([[0,1,0,1,0,1,0,1,0,1,0,1]]);
-     };
+        document.getElementById('left').onclick = function() {
+            game.left();
+        };
+        document.getElementById('right').onclick = function() {
+            game.right();
+        };
+        document.getElementById('rotate').onclick = function() {
+            game.rotate();
+        };
+        document.getElementById('fall').onclick = function() {
+            game.fall();
+        };
+        document.getElementById('fixed').onclick = function() {
+            game.fixed();
+        };
+        document.getElementById('performNext').onclick = function() {
+            game.performNext(2, 2);
+        };
+        document.getElementById('checkClear').onclick = function() {
+            game.checkClear();
+        };
+        document.getElementById('checkGameOver').onclick = function() {
+            game.checkGameOver();
+        };
+        document.getElementById('setTime').onclick = function() {
+            game.setTime(20);
+        };
+        document.getElementById('addScore').onclick = function() {
+            game.addScore(1);
+        };
+        document.getElementById('checkGameOver').onclick = function() {
+            game.checkGameOver(true);
+        };
+        document.getElementById('gameover').onclick = function() {
+            game.gameover();
+        };
+        document.getElementById('addTailLines').onclick = function() {
+            game.addTailLines([
+                [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+            ]);
+        };
     };
     // 开始
-    var start = function(type, dir){
+    var start = function(type, dir) {
         var doms = {
             gameDiv: document.getElementById('remote_game'),
             nextDiv: document.getElementById('remote_next'),
@@ -60,7 +62,7 @@ var Remote = function(){
             resultDiv: document.getElementById('remote_gameover')
         };
         game = new Game();
-        game.init(doms,type, dir);
+        game.init(doms, type, dir);
     };
     // 导出
     this.start = start;
