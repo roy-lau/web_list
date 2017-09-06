@@ -1,0 +1,177 @@
+{
+  // Required
+  "manifest_version": 2,                      // manifest编写规范版本，目前主流2
+  "name": "My Extension",                     // 插件名
+  "version": "versionString",                 // 版本号
+
+  // Recommended
+  "default_locale": "en",                     // 默认编码
+  "description": "A plain text description",  // 插件描述
+  "icons": {                                  // 插件下载或浏览时显示的图标，可选多种规格，建议128
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+
+  // Pick one (or none)
+  "browser_action": {},                       // 图标显示在地址栏右边，能在所有页面显示
+  "page_action": {},                          // 图标显示在地址栏右侧（地址栏内），只在特定页面显示
+
+  // Optional
+  "author": "",                               // 插件作者
+  "automation": true,                         // 开启自动化
+  "background": {                             // 可常驻浏览器后台的脚本，可以连接其他页面
+    // Recommended
+    "persistent": false,
+    "script": ["background.js"]
+  },
+  "background_page": ,
+  "chrome_settings_overrides": {},            // 覆盖当前的chrome配置
+  "chrome_ui_overrides": {                    // 覆盖当前的chrome界面配置
+    "bookmarks_ui": {
+      "remove_bookmark_shortcut": true,
+      "remove_button": true
+    }
+  },
+  "chrome_url_overrides": {                   // 修改点击相应动作时返回的页面链接，只支持bookmarks、history、newtab三个页面
+    "bookmarks": "myPage.html",
+    "history": "myPage.html",
+    "newtab": "myPage.html"
+  },
+  "commands": {                               // 键盘触发插件快捷键
+    "_execute_browser_action": {
+      "suggested_key": {
+        "windows": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y",
+        "chromeos": "Ctrl+Shift+U",
+        "linux": "Ctrl+Shift+J"
+      }
+    },
+  },
+  "content_capabilities": {                                               // 页面权限
+    "matches": ["https://*.nyc.corp.google.com/*"],
+    "permissions": ["unlimitedStorage", "notifications"]
+  },
+  "content_scripts": [{                                                   // 可以操作页面元素，不能使用chrome的api
+    "matches": ["http://www.google.com/*"],
+    "css": ["mystyles.css"],
+    "js": ["jquery.js", "myscript.js"]
+  }],
+  "content_security_policy": "script-src 'self'; object-src 'self'",      // 安全策略，默认情况下禁止使用eval或者Function构造函数，以及内联js，禁止载入外部脚本
+  "converted_from_user_script": true,                                     // 将用户脚本转化为content script，允许使用GM_* (greasemonkey)方法
+  "copresence": ,
+  "current_locale": ,
+  "devtools_page": "devtools.html",                                       // 在开发中工具中的页面
+  "event_rules": [{                                                       // 事件监听规则及条件
+    "event": "declarativeContent.onPageChanged",
+    "actions": [{
+      "type": "declarativeContent.ShowPageAction"
+    }],
+    "conditions": [{
+      "type": "declarativeContent.PageStateMatcher",
+      "css": ["video"]
+    }]
+  }],
+  "externally_connectable": {                                             // 哪些外部扩展、应用或网页能连接此插件
+    "ids": [
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "*"                                                             // 允许所有可使用 "*"
+    ],
+    "matches": ["*://*.example.com/*"],
+    "accepts_tls_channel_id": false
+  },
+  "file_browser_handlers": [{                                             // 允许用户上传文件，只支持Chrome OS
+    "id": "upload",
+    "default_title": "Save to Gallery",                                 // 按钮文字
+    "file_filters": [
+      "filesystem:*.jpg",                                             // 匹配所有文件可用 "filesystem:*.*"
+      "filesystem:*.jpeg",
+      "filesystem:*.png"
+    ]
+  }],
+  "file_system_provider_capabilities": {                                  // 允许访问文件系统，只支持Chrome OS
+    "configurable": true,
+    "multiple_mounts": true,
+    "source": "network"
+  },
+  "homepage_url": "http://path/to/homepage",                              // 插件主页，显示在chrome扩展工具列表中
+  "export": {                                                             // 允许其他组件调用自己的模块
+    "whitelist": [
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+    ]
+  },
+  "import": [{"id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}],                 // 调用其他组件的模块，与其他组件的export属性共用
+  "incognito": "spanning or split or not_allowed",                        // 隐身模式
+  "input_components": [                                                   // 输入管理，键盘事件等
+    {
+      "name": "Test IME",
+      "type": "ime",
+      "id": "test",
+      "description": "Test IME",                                      // A user visible description
+      "language": "en-US",                                            // The primary language this IME is used for
+      "layouts": ["us::eng"]                                          // The supported keyboard layouts for this IME
+    }
+  ],
+  "key": "publicKey",                                                     // 自动生成，可不需要
+  "minimum_chrome_version": "versionString",                              // 要求支持的chrome的最低版本
+  "nacl_modules": [{                                                      // 使用native client 模块
+    "path": "OpenOfficeViewer.nmf",
+    "mime_type": "application/vnd.oasis.opendocument.spreadsheet"
+  }],
+  "oauth2": ,                                                             // 谷歌账户相关信息
+  "offline_enabled": true,                                                // 离线使用
+  "omnibox": {                                                            // 搜索关键词推荐
+    "keyword": "aString"
+  },
+  "optional_permissions": ["tabs"],                                       // 运行时权限，非必须权限
+  "options_page": "options.html",                                         // 设置页，可从扩展工具列表进入
+  "options_ui": {                                                         // 设置页
+    "chrome_style": true,
+    "page": "options.html"
+  },
+  "permissions": ["tabs"],                                                // 安装时提示的权限，基本权限
+  "platforms": ,                                                          // 可以将部分基于平台的功能文件放入_platform_specific目录然后列在此项中减少插件体积
+  "plugins": [{ "path": "extension_plugin.dll" }],                        // NPAPI插件
+  "requirements": {                                                       // 安装前置需求
+    "3D": {
+      "features": ["webgl"]
+    }
+  },
+  "sandbox": [                                                            // 放入沙盒中运行
+    {
+      "pages": [
+        "page1.html",
+        "directory/page2.html"
+      ],
+      // content_security_policy is optional.
+      "content_security_policy": "sandbox allow-scripts; script-src https://www.google.com"
+    }
+  ],
+  "short_name": "Short Name",                                             // 短名称，最长12个字母，如不设置则用name属性代替
+  "signature": ,
+  "spellcheck": ,                                                         // 拼写检查
+  "storage": {                                                            // 描述了各种属性的type，json格式文件，能在storage.managed API中调用
+    "managed_schema": "schema.json"
+  },
+  "system_indicator": ,                                                   // 实验性API，只在开发版中实现，已弃用
+  "tts_engine": {                                                         // text to speech
+    "voices": [
+      {
+        "voice_name": "Alice",
+        "lang": "en-US",
+        "gender": "female",
+        "event_types": ["start", "marker", "end"]
+      },
+      {
+        "voice_name": "Pat",
+        "lang": "en-US",
+        "event_types": ["end"]
+      }
+    ]
+  },
+  "update_url": "http://myhost.com/mytestextension/updates.xml",          // 插件更新地址
+  "version_name": "aString",                                              // 版本名，和version字段的区别是没有格式要求，任意字符串
+  "web_accessible_resources": ["images/*.png"]                            // 指定本扩展在注入的目标页面上所需使用的资源的路径
+}
