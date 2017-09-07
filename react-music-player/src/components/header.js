@@ -5,7 +5,7 @@
 import React, { Component } from 'react';
 import './header.less';
 
-console.log(React)
+console.log(process.env.PUBLIC_URL)
 //let Header = React.createClass({
 //    render(){
 //        return (
@@ -20,7 +20,7 @@ class Header extends Component {
     render() {
         return (
             <div className="components-header row">
-                <img src="static/imgs/logo.png" width="40px" className="-col-auto" alt="logo"/>
+                <img src={process.env.PUBLIC_URL + '/imgs/logo.png'} width="40px" className="-col-auto" alt="logo"/>
                 <h1>React Music Player</h1>
             </div>
         );
