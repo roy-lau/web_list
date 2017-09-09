@@ -3,7 +3,7 @@
 (function($){
 	// 图片加载
 	function PreLoad(imgs, options){
-		// 判断传来的数据是否是字符串，如果是字符串就将其封装成数组，如果是数组就直接返回给this.imgs
+		// 判断传来的数据是否是字符串，如果是字符串就将其封装成数组，如果是数组就直接返回给this.images
 		this.imgs = (typeof imgs === 'string') ?  [ imgs ] : imgs ;
 		// extend()方法是将后边的两个参数融合后传递给前一个参数
 		this.opts = $.extend({}, PreLoad.DEFAULTS, options);

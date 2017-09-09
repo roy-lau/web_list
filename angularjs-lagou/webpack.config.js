@@ -31,11 +31,11 @@ module.exports = {
         }, {
             test: /\.(png|jpg|gif|svg)$/i,
             use: [
-                'url-loader?linit=10000&name=dist/imgs/[name]-[hash:5].[ext]',
+                'url-loader?linit=10000&name=dist/images/[name]-[hash:5].[ext]',
                 'image-webpack'
             ],
             query:{
-                name: 'dist/imgs/[name]-[hash:5].[ext]'
+                name: 'dist/images/[name]-[hash:5].[ext]'
             }
         }],
 	  // postcss: [
