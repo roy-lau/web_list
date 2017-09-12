@@ -3,11 +3,12 @@
  */
 import React, { Component } from 'react';
 import './progress.less';
+
 class Progress extends Component {
     render() {
         return (
             <div className="components-progress row">
-                <div className="progress" style={{ width: `${this.props.progress}%`}}></div>
+                <div id="player" className="progress" style={{ width: `${this.props.progress}%`}}></div>
             </div>
         );
     }
