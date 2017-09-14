@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="roylau">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>创建排序二叉树</title>
+</head>
+
+<body>
+    <script>
+    // 二叉树方法
+    function BinaryTree() {
+        // 创建一个节点方法，里边包括左节点，右节点 和 传入的key
+        var Node = function(key) {
+            this.key = key;
+            this.left = null;
+            this.right = null;
+        };
+        // 创建一个空的根节点
+        var root = null;
+        // 插入节点的方法
+        var inserNode = function(node, newNode) {
+            debugger;
+            if (newNode.key < node.key) {
+                if (node.left === null) {
+                    node.left = newNode;
+                } else {
+                    inserNode(node.left, newNode);
+                }
+            } else {
+                if (node.right === null) {
+                    node.right = newNode;
+                } else {
+                    inserNode(node.right, newNode);
+                }
+            }
+        };
+        // 抛出一个插入方法
+        this.insert = function(key) {
+            debugger;
+            var newNode = new Node(key);
+            if (root === null) {
+                root = newNode;
+            } else {
+                inserNode(root, newNode);
+            }
+        };
+    };
+    var nodes = [8, 3, 10, 1, 6, 14, 4, 7, 13];
+    var binaryTree = new BinaryTree();
+    nodes.forEach(function(key) {
+        debugger;
+        binaryTree.insert(key);
+    })
+    </script>
+</body>
+
+</html>

@@ -6,7 +6,7 @@
     <meta name="author" content="roylau">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <title>排序二叉树</title>
+    <title>前序遍历二叉树</title>
 </head>
 
 <body>
@@ -17,14 +17,14 @@
         var Node = function(key) {
             this.key = key;
             this.left = null;
-            this.right = right;
+            this.right = null;
         };
         // 创建一个空的根节点
         var root = null;
         // 插入节点的方法
         var inserNode = function(node, newNode) {
             debugger;
-            if (node.key < newNode.key) {
+            if (newNode.key < node.key) {
                 if (node.left === null) {
                     node.left = newNode;
                 } else {
@@ -48,13 +48,37 @@
                 inserNode(root, newNode);
             }
         };
+// ============================================================
+
+        // 遍历二叉树逻辑流程
+        var preOrderTraverseNode =function(node,callback){
+                debugger;
+            if (node !== null) {
+                callback(node.key);         //********** callback回调的位置，决定了是什么排序法
+                preOrderTraverseNode(node.left,callback);
+                preOrderTraverseNode(node.right,callback);
+            }
+        }
+        // ------ 抛出一个前序遍历的接口
+        this.preOrderTraverse = function(callback){
+            debugger;
+            preOrderTraverseNode(root,callback);
+        }
     };
     var nodes = [8, 3, 10, 1, 6, 14, 4, 7, 13];
-    var binaryTree = BinaryTree();
+    var binaryTree = new BinaryTree();
     nodes.forEach(function(key) {
         debugger;
         binaryTree.insert(key);
     })
+    // 创建一个打印二叉树值的回调函数
+    var callback = function(key){
+        debugger;
+        console.log(key);
+    }
+    // 前序遍历
+    // 将回调函数传入到 binaryTree.inOrderTraverse 中
+    binaryTree.preOrderTraverse(callback);
     </script>
 </body>
 
