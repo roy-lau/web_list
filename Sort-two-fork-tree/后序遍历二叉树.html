@@ -51,18 +51,18 @@
 // ============================================================
 
         // 遍历二叉树逻辑流程
-        var preOrderTraverseNode =function(node,callback){
+        var postOrderTraverseNode =function(node,callback){
                 debugger;
             if (node !== null) {
-                preOrderTraverseNode(node.left,callback);
-                preOrderTraverseNode(node.right,callback);
+                postOrderTraverseNode(node.left,callback);
+                postOrderTraverseNode(node.right,callback);
                 callback(node.key);         //********** callback回调的位置，决定了是什么排序法
             }
         }
-        // ------ 抛出一个前序遍历的接口
-        this.preOrderTraverse = function(callback){
+        // ------ 抛出一个后序遍历的接口
+        this.postOrderTraverse = function(callback){
             debugger;
-            preOrderTraverseNode(root,callback);
+            postOrderTraverseNode(root,callback);
         }
     };
     var nodes = [8, 3, 10, 1, 6, 14, 4, 7, 13];
@@ -76,9 +76,9 @@
         debugger;
         console.log(key);
     }
-    // 前序遍历
+    // 后序遍历
     // 将回调函数传入到 binaryTree.inOrderTraverse 中
-    binaryTree.preOrderTraverse(callback);
+    binaryTree.postOrderTraverse(callback);
     </script>
 </body>
 
