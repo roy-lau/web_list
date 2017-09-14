@@ -1,4 +1,5 @@
-;(function($) {
+;
+(function($) {
     "use scrict"
     var Tab = function(tab) {
         var self = this;
@@ -7,12 +8,12 @@
 
         // 默认配置参数
         this.config = {
-                "triggerType": "mouseover", // 触发方式
-                "effect": "default", // 切换样式
-                "invoke": 1, // 默认显示第几个
-                "auto": false // 切换过渡(false：不自动切换，number自动切换时间)
-            }
-            // 如果配置参数存在，就将默认的配置参数扩展掉（或者叫替换）
+            "triggerType": "mouseover", // 触发方式
+            "effect": "default", // 切换样式
+            "invoke": 1, // 默认显示第几个
+            "auto": false // 切换过渡(false：不自动切换，number自动切换时间)
+        }
+        // 如果配置参数存在，就将默认的配置参数扩展掉（或者叫替换）
         if (this.getconfig()) {
             $.extend(this.config, this.getconfig()) // this.getconfig()替换掉this.config，
         }
@@ -42,58 +43,58 @@
 
         //---------- 自动切换功能
         if (config.auto) {
-        	// 定义一个全局的定时器
-        	this.timer = null;
-        	// 计数器
-        	this.loop = 0;
-        	// 自动间隔时间切换的方法
-        	this.autoPlay()
-        	//  移动到tab上时，停止定时器。移出时启动定时器。
-        	this.tab.hover(function(){
-        		// 移入时触发的事件
-        		window.clearInterval(self.timer)
-        	},function(){
-        		// 移出时触发的事件
-        		self.autoPlay()
-        	})
+            // 定义一个全局的定时器
+            this.timer = null;
+            // 计数器
+            this.loop = 0;
+            // 自动间隔时间切换的方法
+            this.autoPlay()
+            //  移动到tab上时，停止定时器。移出时启动定时器。
+            this.tab.hover(function() {
+                // 移入时触发的事件
+                window.clearInterval(self.timer)
+            }, function() {
+                // 移出时触发的事件
+                self.autoPlay()
+            })
         }
 
 
         //-------- 设置默认显示第几个tab
 
-        if (config.invoke >1 ) {
-        	this.invoke(this.tabItems.eq(config.invoke -1))
+        if (config.invoke > 1) {
+            this.invoke(this.tabItems.eq(config.invoke - 1))
         }
     }
 
     Tab.prototype = {
-    	// 自动间隔时间切换的方法
-    	autoPlay: function(){
-    		var self = this,
-    		tabItems = this.tabItems,	 // 临时保存tab列表
-    		tabLength = tabItems.size(), // tab的总个数（长度）
-    		config = this.config;		 // 配置参数
+        // 自动间隔时间切换的方法
+        autoPlay: function() {
+            var self = this,
+                tabItems = this.tabItems, // 临时保存tab列表
+                tabLength = tabItems.size(), // tab的总个数（长度）
+                config = this.config; // 配置参数
 
-    		this.timer = window.setInterval(function(){
-    			self.loop++;
-    			if (self.loop >= tabLength ) {
-    				self.loop = 0;
-    			}
-    			tabItems.eq(self.loop).trigger(config.triggerType);  // 触发配置参数上的事件;
+            this.timer = window.setInterval(function() {
+                self.loop++;
+                if (self.loop >= tabLength) {
+                    self.loop = 0;
+                }
+                tabItems.eq(self.loop).trigger(config.triggerType); // 触发配置参数上的事件;
 
-    		},config.auto)
-    	},
+            }, config.auto)
+        },
         // 事件驱动函数
         invoke: function(currentTab) { // currentTab当前的tab
             var self = this;
             /*
-				1. 执行tab选中状态选中状态加上actived
-				2. 切换对应的内容，根据配置参数effect是default还是fade
-    		*/
+                1. 执行tab选中状态选中状态加上actived
+                2. 切换对应的内容，根据配置参数effect是default还是fade
+            */
 
             // 获取图片的下标
             var index = currentTab.index()
-                // 给选中的li添加actived样式，同时 移除兄弟节点的actived样式
+            // 给选中的li添加actived样式，同时 移除兄弟节点的actived样式
             currentTab.addClass("actived").siblings().removeClass("actived");
 
             var effect = this.config.effect;
@@ -110,8 +111,8 @@
             }
 
             // *如果配置了auto，将loop的值设为index
-            if(this.config.auto){
-            	this.loop=index;
+            if (this.config.auto) {
+                this.loop = index;
             }
         },
 
@@ -133,21 +134,21 @@
 
     // 通过init方法触发tab插件
     // 初始化插件
-    Tab.init = function(tabs){
-    	var self = this;
-    	tabs.each(function(){
-    		new self($(this))
-    	})
+    Tab.init = function(tabs) {
+        var self = this;
+        tabs.each(function() {
+            new self($(this))
+        })
     }
 
     // jq初始化插件方法
     $.fn.extend({
-    	tab:function(){
-    		this.each(function(){
-    			new Tab($(this))
-    		})
-    		return this
-    	}
+        tab: function() {
+            this.each(function() {
+                new Tab($(this))
+            })
+            return this
+        }
     })
     window.Tab = Tab;
 })(jQuery)

@@ -1,4 +1,5 @@
-;(function($) {
+;
+(function($) {
 
     var lightBox = function() {
         var self = this;
@@ -12,15 +13,15 @@
         this.bodyNode = $(document.body);
 
         // 渲染剩余的DOM，并且插入到body里
-		this.renderDOM();
-		this.picViewArea    = this.popupWin.find("div.lightbox-pic-view"); // 获取图片的预览区域
-		this.popupPic       = this.popupWin.find("img.lightbox-image"); // 获取图片
-		this.picCaptionArea = this.popupWin.find("div.lightbox-pic-caption"); // 获取图片描述区域
-		this.nextBtn        = this.popupWin.find("span.lightbox-next-btn"); // 向右按钮
-		this.prevBtn        = this.popupWin.find("span.lightbox-prev-btn"); // 向左按钮
-		this.captionText    = this.popupWin.find("p.lightbox-pic-desc"); // 图片描述文字
-		this.currentIndex   = this.popupWin.find("span.lightbox-of-index"); // 图片当前索引
-		this.closeBtn       = this.popupWin.find("span.lightbox-close-btn"); // 关闭按钮
+        this.renderDOM();
+        this.picViewArea = this.popupWin.find("div.lightbox-pic-view"); // 获取图片的预览区域
+        this.popupPic = this.popupWin.find("img.lightbox-image"); // 获取图片
+        this.picCaptionArea = this.popupWin.find("div.lightbox-pic-caption"); // 获取图片描述区域
+        this.nextBtn = this.popupWin.find("span.lightbox-next-btn"); // 向右按钮
+        this.prevBtn = this.popupWin.find("span.lightbox-prev-btn"); // 向左按钮
+        this.captionText = this.popupWin.find("p.lightbox-pic-desc"); // 图片描述文字
+        this.currentIndex = this.popupWin.find("span.lightbox-of-index"); // 图片当前索引
+        this.closeBtn = this.popupWin.find("span.lightbox-close-btn"); // 关闭按钮
         //--- 准备开始事件委托，获取组的数据
 
         this.groupName = null;
@@ -88,19 +89,19 @@
         // 绑定窗口调整事件
         var timer = null
         this.clear = false
-        $(window).resize(function(){
-            if(self.clear){
+        $(window).resize(function() {
+            if (self.clear) {
                 window.clearTimeout(timer);
-                timer = window.setTimeout(function(){
-                self.loadPicSize(self.groupData[self.index].src);
-                },500)
+                timer = window.setTimeout(function() {
+                    self.loadPicSize(self.groupData[self.index].src);
+                }, 500)
             }
-        }).keyup(function(e){  // 使用上下左右按键也能切换图片
+        }).keyup(function(e) { // 使用上下左右按键也能切换图片
             if (self.clear) {
                 var keyValue = e.which;
-                if(keyValue == 38||keyValue == 37){
+                if (keyValue == 38 || keyValue == 37) {
                     self.prevBtn.click();
-                }else if(keyValue == 40|| keyValue ==39){
+                } else if (keyValue == 40 || keyValue == 39) {
                     self.nextBtn.click();
                 };
             }
@@ -108,7 +109,7 @@
 
     };
     lightBox.prototype = {
-    // 判断左右切换按钮事件
+        // 判断左右切换按钮事件
         goto: function(dir) {
             if (dir === "next") {
                 this.index++;
@@ -145,15 +146,15 @@
                 self.changePic(picWidth, picHeight);
             })
         },
-    // 根据图片大小变换弹出窗口大小
+        // 根据图片大小变换弹出窗口大小
         changePic: function(picWidth, picHeight) {
             var self = this,
                 winWidth = $(window).width(), // 获取当前视口的宽度
                 winHeight = $(window).height(); // 获取当前视口的高度
             // 如果图片的宽高大于浏览器视口的宽高比例。我们就判断是否溢出
             var scale = Math.min(winWidth / (picWidth + 10), winHeight / (picHeight + 10), 1),
-            width =  picWidth * scale,
-            height =  picHeight * scale;
+                width = picWidth * scale,
+                height = picHeight * scale;
 
             this.picViewArea.animate({
                 width: width - 10,
@@ -177,7 +178,7 @@
             this.captionText.text(this.groupData[this.index].caption);
             this.currentIndex.text("当前索引：" + (this.index + 1) + "of" + this.groupData.length)
         },
-    // 加载图片，在img标签内放置图片路径
+        // 加载图片，在img标签内放置图片路径
         preloadImg: function(src, callback) {
 
             var img = new Image();
@@ -199,7 +200,7 @@
         showMaskAndPopup: function(sourceSrc, currentId) {
             var self = this;
 
-            this.popupPic.hide();       // 隐藏图片
+            this.popupPic.hide(); // 隐藏图片
             this.picCaptionArea.hide(); // 隐藏描述区域
             this.popupMask.fadeIn(); // 遮罩层淡出
             // 保存当前视口的宽高
@@ -217,16 +218,16 @@
 
             // 设置图片的预览区域的位置
             this.popupWin.css({
-                    width: winWidth / 2 + 10,
-                    height: winHeight / 2 + 10,
-                    marginLeft: -(winWidth / 2 + 10) / 2,
-                    top: -viewHeight
-                }).animate({
-                    top: (winHeight - viewHeight) / 2
-                }, function() {
-                    // 加载图片
-                    self.loadPicSize(sourceSrc);
-                })
+                width: winWidth / 2 + 10,
+                height: winHeight / 2 + 10,
+                marginLeft: -(winWidth / 2 + 10) / 2,
+                top: -viewHeight
+            }).animate({
+                top: (winHeight - viewHeight) / 2
+            }, function() {
+                // 加载图片
+                self.loadPicSize(sourceSrc);
+            })
             // 根据当前点击的元素ID获取在当前组别里的索引
             this.index = this.getIndexOf(currentId);
 
@@ -243,14 +244,14 @@
                     this.prevBtn.removeClass('disabled');
                     this.nextBtn.removeClass('disabled');
                 }
-            }else {
+            } else {
                 this.prevBtn.addClass("disabled");
                 this.nextBtn.addClass("disabled");
             };
         },
-    // 获取数组的下标(图片的位置)
+        // 获取数组的下标(图片的位置)
         getIndexOf: function(currentId) {
-            var index =0;
+            var index = 0;
             $(this.groupData).each(function(i) {
                 index = i;
                 if (this.id === currentId) {
@@ -263,7 +264,7 @@
             var self = this,
                 sourceSrc = currentObj.attr("data-scource"), // 获取原图
                 currentId = currentObj.attr("data-id") // 获取ID值
-            this.showMaskAndPopup(sourceSrc,currentId);
+            this.showMaskAndPopup(sourceSrc, currentId);
         },
         getGroup: function() {
             var self = this;
