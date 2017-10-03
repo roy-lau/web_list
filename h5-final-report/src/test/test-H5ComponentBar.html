@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+    <title>用于开发测试 H5ComponentBase 对象（基本的图文组件）</title>
+    <link rel="stylesheet" href="../css/H5ComponentBase.css">
+    <!-- 柱状图css -->
+    <link rel="stylesheet" href="../css/H5ComponentBar.css">
+</head>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    font-size: 12px;
+}
+
+.iphone {
+    width: 340px;
+    height: 540px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -270px 0 0 -170px;
+}
+
+.h5_component_base {
+    transition: all 1s;
+}
+</style>
+
+<body>
+    <div class="iphone"></div>
+</body>
+<script src="../js/lib/jquery.js"></script>
+<script src="../js/H5ComponentBase.js"></script>
+<!-- 引入柱状图的js -->
+<script src="../js/H5ComponentBar.js"></script>
+<script>
+var cfg = {
+    type: 'bar',
+    width: 530,
+    height: 600,
+    data: [
+        ['JavaScript', .4, '#FF7676'],
+        ['HTML/CSS', .2],
+        ['CSS3', .1],
+        ['HTML5', .2],
+        ['vue', .35],
+        ['react', .05],
+        ['angurlar', .09],
+    ],
+    css: { opacity: 0, top: 100, },
+    animateIn: { opacity: 1, top: 200 },
+    animateOut: { opacity: 0, top: 100 },
+    center: true,
+}
+var h5 = new H5ComponentBar("MyBarComponent", cfg);
+$('.iphone').append(h5);
+
+var load = true;
+$('body').click(function() {
+    load = !load
+    $('.h5_component').trigger(load ? 'onLeave' : 'onLoad')
+})
+</script>
+
+</html>
