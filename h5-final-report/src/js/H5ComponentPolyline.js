@@ -9,6 +9,7 @@ var H5ComponentPolyline = function(name, cfg) {
         ctx = cns.getContext('2d');
     cns.width = ctx.width = w;
     cns.height = ctx.height = h;
+    component.append(cns);
 
     // 水平网格线 100份 -->100份
     var step = 10;
@@ -37,7 +38,7 @@ var H5ComponentPolyline = function(name, cfg) {
         }
     }
     ctx.stroke();
-    component.append(cns);
+    // component.append(cns);
 
     /**
      * 绘制折线以及对应的数据和阴影
@@ -48,7 +49,6 @@ var H5ComponentPolyline = function(name, cfg) {
         // 清空画布
         ctx.clearRect(0, 0, w, h);
         // 加入画布————数据层
-        // 绘制折线数据
         ctx.beginPath(); // 画线
         ctx.lineWidth = 3; // 画笔的宽度为3
         ctx.strokeStyle = '#FF8878'; // 画笔的颜色
