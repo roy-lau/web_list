@@ -30,7 +30,7 @@ var H5ComponentPie = function(name, cfg) {
     $(cns).css("zIndex", 2);
     component.append(cns);
 
-    var colors = ['red', 'green', 'yellow', 'blue', 'orange', 'gray'], // 备用颜色
+    var colors = ['red', 'green', 'blue', 'orange', 'yellow', 'gray','brown'], // 备用颜色
         sAngel = 1.5 * Math.PI, // 设置开始角度在 12 点的位置
         eAngel = 0, // 结束角度
         aAngel = Math.PI * 2; // 100%圆结束的角度 2PI = 360度
@@ -59,7 +59,6 @@ var H5ComponentPie = function(name, cfg) {
         text.append(per);
         var x = r + Math.sin(.5 * Math.PI - sAngel) * r;
         var y = r + Math.cos(.5 * Math.PI - sAngel) * r;
-        text.css('top', y / 2);
         if (x > w / 2) {
             text.css('left', x / 2);
         } else {

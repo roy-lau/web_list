@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+    <title> </title>
+    <link rel="stylesheet" href="css/H5.css" />
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+    }
+    .h5_page{
+        background-image: url(imgs/page_bg.png);
+    }
+    .h5_page_face {
+        background-image: url(imgs/face_bg.png);
+    }
+    .h5_component_name_slogan{
+        -webkit-animation: rock 2s infinite 2s;
+    }
+    @-webkit-keyframes rock{
+        0%{transform:rotate(0deg);}
+        5%{transform:rotate(3deg);}
+        10%{transform:rotate(-4deg);}
+        15%{transform:rotate(3deg);}
+        20%{transform:rotate(-2deg);}
+        25%{transform:rotate(1deg);}
+        30%{transform:rotate(-1deg);}
+        70%{transform:rotate(0deg);}
+        100%{transform:rotate(0deg);}
+    }
+    .h5_component_name_caption{
+        background-image: url(imgs/page_caption_bg.png);
+        width: 283px;
+        height: 160px;
+        text-align: center;
+        line-height: 140px;
+        font-size: 20px;
+        color: #FFF;
+    }
+    .h5_component_name_back{
+        top:30px;
+        -webkit-animation: back 2s infinite 2s;
+    }
+    @-webkit-keyframes back{
+        50%{top:20px;}
+    }
+    </style>
+</head>
+
+<body>
+    <div class="iphone"></div>
+</body>
+<!-- 加载所有组件资源 -->
+<script src="js/lib/jquery.js"></script>
+<script src="js/lib/jquery-ui.min.js"></script>
+<script src="js/lib/jquery.fullPage.js"></script>
+<script>
+// 加载 H5 相关资源文件
+var res = ['Base', 'Bar', 'Bar_v', 'Point', 'Polyline', 'Radar', 'Pie', 'Ring'];
+var html = [];
+for (s in res) {
+    html.push('<script src="js/H5Component' + res[s] + '.js"><\/script>');
+    html.push('<link rel="stylesheet" href="css/H5Component' + res[s] + '.css" \/>')
+}
+document.write(html.join(''))
+</script>
+<!-- H5对象：进行内容管理 -->
+<script src="js/H5.js"></script>
+<!-- 主要逻辑 -->
+<script>
+$(function() {
+    var h5 = new H5();
+
+    h5.whenAddPage = function(){
+        this.addComponent('footer',{
+            bg:'imgs/footer.png',
+            css:{opacity:0, left:0,bottom:-20,width:'100%',height:'20px',zIndex:999},
+            animateIn:{opacity:1,bottom:'-1px'},
+            animateOut:{opacity:0,bottom:'-20px'},
+            delay:500,
+        });
+    };
+
+    h5.addPage('face')
+        .addComponent('logo', {
+            width: 390,
+            height: 130,
+            bg: 'imgs/face_logo.png',
+            center: true,
+            css: { opacity: 0 },
+            animateIn: { top: 100, opacity: 1 },
+            animateOut: { top: 0, opacity: 0 },
+        })
+        .addComponent('slogan', {
+            width: 365,
+            height: 99,
+            bg: 'imgs/face_slogan.png',
+            center: true,
+            css: { opacity: 0, top: 180 },
+            animateIn: { left: '50%', opacity: 1 },
+            animateOut: { left: '0%', opacity: 0 },
+            delay: 500,
+        })
+        .addComponent('face_img_left', {
+            width: 370,
+            height: 493,
+            bg: 'imgs/face_img_left.png',
+            css: { opacity: 0, left: -50, bottom: -50 },
+            animateIn: { opacity: 1, left: 0, bottom: 0 },
+            animateOut: { opacity: 0, left: -50, bottom: -50 },
+            delay: 1000,
+        })
+        .addComponent('face_img_right', {
+            width: 276,
+            height: 449,
+            bg: 'imgs/face_img_right.png',
+            css: { opacity: 0, right: -50, bottom: -50 },
+            animateIn: { opacity: 1, right: 0, bottom: 0 },
+            animateOut: { opacity: 0, right: -50, bottom: -50 },
+            delay: 1000,
+        })
+        .addPage()
+        .addComponent('caption', {text: '核心理念'})
+        .addComponent('text', {
+            width:500,
+            height:30,
+            center:true,
+            text:'IT教育网=只学有用的',
+            css:{opacity:0,textAlign:'center',color:'red',fontSize:'26px'},
+            animateIn:{opacity:1,top:120},
+            animateOut:{opacity:0,top:240},
+        })
+        .addComponent('description',{
+            width:481,
+            height:295,
+            center:true,
+            bg:'imgs/description_bg.gif',
+            css:{opacity:0,top:240,padding:'15px 10px 10px 10px',color:'#FFF',fontSize:'15px',lineHeight:'18px',textAlign:'justify'},
+            text:'一大段文字，一大段文字，一大段文字，一大段文字，',
+            animateIn:{opacity:1,top:190},
+            animateOut:{opacity:1,top:180},
+            delay:1000,
+        })
+        .addComponent('people',{
+            width:515,
+            height:305,
+            center:true,
+            bg:'imgs/p1_people.png',
+            css:{opacity:0,bottom:0},
+            animateIn:{opacity:1,bottom:40},
+            animateOut:{opacity:0,bottom:0},
+            delay:500
+        })
+        .addPage('tail')
+        .addComponent('logo', {
+            width: 359,
+            height: 129,
+            center: true,
+            bg:'imgs/tail_logo.png',
+            css:{opacity:0, top: 200},
+            animateIn:{opacity:1,top:210},
+            animateOut:{opacity:0,top:240},
+        })
+        .addComponent('slogan', {
+            width: 314,
+            height: 46,
+            center: true,
+            bg:'imgs/tail_slogan.png',
+            css:{opacity:0, top: 280},
+            animateIn:{opacity:1,left:'50%'},
+            animateOut:{opacity:0,left:'0%'},
+            delay:500,
+        })
+        .addComponent('share', {
+            width: 128,
+            height: 120,
+            bg:'imgs/tail_share.png',
+            css:{opacity:0, top: 110,right:110},
+            animateIn:{opacity:1,top:10,right:10},
+            animateOut:{opacity:0,top:110,right:110},
+            delay:1000,
+        })
+        .addComponent('back', {
+            width: 52,
+            height: 50,
+            center:true,
+            bg:'imgs/tail_back.png',
+            onclick:function(){
+                $.fn.fullpage.moveTo(1);
+            }
+        })
+        .loader(3)
+})
+</script>
+
+</html>

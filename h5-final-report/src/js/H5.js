@@ -17,13 +17,16 @@ var H5 = function() {
     this.addPage = function(name, text) {
         var page = $('<div class="h5_page section">');
         if (name !== undefined) {
-            page.addClass('h5_page' + name);
+            page.addClass('h5_page_' + name);
         }
         if (text !== undefined) {
             page.text(text);
         }
         this.el.append(page);
         this.page.push(page);
+        if (typeof this.whenAddPage === 'function') {
+            this.whenAddPage();
+        }
         return this;
     }
     /* 新增一个组件 */
@@ -45,7 +48,7 @@ var H5 = function() {
         return this;
     }
     /* H5对象初始化呈现 */
-    this.loader = function() {
+    this.loader = function(firstPage) {
     	// 全屏滚动
         this.el.fullpage({
             onLeave: function(index, nextIndex, direction) {
@@ -57,6 +60,9 @@ var H5 = function() {
         })
         this.page[0].find('.h5_component').trigger('onLoad');
         this.el.show();
+        if (firstPage) {
+            $.fn.fullpage.moveTo(firstPage);
+        }
     }
     return this;
 }
