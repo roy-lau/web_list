@@ -22,9 +22,13 @@ var H5ComponentPoint = function(name, cfg) {
         if (item[3] !== undefined && item[4] !== undefined) {
             point.css('left', item[3]).css('top', item[4]);
         }
-
+        point.css('transition','all 1s '+i*.5+'s');
         component.append(point);
     });
-
+    component.find('.point').on('click',function(){
+        component.find('.point').removeClass('point_focus');
+        $(this).addClass('point_focus');
+        return false;
+    }).eq(0).addClass('point_focus');
     return component;
 }

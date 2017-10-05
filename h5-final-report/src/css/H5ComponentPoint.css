@@ -1,6 +1,6 @@
 /* 散点图组件样式 */
 .h5_component_point{
-
+	color: #FFF;
 }
 
 .h5_component_point .point{
@@ -8,8 +8,11 @@
 	background-color: #ccc;
 	position: absolute;
 	border-radius: 50%;
-	-webkit-opacity:0;
+	// opacity:0;
 	-webkit-transition: all 1s;
+}
+.h5_component_point .point_focus{
+	opacity:1;
 }
 .h5_component_point .name{
 	height: 30px;
