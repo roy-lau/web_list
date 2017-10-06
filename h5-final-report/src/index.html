@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
     <title> </title>
     <link rel="stylesheet" href="css/H5.css" />
+    <link rel="stylesheet" href="css/H5-loading.css" />
     <style>
     body {
         margin: 0;
@@ -79,7 +80,11 @@
 </head>
 
 <body>
-    <div class="iphone"></div>
+    <div class="loading">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+        <div id="rate">0%</div>
+    </div>
 </body>
 <!-- 加载所有组件资源 -->
 <script src="js/lib/jquery.js"></script>
@@ -97,6 +102,7 @@ document.write(html.join(''))
 </script>
 <!-- H5对象：进行内容管理 -->
 <script src="js/H5.js"></script>
+<script src="js/H5-loading.js"></script>
 <!-- 主要逻辑 -->
 <script>
 $(function() {
@@ -202,16 +208,16 @@ $(function() {
             animateOut: { opacity: 0, top: 120 },
             center: true,
         })
-        .addComponent('massage',{
-            text:'前端开发课程占到40%',
-            css:{opacity:0,top:200,textAlign:'center',width:'100%',color:'#FF7676'},
-            animateIn:{opacity:1},
-            animateOut:{opacity:0}
+        .addComponent('massage', {
+            text: '前端开发课程占到40%',
+            css: { opacity: 0, top: 200, textAlign: 'center', width: '100%', color: '#FF7676' },
+            animateIn: { opacity: 1 },
+            animateOut: { opacity: 0 }
         })
         .addPage()
         .addComponent('caption', { text: '移动开发课程资源' }) // pie
-        .addComponent('pie',{
-           type: 'pie',
+        .addComponent('pie', {
+            type: 'pie',
             width: 400,
             height: 400,
             data: [
@@ -223,20 +229,20 @@ $(function() {
                 ['react', .125],
                 ['angurlar', .1],
             ],
-            css: {opacity: 0,top: 80, },
+            css: { opacity: 0, top: 80, },
             animateIn: { opacity: 1, top: 180 },
             animateOut: { opacity: 0, top: 80 },
             center: true,
         })
-        .addComponent('massage',{
-            text:'移动课程 Android 占到40%',
-            css:{opacity:0,bottom:30,textAlign:'center',width:'100%',color:'#FF7676'},
-            animateIn:{opacity:1},
-            animateOut:{opacity:0}
+        .addComponent('massage', {
+            text: '移动课程 Android 占到40%',
+            css: { opacity: 0, bottom: 30, textAlign: 'center', width: '100%', color: '#FF7676' },
+            animateIn: { opacity: 1 },
+            animateOut: { opacity: 0 }
         })
         .addPage()
         .addComponent('caption', { text: '前端开发课程' }) // bar(bar_v)
-        .addComponent('bar',{
+        .addComponent('bar', {
             type: 'bar',
             width: 530,
             height: 600,
@@ -254,15 +260,15 @@ $(function() {
             animateOut: { opacity: 0, top: 100 },
             center: true,
         })
-        .addComponent('massage',{
-            text:'前端课程 JavaScript 占到40%',
-            css:{opacity:0,bottom:30,textAlign:'center',width:'100%',color:'#FF7676'},
-            animateIn:{opacity:1},
-            animateOut:{opacity:0}
+        .addComponent('massage', {
+            text: '前端课程 JavaScript 占到40%',
+            css: { opacity: 0, bottom: 30, textAlign: 'center', width: '100%', color: '#FF7676' },
+            animateIn: { opacity: 1 },
+            animateOut: { opacity: 0 }
         })
         .addPage()
         .addComponent('caption', { text: '后端开发课程' }) // radar
-        .addComponent('radar',{
+        .addComponent('radar', {
             type: 'radar',
             width: 400,
             height: 400,
@@ -275,7 +281,7 @@ $(function() {
                 ['react', .5],
                 ['angurlar', .8],
             ],
-            css: {opacity: 0,top: 100, },
+            css: { opacity: 0, top: 100, },
             animateIn: { opacity: 1, top: 200 },
             animateOut: { opacity: 0, top: 100 },
             center: true,
@@ -285,16 +291,16 @@ $(function() {
         // 环图没做
         .addPage()
         .addComponent('caption', { text: '课程难度分布' }) // point
-        .addComponent('point',{
+        .addComponent('point', {
             type: 'point',
             width: 300,
             height: 300,
-            data:[
-                ['高级', .4 , 'green'],
-                ['中级', .2 , 'yellow', 0, '-60%'],
-                ['初级', .2 , 'red', '50%' , '120%']
+            data: [
+                ['高级', .4, 'green'],
+                ['中级', .2, 'yellow', 0, '-60%'],
+                ['初级', .2, 'red', '50%', '120%']
             ],
-            css:{bottom: 0,opacity: 1},
+            css: { bottom: 0, opacity: 1 },
             // animateIn:{ bottom: '30%',opacity:1},
             // animateOut:{ bottom: 0,opacity:0},
             center: true,
@@ -337,7 +343,7 @@ $(function() {
                 $.fn.fullpage.moveTo(1);
             }
         })
-        .loader(1)
+        .loader(['imgs/footer.png', 'imgs/face_logo.png', 'imgs/face_slogan.png', 'imgs/face_img_left.png', 'imgs/face_img_right.png', 'imgs/description_bg.gif', 'imgs/p1_people.png', 'imgs/tail_logo.png', 'imgs/tail_slogan.png', 'imgs/tail_share.png', 'imgs/tail_back.png'])
 })
 </script>
 
