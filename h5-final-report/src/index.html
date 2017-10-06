@@ -119,234 +119,243 @@ $(function() {
         });
     };
 
-    h5.addPage('face')
-        .addComponent('logo', {
-            width: 390,
-            height: 130,
-            bg: 'imgs/face_logo.png',
-            center: true,
-            css: { opacity: 0 },
-            animateIn: { top: 100, opacity: 1 },
-            animateOut: { top: 0, opacity: 0 },
-        })
-        .addComponent('slogan', {
-            width: 365,
-            height: 99,
-            bg: 'imgs/face_slogan.png',
-            center: true,
-            css: { opacity: 0, top: 180 },
-            animateIn: { left: '50%', opacity: 1 },
-            animateOut: { left: '0%', opacity: 0 },
-            delay: 500,
-        })
-        .addComponent('face_img_left', {
-            width: 370,
-            height: 493,
-            bg: 'imgs/face_img_left.png',
-            css: { opacity: 0, left: -50, bottom: -50 },
-            animateIn: { opacity: 1, left: 0, bottom: 0 },
-            animateOut: { opacity: 0, left: -50, bottom: -50 },
-            delay: 1000,
-        })
-        .addComponent('face_img_right', {
-            width: 276,
-            height: 449,
-            bg: 'imgs/face_img_right.png',
-            css: { opacity: 0, right: -50, bottom: -50 },
-            animateIn: { opacity: 1, right: 0, bottom: 0 },
-            animateOut: { opacity: 0, right: -50, bottom: -50 },
-            delay: 1000,
-        })
-        .addPage()
-        .addComponent('caption', { text: '核心理念' })
-        .addComponent('text', {
-            width: 500,
-            height: 30,
-            center: true,
-            text: 'IT教育网=只学有用的',
-            css: { opacity: 0, textAlign: 'center', color: 'red', fontSize: '26px' },
-            animateIn: { opacity: 1, top: 120 },
-            animateOut: { opacity: 0, top: 240 },
-        })
-        .addComponent('description', {
-            width: 481,
-            height: 295,
-            center: true,
-            bg: 'imgs/description_bg.gif',
-            css: { opacity: 0, top: 240, padding: '15px 10px 10px 10px', color: '#FFF', fontSize: '15px', lineHeight: '18px', textAlign: 'justify' },
-            text: '一大段文字，一大段文字，一大段文字，一大段文字，',
-            animateIn: { opacity: 1, top: 190 },
-            animateOut: { opacity: 1, top: 180 },
-            delay: 1000,
-        })
-        .addComponent('people', {
-            width: 515,
-            height: 305,
-            center: true,
-            bg: 'imgs/p1_people.png',
-            css: { opacity: 0, bottom: 0 },
-            animateIn: { opacity: 1, bottom: 40 },
-            animateOut: { opacity: 0, bottom: 0 },
-            delay: 500
-        })
-        .addPage()
-        .addComponent('caption', { text: '课程分布方向' }) // polyline
-        .addComponent('polyline', {
-            type: 'polyline',
-            width: 530,
-            height: 400,
-            data: [
-                ['JS', .4, '#FF7676'],
-                ['H5/C3', .2],
-                ['CSS3', .1],
-                ['H5', .2],
-                ['vue', .35],
-                ['react', .05],
-                ['angurlar', .09],
-            ],
-            css: { opacity: 0, top: 120, },
-            animateIn: { opacity: 1, top: 200 },
-            animateOut: { opacity: 0, top: 120 },
-            center: true,
-        })
-        .addComponent('massage', {
-            text: '前端开发课程占到40%',
-            css: { opacity: 0, top: 200, textAlign: 'center', width: '100%', color: '#FF7676' },
-            animateIn: { opacity: 1 },
-            animateOut: { opacity: 0 }
-        })
-        .addPage()
-        .addComponent('caption', { text: '移动开发课程资源' }) // pie
-        .addComponent('pie', {
-            type: 'pie',
-            width: 400,
-            height: 400,
-            data: [
-                ['JS', .2, '#FF7676'],
-                ['H5/C3', .25],
-                ['CSS3', .15],
-                ['H5', .125],
-                ['vue', .3],
-                ['react', .125],
-                ['angurlar', .1],
-            ],
-
-            css: {opacity: 0,top: 80, },
-            animateIn: { opacity: 1, top: 180 },
-            animateOut: { opacity: 0, top: 80 },
-            center: true,
-        })
-        .addComponent('massage',{
-            text:'移动课程 Android 占到40%',
-            css:{opacity:0,bottom:30,textAlign:'center',width:'100%',color:'#FF7676'},
-            animateIn:{opacity:1},
-            animateOut:{opacity:0}
-        })
-        .addPage()
-        .addComponent('caption', { text: '前端开发课程' }) // bar(bar_v)
-        .addComponent('bar',{
-            type: 'bar',
-            width: 530,
-            height: 600,
-            data: [
-                ['JavaScript', .4, '#FF7676'],
-                ['HTML/CSS', .2],
-                ['CSS3', .1],
-                ['HTML5', .2],
-                ['vue', .35],
-                ['react', .05],
-                ['angurlar', .09],
-            ],
-            css: { opacity: 0, top: 100, },
-            animateIn: { opacity: 1, top: 200 },
-            animateOut: { opacity: 0, top: 100 },
-            center: true,
-        })
-        .addComponent('massage', {
-            text: '前端课程 JavaScript 占到40%',
-            css: { opacity: 0, bottom: 30, textAlign: 'center', width: '100%', color: '#FF7676' },
-            animateIn: { opacity: 1 },
-            animateOut: { opacity: 0 }
-        })
-        .addPage()
-        .addComponent('caption', { text: '后端开发课程' }) // radar
-        .addComponent('radar', {
-            type: 'radar',
-            width: 400,
-            height: 400,
-            data: [
-                ['JS', .4, '#FF7676'],
-                ['H5/C3', .2],
-                ['CSS3', .6],
-                ['H5', .2],
-                ['vue', .5],
-                ['react', .5],
-                ['angurlar', .8],
-            ],
-            css: {opacity: 0,top: 100, },
-            animateIn: { opacity: 1, top: 200 },
-            animateOut: { opacity: 0, top: 100 },
-            center: true,
-        })
-        .addPage()
-        .addComponent('caption', { text: '课程报名人数过万' }) // ring
-        // 环图没做
-        .addPage()
-        .addComponent('caption', { text: '课程难度分布' }) // point
-        .addComponent('point',{
-            type: 'point',
-            width: 300,
-            height: 300,
-            data:[
-                ['高级', .4 , 'green'],
-                ['中级', .2 , 'yellow', 0, '-60%'],
-                ['初级', .2 , 'red', '50%' , '120%']
-            ],
-            css:{bottom: 0,opacity: 1},
-            // animateIn:{ bottom: '30%',opacity:1},
-            // animateOut:{ bottom: 0,opacity:0},
-            center: true,
-        })
-        .addPage('tail')
-        .addComponent('logo', {
-            width: 359,
-            height: 129,
-            center: true,
-            bg: 'imgs/tail_logo.png',
-            css: { opacity: 0, top: 200 },
-            animateIn: { opacity: 1, top: 210 },
-            animateOut: { opacity: 0, top: 240 },
-        })
-        .addComponent('slogan', {
-            width: 314,
-            height: 46,
-            center: true,
-            bg: 'imgs/tail_slogan.png',
-            css: { opacity: 0, top: 280 },
-            animateIn: { opacity: 1, left: '50%' },
-            animateOut: { opacity: 0, left: '0%' },
-            delay: 500,
-        })
-        .addComponent('share', {
-            width: 128,
-            height: 120,
-            bg: 'imgs/tail_share.png',
-            css: { opacity: 0, top: 110, right: 110 },
-            animateIn: { opacity: 1, top: 10, right: 10 },
-            animateOut: { opacity: 0, top: 110, right: 110 },
-            delay: 1000,
-        })
-        .addComponent('back', {
-            width: 52,
-            height: 50,
-            center: true,
-            bg: 'imgs/tail_back.png',
-            onclick: function() {
-                $.fn.fullpage.moveTo(1);
+    $.getJSON('jdata.json',function(json){
+        $.each(json,function(i,item){
+            if(item.isPage){
+                h5.addPage(item.name,item.text)
+            }else{
+                h5.addComponent(item.name,item.cfg)
             }
         })
-        .loader(['imgs/footer.png', 'imgs/face_logo.png', 'imgs/face_slogan.png', 'imgs/face_img_left.png', 'imgs/face_img_right.png', 'imgs/description_bg.gif', 'imgs/p1_people.png', 'imgs/tail_logo.png', 'imgs/tail_slogan.png', 'imgs/tail_share.png', 'imgs/tail_back.png'])
-        .loader(1)
+    })
+    // h5.addPage('face')
+    //     .addComponent('logo', {
+    //         width: 390,
+    //         height: 130,
+    //         bg: 'imgs/face_logo.png',
+    //         center: true,
+    //         css: { opacity: 0 },
+    //         animateIn: { top: 100, opacity: 1 },
+    //         animateOut: { top: 0, opacity: 0 },
+    //     })
+    //     .addComponent('slogan', {
+    //         width: 365,
+    //         height: 99,
+    //         bg: 'imgs/face_slogan.png',
+    //         center: true,
+    //         css: { opacity: 0, top: 180 },
+    //         animateIn: { left: '50%', opacity: 1 },
+    //         animateOut: { left: '0%', opacity: 0 },
+    //         delay: 500,
+    //     })
+    //     .addComponent('face_img_left', {
+    //         width: 370,
+    //         height: 493,
+    //         bg: 'imgs/face_img_left.png',
+    //         css: { opacity: 0, left: -50, bottom: -50 },
+    //         animateIn: { opacity: 1, left: 0, bottom: 0 },
+    //         animateOut: { opacity: 0, left: -50, bottom: -50 },
+    //         delay: 1000,
+    //     })
+    //     .addComponent('face_img_right', {
+    //         width: 276,
+    //         height: 449,
+    //         bg: 'imgs/face_img_right.png',
+    //         css: { opacity: 0, right: -50, bottom: -50 },
+    //         animateIn: { opacity: 1, right: 0, bottom: 0 },
+    //         animateOut: { opacity: 0, right: -50, bottom: -50 },
+    //         delay: 1000,
+    //     })
+    //     .addPage()
+    //     .addComponent('caption', { text: '核心理念' })
+    //     .addComponent('text', {
+    //         width: 500,
+    //         height: 30,
+    //         center: true,
+    //         text: 'IT教育网=只学有用的',
+    //         css: { opacity: 0, textAlign: 'center', color: 'red', fontSize: '26px' },
+    //         animateIn: { opacity: 1, top: 120 },
+    //         animateOut: { opacity: 0, top: 240 },
+    //     })
+    //     .addComponent('description', {
+    //         width: 481,
+    //         height: 295,
+    //         center: true,
+    //         bg: 'imgs/description_bg.gif',
+    //         css: { opacity: 0, top: 240, padding: '15px 10px 10px 10px', color: '#FFF', fontSize: '15px', lineHeight: '18px', textAlign: 'justify' },
+    //         text: '一大段文字，一大段文字，一大段文字，一大段文字，',
+    //         animateIn: { opacity: 1, top: 190 },
+    //         animateOut: { opacity: 1, top: 180 },
+    //         delay: 1000,
+    //     })
+    //     .addComponent('people', {
+    //         width: 515,
+    //         height: 305,
+    //         center: true,
+    //         bg: 'imgs/p1_people.png',
+    //         css: { opacity: 0, bottom: 0 },
+    //         animateIn: { opacity: 1, bottom: 40 },
+    //         animateOut: { opacity: 0, bottom: 0 },
+    //         delay: 500
+    //     })
+    //     .addPage()
+    //     .addComponent('caption', { text: '课程分布方向' }) // polyline
+    //     .addComponent('polyline', {
+    //         type: 'polyline',
+    //         width: 530,
+    //         height: 400,
+    //         data: [
+    //             ['JS', .4, '#FF7676'],
+    //             ['H5/C3', .2],
+    //             ['CSS3', .1],
+    //             ['H5', .2],
+    //             ['vue', .35],
+    //             ['react', .05],
+    //             ['angurlar', .09],
+    //         ],
+    //         css: { opacity: 0, top: 120, },
+    //         animateIn: { opacity: 1, top: 200 },
+    //         animateOut: { opacity: 0, top: 120 },
+    //         center: true,
+    //     })
+    //     .addComponent('massage', {
+    //         text: '前端开发课程占到40%',
+    //         css: { opacity: 0, top: 200, textAlign: 'center', width: '100%', color: '#FF7676' },
+    //         animateIn: { opacity: 1 },
+    //         animateOut: { opacity: 0 }
+    //     })
+    //     .addPage()
+    //     .addComponent('caption', { text: '移动开发课程资源' }) // pie
+    //     .addComponent('pie', {
+    //         type: 'pie',
+    //         width: 400,
+    //         height: 400,
+    //         data: [
+    //             ['JS', .2, '#FF7676'],
+    //             ['H5/C3', .25],
+    //             ['CSS3', .15],
+    //             ['H5', .125],
+    //             ['vue', .3],
+    //             ['react', .125],
+    //             ['angurlar', .1],
+    //         ],
+
+    //         css: {opacity: 0,top: 80, },
+    //         animateIn: { opacity: 1, top: 180 },
+    //         animateOut: { opacity: 0, top: 80 },
+    //         center: true,
+    //     })
+    //     .addComponent('massage',{
+    //         text:'移动课程 Android 占到40%',
+    //         css:{opacity:0,bottom:30,textAlign:'center',width:'100%',color:'#FF7676'},
+    //         animateIn:{opacity:1},
+    //         animateOut:{opacity:0}
+    //     })
+    //     .addPage()
+    //     .addComponent('caption', { text: '前端开发课程' }) // bar(bar_v)
+    //     .addComponent('bar',{
+    //         type: 'bar',
+    //         width: 530,
+    //         height: 600,
+    //         data: [
+    //             ['JavaScript', .4, '#FF7676'],
+    //             ['HTML/CSS', .2],
+    //             ['CSS3', .1],
+    //             ['HTML5', .2],
+    //             ['vue', .35],
+    //             ['react', .05],
+    //             ['angurlar', .09],
+    //         ],
+    //         css: { opacity: 0, top: 100, },
+    //         animateIn: { opacity: 1, top: 200 },
+    //         animateOut: { opacity: 0, top: 100 },
+    //         center: true,
+    //     })
+    //     .addComponent('massage', {
+    //         text: '前端课程 JavaScript 占到40%',
+    //         css: { opacity: 0, bottom: 30, textAlign: 'center', width: '100%', color: '#FF7676' },
+    //         animateIn: { opacity: 1 },
+    //         animateOut: { opacity: 0 }
+    //     })
+    //     .addPage()
+    //     .addComponent('caption', { text: '后端开发课程' }) // radar
+    //     .addComponent('radar', {
+    //         type: 'radar',
+    //         width: 400,
+    //         height: 400,
+    //         data: [
+    //             ['JS', .4, '#FF7676'],
+    //             ['H5/C3', .2],
+    //             ['CSS3', .6],
+    //             ['H5', .2],
+    //             ['vue', .5],
+    //             ['react', .5],
+    //             ['angurlar', .8],
+    //         ],
+    //         css: {opacity: 0,top: 100, },
+    //         animateIn: { opacity: 1, top: 200 },
+    //         animateOut: { opacity: 0, top: 100 },
+    //         center: true,
+    //     })
+    //     .addPage()
+    //     .addComponent('caption', { text: '课程报名人数过万' }) // ring
+    //     // 环图没做
+    //     .addPage()
+    //     .addComponent('caption', { text: '课程难度分布' }) // point
+    //     .addComponent('point',{
+    //         type: 'point',
+    //         width: 300,
+    //         height: 300,
+    //         data:[
+    //             ['高级', .4 , 'green'],
+    //             ['中级', .2 , 'yellow', 0, '-60%'],
+    //             ['初级', .2 , 'red', '50%' , '120%']
+    //         ],
+    //         css:{bottom: 0,opacity: 1},
+    //         // animateIn:{ bottom: '30%',opacity:1},
+    //         // animateOut:{ bottom: 0,opacity:0},
+    //         center: true,
+    //     })
+    //     .addPage('tail')
+    //     .addComponent('logo', {
+    //         width: 359,
+    //         height: 129,
+    //         center: true,
+    //         bg: 'imgs/tail_logo.png',
+    //         css: { opacity: 0, top: 200 },
+    //         animateIn: { opacity: 1, top: 210 },
+    //         animateOut: { opacity: 0, top: 240 },
+    //     })
+    //     .addComponent('slogan', {
+    //         width: 314,
+    //         height: 46,
+    //         center: true,
+    //         bg: 'imgs/tail_slogan.png',
+    //         css: { opacity: 0, top: 280 },
+    //         animateIn: { opacity: 1, left: '50%' },
+    //         animateOut: { opacity: 0, left: '0%' },
+    //         delay: 500,
+    //     })
+    //     .addComponent('share', {
+    //         width: 128,
+    //         height: 120,
+    //         bg: 'imgs/tail_share.png',
+    //         css: { opacity: 0, top: 110, right: 110 },
+    //         animateIn: { opacity: 1, top: 10, right: 10 },
+    //         animateOut: { opacity: 0, top: 110, right: 110 },
+    //         delay: 1000,
+    //     })
+    //     .addComponent('back', {
+    //         width: 52,
+    //         height: 50,
+    //         center: true,
+    //         bg: 'imgs/tail_back.png',
+    //         onclick: function() {
+    //             $.fn.fullpage.moveTo(1);
+    //         }
+    //     })
+        h5.loader(['imgs/footer.png', 'imgs/face_logo.png', 'imgs/face_slogan.png', 'imgs/face_img_left.png', 'imgs/face_img_right.png', 'imgs/description_bg.gif', 'imgs/p1_people.png', 'imgs/tail_logo.png', 'imgs/tail_slogan.png', 'imgs/tail_share.png', 'imgs/tail_back.png'])
+        h5.loader(1)
 })
 </script>
 

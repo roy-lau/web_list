@@ -1,5 +1,5 @@
 /*H5内容管理对象*/
-
+var jdata= [];
 var H5 = function() {
     // 通过随机数 加 字符串 替换的方法生成 ID
     this.id = ('h5_' + Math.random()).replace('0.', 'id_');
@@ -15,6 +15,7 @@ var H5 = function() {
      * @return {H5} H5对象，可以重复使用H5对象支持的方法
      */
     this.addPage = function(name, text) {
+        jdata.push({isPage:true,name:name,text:text})
         var page = $('<div class="h5_page section">');
         if (name !== undefined) {
             page.addClass('h5_page_' + name);
@@ -31,6 +32,7 @@ var H5 = function() {
     }
     /* 新增一个组件 */
     this.addComponent = function(name, cfg) {
+        jdata.push({isPage:false,name:name,cfg:cfg})
         var cfg = cfg || {};
         // 如果cfg没有传入type，默认设置为base类型
         cfg = $.extend({ type: 'base' }, cfg);
