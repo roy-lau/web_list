@@ -61,16 +61,16 @@
 
 ### 动画(animate)
 
-/*要离开的ngView元素动画开始时的样式*/
-.page.ng-leave 
-/*要离开的ngView元素动画结束时的样式*/
-.page.ng-leave.ng-leave-active 
-/*要进入的ngView元素动画开始时的样式*/
-.page.ng-enter 
-/*要进入的ngView元素动画结束时的样式*/
-.page.ng-enter.ng-enter-active 
+	/*要离开的ngView元素动画开始时的样式*/
+	.page.ng-leave 
+	/*要离开的ngView元素动画结束时的样式*/
+	.page.ng-leave.ng-leave-active 
+	/*要进入的ngView元素动画开始时的样式*/
+	.page.ng-enter 
+	/*要进入的ngView元素动画结束时的样式*/
+	.page.ng-enter.ng-enter-active 
 
 进一步学习：
-	官网：开发者指南，API文档
-	书籍：《angularjs权威指南》
-	社区：angularjs中文社区
+	官网：开发者指南，API文档  
+	书籍：《angularjs权威指南》  
+	社区：angularjs中文社区  
