@@ -49,3 +49,5 @@
 20、火拼俄罗斯： https://roy-lau.github.io/web_list/AlexeyPazhitnov
 
 21、H5专题活动页： https://roy-lau.github.io/web_list/h5-final-report/src/ （仍需完善）
+
+22、vue音乐播放器(Mobile)： https://roy-lau.github.io/web_list/vue-music-mobile （开发中）
