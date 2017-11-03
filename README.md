@@ -28,7 +28,7 @@
 - 无序加载：https://roy-lau.github.io/web_list/preload/unordereds-by-icon
 - 有序加载：https://roy-lau.github.io/web_list/preload/orders
 
-13、vuejs搭建的售卖平台  https://github.com/roy-lau/web_list/tree/master/vuejs-shopping
+13、vue搭建的售卖平台  https://roy-lau.github.io/web_list/vuejs-shopping/index.html
 
 14、 [小说阅读器](https://roy-lau.github.io/web_list/reader)  gh-pages不能jsonp无法加载章节信息:cry:
 
@@ -50,4 +50,4 @@
 
 21、H5专题活动页： https://roy-lau.github.io/web_list/h5-final-report/src/ （仍需完善）
 
-22、vue音乐播放器(Mobile)： https://roy-lau.github.io/web_list/vue-music-mobile （开发中）
+22、vue音乐播放器(Mobile)： https://roy-lau.github.io/web_list/vue-music-mobile/index.html （开发中）
