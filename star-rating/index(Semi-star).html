@@ -33,8 +33,16 @@
 </head>
 
 <body>
-    <!-- 第一种实现方式 -->
+    <!-- 第一种实现方式 js -->
     <ul class="rating" id="rating">
+        <li class="rating-item" title="很不好"></li>
+        <li class="rating-item" title="不好"></li>
+        <li class="rating-item" title="一般"></li>
+        <li class="rating-item" title="好"></li>
+        <li class="rating-item" title="很好"></li>
+    </ul>
+    <!-- 第一种实现方式 jq -->
+    <ul class="rating" id="rating2">
         <li class="rating-item" title="很不好"></li>
         <li class="rating-item" title="不好"></li>
         <li class="rating-item" title="一般"></li>
@@ -106,7 +114,9 @@ var rating = (function() {
     Light.prototype.select = function() {
         throw new Error('子类必须重写此方法！')
     };
-
+    Light.prototype.unbindEvent = function(){
+        this.$el.off()
+    }
     /*
         点亮整颗星
     */
@@ -171,36 +181,50 @@ var rating = (function() {
         'LightHalf': LightHalf,
     }
     // 初始化
-    var init = function(el, options) {
-        options = $.extend({}, defaults, options)
+    var init = function(el, option) {
+        var $el = $(el),
+            rating = $el.data('rating'),
+            options = $.extend({}, defaults,typeof option === 'object' && option);
         if (!mode[options.mode]) options.mode = 'LightEntire' // 容错（默认点亮整颗）
         // new LightEntire(el, options).init()
         // new LightHalf(el, options).init()
-        console.log(options.mode)
-        new mode[options.mode](el, options).init()
+        if (!rating) {
+            $el.data('rating',(rating =  new mode[options.mode](el, options)))
+            rating.init()
+        }
+        if (typeof option === 'string') rating[option]();
     }
-
+    // jQuery插件
+    $.fn.extend({
+        rating:function (option) {
+            return this.each(function(){
+                init(this,option)
+            })
+        }
+    })
     return {
         init: init
     }
 })()
 
 // 使用方法—— js
-// rating.init('#rating', {
-//     num: 2,
-//     select: function(num, total) {
-//         console.log(this, num + '/' + total)
-//     },
-//     chosen: function(num, total) {
-//         console.log(this, num + '/' + total)
-//     },
-// })
+rating.init('#rating', {
+    mode: 'LightEntire',
+    num: 2,
+    select: function(num, total) {
+        console.log(this, num + '/' + total)
+    },
+    chosen: function(num, total) {
+        console.log(this, num + '/' + total)
+    },
+})
 // 使用方法—— jq
-rating.init('#rating', { mode: 'LightHalf', num: 2 })
+rating.init('#rating2', { mode: 'LightHalf', num: 2.5 })
 $('#rating').on('select', function(e, num, total) {
     console.log(num + '/' + total)
 }).on('chosen', function(e, num, total) {
     console.log(num + '/' + total)
+    rating.init('#rating2','unbindEvent')  // 解绑所有事件
 })
 </script>
 
