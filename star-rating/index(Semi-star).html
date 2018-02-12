@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>star-rating(Semi star) 星级评分(半颗星)</title>
+    <style>
+    body,
+    ul,
+    li {
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .rating {
+        width: 100px;
+        height: 20px;
+        margin: 100px auto;
+    }
+
+    .rating-item {
+        float: left;
+        width: 20px;
+        height: 20px;
+        background: url(./imgs/star-1.jpg) no-repeat;
+        cursor: pointer;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 第一种实现方式 -->
+    <ul class="rating" id="rating">
+        <li class="rating-item" title="很不好"></li>
+        <li class="rating-item" title="不好"></li>
+        <li class="rating-item" title="一般"></li>
+        <li class="rating-item" title="好"></li>
+        <li class="rating-item" title="很好"></li>
+    </ul>
+</body>
+<script src="../lib/js/jquery-2.1.4.js"></script>
+<script>
+var rating = (function() {
+    // 继承
+    var extend = function(subClass, superClass) {
+        var F = function() {};
+        F.prototype = superClass.prototype;
+        subClass.prototype = new F();
+        subClass.prototype.construtor = subClass;
+    }
+    /*
+        点亮星
+    */
+    var Light = function(el, options) {
+        this.$el = $(el);
+        this.$item = this.$el.find('.rating-item');
+        this.opts = options;
+        this.add = 1;
+        this.selectEvent = 'mouseover';
+    }
+    // 初始化需要执行的函数
+    Light.prototype.init = function() {
+        this.lightOn(this.opts.num)
+        if (this.opts.readOnly) {
+            this.bindEvent();
+        }
+    };
+    // 点亮星星
+    Light.prototype.lightOn = function(num) {
+        num = parseInt(num)
+        this.$item.each(function(index) {
+            if (index < num) {
+                $(this).css('background-position', '0px 0px')
+            } else {
+                $(this).css('background-position', '-38px 0px')
+            }
+        })
+    };
+    // 绑定事件
+    Light.prototype.bindEvent = function() {
+        var self = this,
+            itemLength = this.$item.length;
+        // 事件绑定
+        this.$el.on(self.selectEvent, '.rating-item', function(e) { // 鼠标移入
+            var $this = $(this),
+                num = 0;
+
+            self.select(e, $this)
+            num = $(this).index() + self.add;
+            self.lightOn(num);
+
+            (typeof self.opts.select === 'function') && self.opts.select.call(this, num, itemLength)
+            self.$el.trigger('select', [num, itemLength]) // 通过jq的方式触发事件
+        }).on('click', '.rating-item', function() { // 鼠标点击
+            self.opts.num = $(this).index() + self.add;
+            (typeof self.opts.chosen === 'function') && self.opts.chosen.call(this, self.opts.num, itemLength)
+            self.$el.trigger('chosen', [self.opts.num, itemLength]) // 通过jq的方式触发事件
+        }).on('mouseout', function() { //  鼠标离开
+            self.lightOn(self.opts.num)
+        })
+    };
+    Light.prototype.select = function() {
+        throw new Error('子类必须重写此方法！')
+    };
+
+    /*
+        点亮整颗星
+    */
+    var LightEntire = function(el, options) {
+        Light.call(this, el, options)
+        this.selectEvent = 'mouseover';
+    }
+    // 继承父类
+    extend(LightEntire, Light)
+    // 点亮星星
+    LightEntire.prototype.lightOn = function(num) {
+        Light.prototype.lightOn.call(this, num) // 调用父类的LightOn方法
+    };
+    LightEntire.prototype.select = function() {
+        self.add = 1;
+    };
+    /*
+       点亮半颗颗星
+    */
+    var LightHalf = function(el, options) {
+        Light.call(this, el, options)
+        this.selectEvent = 'mousemove';
+    }
+    // 继承父类
+    extend(LightHalf, Light)
+    // 点亮星星
+    LightHalf.prototype.lightOn = function(num) {
+        var count = parseInt(num),
+            isHalf = count !== num;
+        Light.prototype.lightOn.call(this, count) // 调用父类的LightOn方法
+        if (isHalf) {
+            this.$item.eq(count).css('background-position', '-20px 0px')
+        }
+    };
+    LightHalf.prototype.select = function(e, $this) {
+        // 鼠标距离屏幕最左边的距离  - 星星距离屏幕最左边的距离 < 星星宽度的一半（半颗）
+        if (e.pageX - $this.offset().left < $this.width() / 2) {
+            this.add = 0.5
+        } else { // 整颗
+            this.add = 1
+        }
+    };
+    // 默认参数
+    var defaults = {
+        mode: 'LightEntire', // LightEntire:整顆，LightHalf：半顆
+        num: 0, // 默认点亮几个星星
+        readOnly: true, //是否只读
+        /*
+            @mode： 鼠标移入时触发
+            @params：{ num, total} DOM , 当前数， 总数
+        */
+        select: function(num, total) {},
+        /*
+            @mode： 鼠标点击时触发
+            @params：{ num, total} DOM , 当前数， 总数
+        */
+        chosen: function(num, total) {},
+    }
+    // 模式(半顆 or 整顆)
+    var mode = {
+        'LightEntire': LightEntire,
+        'LightHalf': LightHalf,
+    }
+    // 初始化
+    var init = function(el, options) {
+        options = $.extend({}, defaults, options)
+        if (!mode[options.mode]) options.mode = 'LightEntire' // 容错（默认点亮整颗）
+        // new LightEntire(el, options).init()
+        // new LightHalf(el, options).init()
+        console.log(options.mode)
+        new mode[options.mode](el, options).init()
+    }
+
+    return {
+        init: init
+    }
+})()
+
+// 使用方法—— js
+// rating.init('#rating', {
+//     num: 2,
+//     select: function(num, total) {
+//         console.log(this, num + '/' + total)
+//     },
+//     chosen: function(num, total) {
+//         console.log(this, num + '/' + total)
+//     },
+// })
+// 使用方法—— jq
+rating.init('#rating', { mode: 'LightHalf', num: 2 })
+$('#rating').on('select', function(e, num, total) {
+    console.log(num + '/' + total)
+}).on('chosen', function(e, num, total) {
+    console.log(num + '/' + total)
+})
+</script>
+
+</html>
