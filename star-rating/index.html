@@ -17,15 +17,15 @@
     }
 
     .rating {
-        width: 100px;
+        width: 125px;
         height: 20px;
         margin: 100px auto;
     }
 
     .rating-item {
         float: left;
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
         background: url(./imgs/star-1.jpg) no-repeat;
         cursor: pointer;
     }
@@ -57,9 +57,9 @@ var rating = (function() {
         var lightOn = function($item,num) {
             $item.each(function(index) {
                 if (index < num) {
-                    $(this).css('background-position', '0px 0px')
+                    $(this).css('background-position', '0px -25px')
                 } else {
-                    $(this).css('background-position', '-38px 0px')
+                    $(this).css('background-position', '0px 0px')
                 }
             })
         }

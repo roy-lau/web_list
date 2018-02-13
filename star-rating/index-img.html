@@ -3,18 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>star-rating(Semi star) 星级评分(半颗星)</title>
+    <title>star-rating img 星级评分(半颗星)</title>
     <style>
     body,
-    ul,
-    li {
+    {
         padding: 0;
         margin: 0;
     }
 
-    li {
-        list-style: none;
-    }
 
     .rating {
         width: 125px;
@@ -26,29 +22,20 @@
         float: left;
         width: 25px;
         height: 25px;
-        background: url(./imgs/star-1.jpg) no-repeat;
         cursor: pointer;
     }
     </style>
 </head>
 
 <body>
-    <!-- 第一种实现方式 js -->
-    <ul class="rating" id="rating">
-        <li class="rating-item" title="很不好"></li>
-        <li class="rating-item" title="不好"></li>
-        <li class="rating-item" title="一般"></li>
-        <li class="rating-item" title="好"></li>
-        <li class="rating-item" title="很好"></li>
-    </ul>
-    <!-- 第一种实现方式 jq -->
-    <ul class="rating" id="rating2">
-        <li class="rating-item" title="很不好"></li>
-        <li class="rating-item" title="不好"></li>
-        <li class="rating-item" title="一般"></li>
-        <li class="rating-item" title="好"></li>
-        <li class="rating-item" title="很好"></li>
-    </ul>
+    <!-- 第而种实现方式 jq -->
+    <div class="rating" id="rating2">
+        <img src="./imgs/rating-off.png" alt="星星" class="rating-item" title="很不好" />
+        <img src="./imgs/rating-off.png" alt="星星" class="rating-item" title="不好" />
+        <img src="./imgs/rating-off.png" alt="星星" class="rating-item" title="一般" />
+        <img src="./imgs/rating-off.png" alt="星星" class="rating-item" title="好" />
+        <img src="./imgs/rating-off.png" alt="星星" class="rating-item" title="很好" />
+    </div>
 </body>
 <script src="../lib/js/jquery-2.1.4.js"></script>
 <script>
@@ -82,9 +69,9 @@ var rating = (function() {
         num = parseInt(num)
         this.$item.each(function(index) {
             if (index < num) {
-                $(this).css('background-position', '0px -26px')
+                $(this).attr('src', './imgs/rating-on.png')
             } else {
-                $(this).css('background-position', '0px 0px')
+                $(this).attr('src', './imgs/rating-off.png')
             }
         })
     };
@@ -128,7 +115,7 @@ var rating = (function() {
     extend(LightEntire, Light)
     // 点亮星星
     LightEntire.prototype.lightOn = function(num) {
-        Light.prototype.lightOn.call(this, num) // 调用父类的LightOn方法
+        Light.prototype.lightOn.call(this, num); // 调用父类的LightOn方法
     };
     LightEntire.prototype.select = function() {
         self.add = 1;
@@ -146,9 +133,9 @@ var rating = (function() {
     LightHalf.prototype.lightOn = function(num) {
         var count = parseInt(num),
             isHalf = count !== num;
-        Light.prototype.lightOn.call(this, count) // 调用父类的LightOn方法
+        Light.prototype.lightOn.call(this, count); // 调用父类的LightOn方法
         if (isHalf) {
-            this.$item.eq(count).css('background-position', '0px -52px')
+            this.$item.eq(count).attr('src', './imgs/rating-half.png')
         }
     };
     LightHalf.prototype.select = function(e, $this) {

@@ -1,15 +1,16 @@
 
 # star-rating(星级评分)
 
-星评插件的使用方法
 
-1. JavaScript
+[__星评插件的使用方法(整颗星)__](./index.html)
+
+1、 JavaScript
 
 ```JavaScript
 	rating.init('#rating', 2)
 ```
 
-2. jQuery
+2、 jQuery
 
 ```JavaScript
 	$('#rating').rating(4)
@@ -26,15 +27,74 @@
 
 #### 设计模式————三大类
 
-1. 创建型模式
+1、 创建型模式
 
   单例模式、抽象工厂模式、创造着模式、工厂模式、原型模式
 
-2. 结构型模式
+2、 结构型模式
 
   适配器模式、桥接模式、装饰器模式、组合模式、外观模式、享元模式、代理模式
 
-3. 行为型模式
+3、 行为型模式
 
   模板方法模式、命令模式、迭代器模式、观察者模式、中介者模式、备忘录模式、解释器模式、状态模式、策略模式、职责模式、访问模式
 
+
+[__星评插件的使用方法(半颗星)__](./index\(Semi-star\).html)
+
+1、 JavaScript
+
+```JavaScript
+rating.init('#rating', {
+    mode: 'LightEntire',
+    num: 2,
+    select: function(num, total) {
+        console.log(this, num + '/' + total)
+    },
+    chosen: function(num, total) {
+        console.log(this, num + '/' + total)
+    },
+})
+```
+
+2、 jQuery
+
+```JavaScript
+rating.init('#rating2', { mode: 'LightHalf', num: 2.5 })
+$('#rating').on('select', function(e, num, total) {
+    console.log(num + '/' + total)
+}).on('chosen', function(e, num, total) {
+    console.log(num + '/' + total)
+    rating.init('#rating2','unbindEvent')  // 解绑所有事件
+})
+```
+
+[__星评插件的使用方法(半颗星，小图片)__](./index-img.html)
+
+
+1、 JavaScript
+
+```JavaScript
+rating.init('#rating', {
+    mode: 'LightEntire',
+    num: 2,
+    select: function(num, total) {
+        console.log(this, num + '/' + total)
+    },
+    chosen: function(num, total) {
+        console.log(this, num + '/' + total)
+    },
+})
+```
+
+2、 jQuery
+
+```JavaScript
+rating.init('#rating2', { mode: 'LightHalf', num: 2.5 })
+$('#rating').on('select', function(e, num, total) {
+    console.log(num + '/' + total)
+}).on('chosen', function(e, num, total) {
+    console.log(num + '/' + total)
+    rating.init('#rating2','unbindEvent')  // 解绑所有事件
+})
+```

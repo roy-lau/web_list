@@ -54,4 +54,4 @@
 
 23、回到顶部(原生js)： https://roy-lau.github.io/web_list/back-top/index.html
 
-24、星级评分： https://roy-lau.github.io/web_list/star-rating/index.html
+24、星级评分： https://roy-lau.github.io/web_list/star-rating/index-img.html
