@@ -1,8 +1,9 @@
 
 # star-rating(星级评分)
 
+## js-method
 
-[__星评插件的使用方法(整颗星)__](./index.html)
+[__星评插件的使用方法(整颗星)__](js-method/index-1.html)
 
 1、 JavaScript
 
@@ -40,7 +41,7 @@
   模板方法模式、命令模式、迭代器模式、观察者模式、中介者模式、备忘录模式、解释器模式、状态模式、策略模式、职责模式、访问模式
 
 
-[__星评插件的使用方法(半颗星)__](./index\(Semi-star\).html)
+[__星评插件的使用方法(半颗星)__](js-method/index-semi-star.html)
 
 1、 JavaScript
 
@@ -69,7 +70,7 @@ $('#rating').on('select', function(e, num, total) {
 })
 ```
 
-[__星评插件的使用方法(半颗星，小图片)__](./index-img.html)
+[__星评插件的使用方法(半颗星，小图片)__](js-method/index-img.html)
 
 
 1、 JavaScript
@@ -98,3 +99,5 @@ $('#rating').on('select', function(e, num, total) {
     rating.init('#rating2','unbindEvent')  // 解绑所有事件
 })
 ```
+
+## css-method
