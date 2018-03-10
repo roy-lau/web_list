@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>星评组件css method——1</title>
+    <style>
+    .rating {
+        position: relative;
+        width: 180px;
+        height: 28px;
+        background: url(img/rating.png) no-repeat;
+        margin: 100px auto;
+    }
+
+    /*所有星星默认公共样式*/
+
+    .rating-item {
+        position: absolute;
+        top: 0;
+        z-index: 3;
+        width: 28px;
+        height: 28px;
+    }
+    /*每个星星默认样式*/
+
+    .rating-item-1 {
+        left: 0;
+    }
+
+    .rating-item-2 {
+        left: 28px;
+    }
+
+    .rating-item-3 {
+        left: 56px;
+    }
+
+    .rating-item-4 {
+        left: 84px;
+    }
+
+    .rating-item-5 {
+        left: 112px;
+    }
+    /*所有星星hover公共样式*/
+
+    .rating-item:hover {
+        left: 0;
+        z-index: 2;
+        width: 180px;
+        background: url(img/rating.png) no-repeat;
+    }
+    /*每个星星hover样式*/
+
+    .rating-item-1:hover,.rating-1 {
+        background-position: 0 -28px;
+    }
+
+    .rating-item-2:hover,.rating-2 {
+        background-position: 0 -56px;
+    }
+
+    .rating-item-3:hover,.rating-3 {
+        background-position: 0 -84px;
+    }
+
+    .rating-item-4:hover,.rating-4 {
+        background-position: 0 -112px;
+    }
+
+    .rating-item-5:hover,.rating-5 {
+        background-position: 0 -140px;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 第三种实现方式 -->
+    <div class="rating rating-2">
+        <a href="javascript:;" class="rating-item rating-item-1" title="很不好"></a>
+        <a href="javascript:;" class="rating-item rating-item-2" title="不好"></a>
+        <a href="javascript:;" class="rating-item rating-item-3" title="一般"></a>
+        <a href="javascript:;" class="rating-item rating-item-4" title="好"></a>
+        <a href="javascript:;" class="rating-item rating-item-5" title="很好"></a>
+    </div>
+</body>
+
+</html>
