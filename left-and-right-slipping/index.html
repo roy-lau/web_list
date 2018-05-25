@@ -1,0 +1,114 @@
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Swiper demo</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+		<style>
+			body {
+				background: #eee;
+				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+				font-size: 14px;
+				color: #000;
+				margin: 0;
+				padding: 0;
+			}
+
+			.swiper-container {
+				width: 100%;
+				height: 300px;
+				margin: 20px auto;
+				overflow: hidden;
+			}
+
+			.swiper-wrapper {
+				position: relative;
+				height: 100%;
+				width: 100%;
+				overflow-x: scroll;
+				z-index: 1;
+				display: flex;
+				box-sizing: content-box;
+			}
+
+			.swiper-slide {
+				text-align: center;
+				font-size: 18px;
+				background: #fff;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-shrink: 0;
+				width: 107.143px;
+			}
+
+			.swiper-slide:nth-child(2n) {
+				background: red;
+			}
+
+			.main {
+				overflow: scroll;
+				overflow-y: hidden;
+				-webkit-overflow-scrolling: touch;
+				white-space: nowrap;
+				position: relative;
+				height: 100%;
+				width: 100%;
+				background: #fff;
+				font-size: 0px;
+			}
+			.main .slide{
+				display: inline-block;
+				width: 107.143px;
+				height: 100%;
+				line-height:300px;
+				text-align: center;
+                font-size: 18px;
+			}
+			.main .slide:nth-child(2n){
+				background: red;
+
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<h3>请在手机模式下观看</h3>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">Slide 1</div>
+				<div class="swiper-slide">Slide 2</div>
+				<div class="swiper-slide">Slide 3</div>
+				<div class="swiper-slide">Slide 4</div>
+				<div class="swiper-slide">Slide 5</div>
+				<div class="swiper-slide">Slide 6</div>
+				<div class="swiper-slide">Slide 7</div>
+				<div class="swiper-slide">Slide 8</div>
+				<div class="swiper-slide">Slide 9</div>
+				<div class="swiper-slide">Slide 10</div>
+			</div>
+		</div>
+		<div class="swiper-container">
+			<div class="main">
+				<div class="slide">Slide 1</div>
+				<div class="slide">Slide 2</div>
+				<div class="slide">Slide 3</div>
+				<div class="slide">Slide 4</div>
+				<div class="slide">Slide 5</div>
+				<div class="slide">Slide 6</div>
+				<div class="slide">Slide 7</div>
+				<div class="slide">Slide 8</div>
+				<div class="slide">Slide 9</div>
+				<div class="slide">Slide 10</div>
+			</div>
+		</div>
+	</body>
+
+</html>
+<!--
+作者：鸠摩智
+链接：https://juejin.im/post/5b077aa351882538bc776f8e
+来源：掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。 -->
