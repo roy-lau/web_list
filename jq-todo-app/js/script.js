@@ -89,7 +89,7 @@
             '<div class="input-item">' +
             '<input type="text" name="content" value="' + (item.content || '') + '" style="display:none;" /></div>' +
             '<div class="desc input-item">' +
-            '<textarea name="desc">' + (item.desc || '') + '</textarea>' +
+            '<textarea name="desc" placeholder="输入描述信息……">' + (item.desc || '') + '</textarea>' +
             '</div>' +
             '<div class="remind input-item">' +
             '<label for="date-time"> 提醒时间：</label>' +
@@ -142,7 +142,7 @@
                 // 找到并删除按钮的task元素
                 $Item = $this.parent(),
                 index = $Item.data("index");
-            // 确认删除 
+            // 确认删除
             _alert("确定删除？").then(function(res){
                 if (res) {
                     res ? deleteTask(index) : null;
@@ -222,7 +222,7 @@
     }
 
     function _alert(arg) {
-        if (!arg) console.log("用户没有传入参数")
+        if (!arg) console.error("用户没有传入参数")
         var conf = {},
                   $Box,
                   $Mask,
@@ -359,7 +359,7 @@
     function renderTaskItem(data, index) {
         if (!data || !index === undefined) return;
         var listItemTpl =
-            '<div class="task-item"  data-index="' + index + '">' +
+            '<div class="task-item"  data-index="' + index + '" title="描述：'+data.desc+'\n 时间：'+data.remindDate+'">' +
             '<span><input class="complete" ' + (data.complete ? "checked" : "") + ' type="checkbox"></span>' +
             '<span class="task-content">' + data.content + '</span>' +
             '<span class="auchor detail"> 详细  </span>' +

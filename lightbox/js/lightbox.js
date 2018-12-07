@@ -103,6 +103,8 @@
                     self.prevBtn.click();
                 } else if (keyValue == 40 || keyValue == 39) {
                     self.nextBtn.click();
+                } else if (keyValue == 27) {
+                    self.closeBtn.click()
                 };
             }
         })
