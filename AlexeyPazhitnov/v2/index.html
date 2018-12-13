@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>俄罗斯方块</title>
+        <link rel="stylesheet" href="css/style.css"/>
+    </head>
+    <body>
+            <h4>请用方向键和空格键进行操作：</h4>
+        <ul>
+            <li>上 --&gt; 旋转</li>
+            <li>左 --&gt; 左移</li>
+            <li>右 --&gt; 右移</li>
+            <li>下 --&gt; 下移</li>
+            <li>空格 --&gt; 坠落</li>
+        </ul>
+        <div id="waiting"></div>
+        <div class="square" id="local">
+            <h3 class="title">我的游戏区域</h3>
+            <div class="game" id="local_game"></div>
+            <div class="next" id="local_next"></div>
+            <div class="info">
+                <div>已用时：<span id="local_time">0</span>s</div>
+                <div>已得分：<span id="local_score">0</span>分</div>
+                <b id="local_gameover"></b>
+            </div>
+        </div>
+        <div class="square" id="remote">
+            <h3 class="title">对方游戏区域</h3>
+            <div class="game" id="remote_game"></div>
+            <div class="next" id="remote_next"></div>
+            <div class="info">
+                <div>已用时：<span id="remote_time">0</span>s</div>
+                <div>已得分：<span id="remote_score">0</span>分</div>
+                <b id="remote_gameover"></b>
+                <!-- <button id="down"> down </button><br />
+                <button id="left"> left </button><br />
+                <button id="right"> right </button><br />
+                <button id="rotate"> rotate </button><br />
+                <button id="fall"> fall </button><br />
+                <button id="fixed"> fixed </button><br />
+                <button id="performNext"> performNext </button><br />
+                <button id="checkClear"> checkClear </button><br />
+                <button id="checkGameOver"> checkGameOver </button><br />
+                <button id="setTime"> setTime </button><br />
+                <button id="addScore"> addScore </button><br />
+                <button id="gameover"> gameover </button><br />
+                <button id="addTailLines"> addTailLines </button><br /> -->
+            </div>
+        </div>
+        <script src="js/libs/socket.io.js"></script>
+        <script src="js/square.js"></script>
+        <script src="js/squareFactory.js"></script>
+        <script src="js/game.js"></script>
+        <script src="js/local.js"></script>
+        <script src="js/remote.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>

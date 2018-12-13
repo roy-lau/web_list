@@ -1,0 +1,14 @@
+{
+  "name": "v2",
+  "version": "2.0.0",
+  "description": "俄罗斯方块，双人版",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^2.2.0"
+  }
+}
