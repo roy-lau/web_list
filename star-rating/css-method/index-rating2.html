@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>星评组件css method——1</title>
+    <title>星级评分 css（图片两颗星星）</title>
     <style>
     .rating {
         position: relative;
-        width: 180px;
-        height: 28px;
-        background: url(img/rating.png) no-repeat;
+        width: 470px;
+        height: 100px;
+        background: url(img/rating2.png) repeat-x;
         margin: 100px auto;
     }
 
@@ -19,8 +19,8 @@
         position: absolute;
         top: 0;
         z-index: 3;
-        width: 28px;
-        height: 28px;
+        width: 95px;
+        height: 100px;
     }
     /*每个星星默认样式*/
 
@@ -29,55 +29,54 @@
     }
 
     .rating-item-2 {
-        left: 28px;
+        left: 95px;
     }
 
     .rating-item-3 {
-        left: 56px;
+        left: 190px;
     }
 
     .rating-item-4 {
-        left: 84px;
+        left: 285px;
     }
 
     .rating-item-5 {
-        left: 112px;
+        left: 380px;
     }
     /*所有星星hover公共样式*/
 
     .rating-item:hover {
         left: 0;
         z-index: 2;
-        width: 180px;
-        background: url(img/rating.png) no-repeat;
+        background: url(img/rating2.png) repeat-x 0 -96px;
     }
     /*每个星星hover样式*/
 
-    .rating-item-1:hover,.rating-1 {
-        background-position: 0 -28px;
+    .rating-item-1:hover {
+        width: 96px;
     }
 
-    .rating-item-2:hover,.rating-2 {
-        background-position: 0 -56px;
+    .rating-item-2:hover {
+        width: 192px;
     }
 
-    .rating-item-3:hover,.rating-3 {
-        background-position: 0 -84px;
+    .rating-item-3:hover {
+        width: 285px;
     }
 
-    .rating-item-4:hover,.rating-4 {
-        background-position: 0 -112px;
+    .rating-item-4:hover {
+        width: 377px;
     }
 
-    .rating-item-5:hover,.rating-5 {
-        background-position: 0 -140px;
+    .rating-item-5:hover {
+        width: 470px;
     }
     </style>
 </head>
 
 <body>
-    <!-- 第三种实现方式 -->
-    <div class="rating rating-2">
+    <!-- 实现方式 图片两颗星星 -->
+    <div class="rating">
         <a href="javascript:;" class="rating-item rating-item-1" title="很不好"></a>
         <a href="javascript:;" class="rating-item rating-item-2" title="不好"></a>
         <a href="javascript:;" class="rating-item rating-item-3" title="一般"></a>

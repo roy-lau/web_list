@@ -3,24 +3,30 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>星评组件css method——1</title>
+    <title>星级评分 css图片两颗星星（表单提交）</title>
     <style>
     .rating {
         position: relative;
-        width: 180px;
-        height: 28px;
-        background: url(img/rating.png) no-repeat;
+        width: 470px;
+        height: 100px;
+        overflow: hidden;
+        background: url(img/rating2.png) repeat-x;
         margin: 100px auto;
     }
-
+    .rating:hover .rating-item{
+        background-image : none;
+    }
+    .rating:hover{
+        background: url(img/rating2.png) repeat-x 0 -95px!impor tant;
+    }
     /*所有星星默认公共样式*/
 
     .rating-item {
         position: absolute;
         top: 0;
         z-index: 3;
-        width: 28px;
-        height: 28px;
+        width: 95px;
+        height: 100px;
     }
     /*每个星星默认样式*/
 
@@ -29,61 +35,96 @@
     }
 
     .rating-item-2 {
-        left: 28px;
+        left: 95px;
     }
 
     .rating-item-3 {
-        left: 56px;
+        left: 190px;
     }
 
     .rating-item-4 {
-        left: 84px;
+        left: 285px;
     }
 
     .rating-item-5 {
-        left: 112px;
+        left: 380px;
     }
     /*所有星星hover公共样式*/
 
     .rating-item:hover {
         left: 0;
         z-index: 2;
-        width: 180px;
-        background: url(img/rating.png) no-repeat;
+        background: url(img/rating2.png) repeat-x 0 -96px;
     }
     /*每个星星hover样式*/
 
-    .rating-item-1:hover,.rating-1 {
-        background-position: 0 -28px;
+    .rating-item-1:hover,#rating-1:checked + .rating-item {
+        width: 96px;
     }
 
-    .rating-item-2:hover,.rating-2 {
-        background-position: 0 -56px;
+    .rating-item-2:hover,#rating-2:checked + .rating-item {
+        width: 192px;
     }
 
-    .rating-item-3:hover,.rating-3 {
-        background-position: 0 -84px;
+    .rating-item-3:hover,#rating-3:checked + .rating-item {
+        width: 285px;
     }
 
-    .rating-item-4:hover,.rating-4 {
-        background-position: 0 -112px;
+    .rating-item-4:hover,#rating-4:checked + .rating-item {
+        width: 377px;
     }
 
-    .rating-item-5:hover,.rating-5 {
-        background-position: 0 -140px;
+    .rating-item-5:hover,#rating-5:checked + .rating-item {
+        width: 470px;
+    }
+    .rating-item label{
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+    .rating-item input{ /* 移出屏幕以外 */
+        position: absolute;
+        left: 1000px;
+    }
+    .rating-item input:checked + .rating-item{
+        left: 0;
+        z-index: 1;
+        background: url(img/rating2.png) repeat-x 0 -96px;
+    }
+    .rating-item input:checked + .rating-item ~ .rating-item:hover{
+        z-index: 0;
     }
     </style>
 </head>
 
 <body>
-    <!-- 第三种实现方式 -->
-    <div class="rating rating-2">
-        <a href="javascript:;" class="rating-item rating-item-1" title="很不好"></a>
-        <a href="javascript:;" class="rating-item rating-item-2" title="不好"></a>
-        <a href="javascript:;" class="rating-item rating-item-3" title="一般"></a>
-        <a href="javascript:;" class="rating-item rating-item-4" title="好"></a>
-        <a href="javascript:;" class="rating-item rating-item-5" title="很好"></a>
-    </div>
+    <!-- 实现方式 图片两颗星星 增加提交功能-->
+ <form action="">
+        <div class="rating">
+         <a href="javascript:;" class="rating-item rating-item-1" title="很不好">
+             <input type="radio" name="rating" value="1" id="rating-1" />
+             <label for="rating-1"></label>
+         </a>
+         <a href="javascript:;" class="rating-item rating-item-2" title="不好">
+             <input type="radio" name="rating" value="2" id="rating-2" checked="checked" />
+             <label for="rating-2"></label>
+         </a>
+         <a href="javascript:;" class="rating-item rating-item-3" title="一般">
+             <input type="radio" name="rating" value="3" id="rating-3" />
+             <label for="rating-3"></label>
+         </a>
+         <a href="javascript:;" class="rating-item rating-item-4" title="好">
+             <input type="radio" name="rating" value="4" id="rating-4" />
+             <label for="rating-4"></label>
+         </a>
+         <a href="javascript:;" class="rating-item rating-item-5" title="很好">
+             <input type="radio" name="rating" value="5" id="rating-5" />
+             <label for="rating-5"></label>
+         </a>
+     </div>
+     <input type="submit" value="提交" />
+ </form>
 </body>
 
 </html>
