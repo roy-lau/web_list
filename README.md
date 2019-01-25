@@ -1,57 +1,25 @@
 ﻿# web项目列表
 
-1、 登陆页   https://roy-lau.github.io/web_list/logn
+- 象棋     	https://roy-lau.github.io/web_list/xiangqi
+- qqzone     https://roy-lau.github.io/web_list/qqzone
+- 七夕情缘    https://roy-lau.github.io/web_list/qixi
+- 图片画廊     https://roy-lau.github.io/web_list/lightbox :flower_playing_cards:
+- 弹性盒子     https://roy-lau.github.io/web_list/flex
+- [图片预加载（封装插件）：](https://github.com/roy-lau/web_list/tree/master/preload)
+	- 无序加载：https://roy-lau.github.io/web_list/preload/unordereds-by-img
+	- 无序加载：https://roy-lau.github.io/web_list/preload/unordereds-by-icon
+	- 有序加载：https://roy-lau.github.io/web_list/preload/orders
+- vue搭建的售卖平台  https://roy-lau.github.io/web_list/vuejs-shopping/index.html
+- [小说阅读器](https://roy-lau.github.io/web_list/reader)  gh-pages不能jsonp无法加载章节信息:cry:
+- tabs选项卡(插件)： https://roy-lau.github.io/web_list/tabs
+- todo-app： https://roy-lau.github.io/web_list/jq-todo-app
+- 瀑布流布局：](https://github.com/roy-lau/web_list/tree/master/waterfallFlow-layout)
+	- 原生js： https://roy-lau.github.io/web_list/waterfallFlow-layout/js-method
+	- jquery： https://roy-lau.github.io/web_list/waterfallFlow-layout/jq-method
+	- css3： https://roy-lau.github.io/web_list/waterfallFlow-layout/css-method
 
-2、 列表搜索  https://roy-lau.github.io/web_list/search/list
-
-3、 表格搜索框 https://roy-lau.github.io/web_list/search/table
-
-4、 象棋     	https://roy-lau.github.io/web_list/xiangqi
-
-5、 qqzone     https://roy-lau.github.io/web_list/qqzone
-
-6、 黑客帝国     https://roy-lau.github.io/web_list/hkdg
-
-7、 七夕情缘    https://roy-lau.github.io/web_list/qixi
-
-8、 particles(颗粒) https://roy-lau.github.io/web_list/particles/particles-canvas.html
-
-9、 图片画廊     https://roy-lau.github.io/web_list/lightbox :flower_playing_cards:
-
-10、 弹性盒子     https://roy-lau.github.io/web_list/flex
-
-11、京东无延迟加载菜单   https://roy-lau.github.io/web_list/JDMenu
-
-12、 [图片预加载（封装插件）：](https://github.com/roy-lau/web_list/tree/master/preload)
-
-- 无序加载：https://roy-lau.github.io/web_list/preload/unordereds-by-img
-- 无序加载：https://roy-lau.github.io/web_list/preload/unordereds-by-icon
-- 有序加载：https://roy-lau.github.io/web_list/preload/orders
-
-13、vue搭建的售卖平台  https://roy-lau.github.io/web_list/vuejs-shopping/index.html
-
-14、 [小说阅读器](https://roy-lau.github.io/web_list/reader)  gh-pages不能jsonp无法加载章节信息:cry:
-
-15、 tabs选项卡(插件)： https://roy-lau.github.io/web_list/tabs
-
-16、 todo-app： https://roy-lau.github.io/web_list/jq-todo-app
-
-17、 [瀑布流布局：](https://github.com/roy-lau/web_list/tree/master/waterfallFlow-layout)
-
-- 原生js： https://roy-lau.github.io/web_list/waterfallFlow-layout/js-method
-- jquery： https://roy-lau.github.io/web_list/waterfallFlow-layout/jq-method
-- css3： https://roy-lau.github.io/web_list/waterfallFlow-layout/css-method
-
-18、angularjs仿拉钩(Mobile)： https://roy-lau.github.io/web_list/angularjs-lagou
-
-19、一行JavaScript代码写的逆向工程： https://roy-lau.github.io/web_list/one-row-code
-
-20、火拼俄罗斯： https://roy-lau.github.io/web_list/AlexeyPazhitnov
-
-21、H5专题活动页： https://roy-lau.github.io/web_list/h5-final-report/src/ （仍需完善）
-
-22、vue音乐播放器(Mobile)： https://roy-lau.github.io/web_list/vue-music-mobile/index.html （开发中）
-
-23、回到顶部(原生js)： https://roy-lau.github.io/web_list/back-top/index.html
-
-24、星级评分： https://roy-lau.github.io/web_list/star-rating/index-img.html
+- angularjs仿拉钩(Mobile)： https://roy-lau.github.io/web_list/angularjs-lagou
+- 火拼俄罗斯： https://roy-lau.github.io/web_list/AlexeyPazhitnov
+- H5专题活动页： https://roy-lau.github.io/web_list/h5-final-report/src/ （仍需完善）
+- vue音乐播放器(Mobile)： https://roy-lau.github.io/web_list/vue-music-mobile/index.html （开发中）
+- 星级评分： https://roy-lau.github.io/web_list/star-rating/index-img.html
