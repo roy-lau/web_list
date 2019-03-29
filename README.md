@@ -1,4 +1,4 @@
-﻿# web项目列表
+# web项目列表
 
 - 象棋     	https://roy-lau.github.io/web_list/xiangqi
 - qqzone     https://roy-lau.github.io/web_list/qqzone
@@ -23,3 +23,4 @@
 - H5专题活动页： https://roy-lau.github.io/web_list/h5-final-report/src/ （仍需完善）
 - vue音乐播放器(Mobile)： https://roy-lau.github.io/web_list/vue-music-mobile/index.html （开发中）
 - 星级评分： https://roy-lau.github.io/web_list/star-rating/index-img.html
+- vue组件化京东金融  https://roy-lau.github.io/web_list/jdjr/index.html
