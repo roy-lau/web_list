@@ -1,43 +1,43 @@
 self.__precacheManifest = [
   {
-    "revision": "44ffdde5c72629108233",
-    "url": "/web_list/jdjr/static/css/app.896b2719.css"
+    "revision": "7ea08d1ca0ae2ecb9054",
+    "url": "/web_list/jdjr/static/css/app.0eae995a.css"
   },
   {
-    "revision": "44ffdde5c72629108233",
-    "url": "/web_list/jdjr/static/js/app.d784d00e.js"
+    "revision": "7ea08d1ca0ae2ecb9054",
+    "url": "/web_list/jdjr/static/js/app.e436ae78.js"
   },
   {
-    "revision": "8d9f41d9f0bffbb24939",
-    "url": "/web_list/jdjr/static/css/chunk-vendors.e3293c13.css"
+    "revision": "3eeff025df0088a3c5d1",
+    "url": "/web_list/jdjr/static/css/chunk-vendors.fc747e40.css"
   },
   {
-    "revision": "8d9f41d9f0bffbb24939",
-    "url": "/web_list/jdjr/static/js/chunk-vendors.494e2480.js"
+    "revision": "3eeff025df0088a3c5d1",
+    "url": "/web_list/jdjr/static/js/chunk-vendors.e7b4981d.js"
   },
   {
-    "revision": "93c6e9387fa9c7022ae3",
-    "url": "/web_list/jdjr/static/css/ious.808ffc2c.css"
+    "revision": "31a4b48c9612920bdc0c",
+    "url": "/web_list/jdjr/static/css/ious.511f3245.css"
   },
   {
-    "revision": "93c6e9387fa9c7022ae3",
-    "url": "/web_list/jdjr/static/js/ious.e97eefc2.js"
+    "revision": "31a4b48c9612920bdc0c",
+    "url": "/web_list/jdjr/static/js/ious.4c1b14f1.js"
   },
   {
-    "revision": "012f46c4c8d19eb50d90",
-    "url": "/web_list/jdjr/static/css/money.a07cd99f.css"
+    "revision": "a855b452069e770f1868",
+    "url": "/web_list/jdjr/static/css/money.c100ad87.css"
   },
   {
-    "revision": "012f46c4c8d19eb50d90",
-    "url": "/web_list/jdjr/static/js/money.a9776fe6.js"
+    "revision": "a855b452069e770f1868",
+    "url": "/web_list/jdjr/static/js/money.98569b1a.js"
   },
   {
-    "revision": "cfe5374331162d0949ac",
-    "url": "/web_list/jdjr/static/css/raise.5b3d9d42.css"
+    "revision": "0d70e6b1ea7ca38aa229",
+    "url": "/web_list/jdjr/static/css/raise.b3040eb2.css"
   },
   {
-    "revision": "cfe5374331162d0949ac",
-    "url": "/web_list/jdjr/static/js/raise.3ca5908f.js"
+    "revision": "0d70e6b1ea7ca38aa229",
+    "url": "/web_list/jdjr/static/js/raise.cea35a5e.js"
   },
   {
     "revision": "4d0a5fe8576107b3b523e3e763784dd2",
@@ -212,6 +212,10 @@ self.__precacheManifest = [
     "url": "/web_list/jdjr/static/img/hSlider-enters-1.a903e8c3.png"
   },
   {
+    "revision": "27059facedbc5921204643521c902388",
+    "url": "/web_list/jdjr/static/img/index.27059fac.png"
+  },
+  {
     "revision": "087b5303303a2a12af73614a3f790f10",
     "url": "/web_list/jdjr/static/img/welfare-1.087b5303.jpg"
   },
@@ -228,10 +232,6 @@ self.__precacheManifest = [
     "url": "/web_list/jdjr/static/img/service-6.f8f3fe92.png"
   },
   {
-    "revision": "27059facedbc5921204643521c902388",
-    "url": "/web_list/jdjr/static/img/index.27059fac.png"
-  },
-  {
     "revision": "a59f9318edca6582c3ffd7ed26cb9840",
     "url": "/web_list/jdjr/static/img/welfare-3.a59f9318.jpg"
   },
@@ -240,7 +240,7 @@ self.__precacheManifest = [
     "url": "/web_list/jdjr/static/img/novice-1.d1d6d640.png"
   },
   {
-    "revision": "3b5507ad6e62507e60e556be1c012033",
+    "revision": "a7a4e2c4fbc1b3f4f30c1f313ae21f87",
     "url": "/web_list/jdjr/index.html"
   },
   {
