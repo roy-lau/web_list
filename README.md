@@ -4,7 +4,7 @@
 - qqzone     https://roy-lau.github.io/web_list/qqzone
 - 七夕情缘    https://roy-lau.github.io/web_list/qixi
 - 图片画廊     https://roy-lau.github.io/web_list/lightbox :flower_playing_cards:
-- 弹性盒子     https://roy-lau.github.io/web_list/flex
+- 弹性盒子     https://roy-lau.github.io/web_list/flex/index.html
 - [图片预加载（封装插件）：](https://github.com/roy-lau/web_list/tree/master/preload)
 	- 无序加载：https://roy-lau.github.io/web_list/preload/unordereds-by-img
 	- 无序加载：https://roy-lau.github.io/web_list/preload/unordereds-by-icon
