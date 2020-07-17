@@ -30,7 +30,7 @@ var Qixi = function () {
             "http://img.mukewang.com/55adde7f0001433000410041.png",
             "http://img.mukewang.com/55addee7000117b500400041.png"]
     };
-    var debug = 1;
+    var debug = 0;
     if (debug) { $.each(config.setTime, function (key, val) { config.setTime[key] = 500 }) }
     if (config.keepZoomRatio) {
         var proportionY = 900 / 1440;
