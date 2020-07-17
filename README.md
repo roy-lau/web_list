@@ -12,7 +12,7 @@
 - [小说阅读器](https://roy-lau.github.io/web_list/reader)  gh-pages不能jsonp无法加载章节信息:cry:
 - tabs选项卡(插件)：https://roy-lau.github.io/web_list/tabs
 - todo-app：https://roy-lau.github.io/web_list/jq-todo-app
-- [瀑布流布局：](https://github.com/roy-lau/web_list/tree/master/waterfallFlow-layout)
+- [瀑布流布局：](https://github.com/roy-lau/web_list/tree/master/waterfall-flow-layout)
 	- 原生js：https://roy-lau.github.io/web_list/waterfallFlow-layout/js-method
 	- jquery：https://roy-lau.github.io/web_list/waterfallFlow-layout/jq-method
 	- css3：https://roy-lau.github.io/web_list/waterfallFlow-layout/css-method
