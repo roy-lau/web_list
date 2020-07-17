@@ -5,7 +5,7 @@ var Qixi = function () {
         layer: { "width": "100%", "height": "100%", "top": 0, "left": 0 },
         audio: {
             enable: true,
-            // 无法播放，需要在 cdn 路径上
+            // 无法播放，需要在服务器环境 或在 cdn 路径上
             playURl: "./music/happy.wav",
             cycleURL: "./music/circulation.wav"
         },
@@ -23,12 +23,12 @@ var Qixi = function () {
             waitFlower: 800
         },
         // 几种不同的花瓣
-        snowflakeURl: ["http://img.mukewang.com/55adde120001d34e00410041.png",
-            "http://img.mukewang.com/55adde2a0001a91d00410041.png",
-            "http://img.mukewang.com/55adde5500013b2500400041.png",
-            "http://img.mukewang.com/55adde62000161c100410041.png",
-            "http://img.mukewang.com/55adde7f0001433000410041.png",
-            "http://img.mukewang.com/55addee7000117b500400041.png"]
+        snowflakeURl: ["https://img.mukewang.com/55adde120001d34e00410041.png",
+            "https://img.mukewang.com/55adde2a0001a91d00410041.png",
+            "https://img.mukewang.com/55adde5500013b2500400041.png",
+            "https://img.mukewang.com/55adde62000161c100410041.png",
+            "https://img.mukewang.com/55adde7f0001433000410041.png",
+            "https://img.mukewang.com/55addee7000117b500400041.png"]
     };
     var debug = 0;
     if (debug) { $.each(config.setTime, function (key, val) { config.setTime[key] = 500 }) }
@@ -292,20 +292,17 @@ var Qixi = function () {
      * @param {Boolean} loop 是否循环播放
      */
     function Hmlt5Audio(url, loop) {
-        try {
-            var audio = new Audio(url);
-            audio.autoplay = true;
-            audio.loop = loop || false;
-            audio.play();
-            return {
-                end: function (callback) {
-                    audio.addEventListener("ended", function () { callback() }, false)
-                }
+        console.log(url)
+        var audio = new Audio(url);
+        audio.autoplay = true;
+        audio.loop = loop || false;
+        audio.play();
+        return {
+            end: function (callback) {
+                audio.addEventListener("ended", function () { callback() }, false)
             }
-        }catch(e){
-            console.error("音频播放失败："+e)
         }
-   
+
     }
 };
 $(function () { Qixi() });
