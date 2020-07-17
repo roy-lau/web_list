@@ -1,7 +1,4 @@
-# [七夕情缘](https://roy-lau.github.io/web_list/qixi)
+# 七夕情缘
 
-待完善：
-  1. 鸟的翅膀不会动
-  2. 小男孩进门，房子旁边的灯开关
-  3. 小男孩进门后应该是拿了一束玫瑰的
-  4. 星星闪烁动画
+本项目地址 https://roy-lau.github.io/web_list/qixi
+icon cdn https://cdn.jsdelivr.net/gh/roy-lau/web_list/qixi/img/snowflake2.png

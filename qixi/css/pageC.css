@@ -34,7 +34,7 @@
 	left:0;
 	overflow: hidden;
 }
-.snowroll {
+.snow_roll {
 	position: absolute;
 	opacity: 0;
 	-webkit-animation-name: mysnow;
@@ -246,33 +246,33 @@
 .stars1{
 	top: 20%;
 	left: 30%;
-	-webkit-animation-duration: 5s;	
-	-moz-animation-duration: 5s;
+	-webkit-animation-duration: 3s;	
+	-moz-animation-duration: 3s;
 
 }
 .stars2{
 	top: 15%;
 	left: 20%;
-	-webkit-animation-duration: 20s;	
-	-moz-animation-duration: 20s;
+	-webkit-animation-duration: 10s;	
+	-moz-animation-duration: 10s;
 }
 .stars3{
 	top: 25%;
 	left: 85%;
-	-webkit-animation-duration: 15s;	
-	-moz-animation-duration: 15s;
+	-webkit-animation-duration: 6s;	
+	-moz-animation-duration: 6s;
 }
 .stars4{
 	top: 30%;
 	left: 70%;
-	-webkit-animation-duration: 25s;	
-	-moz-animation-duration: 25s;
+	-webkit-animation-duration: 8s;	
+	-moz-animation-duration: 8s;
 }
 .stars5{
 	top: 25%;
 	left: 20%;
-	-webkit-animation-duration: 30s;	
-	-moz-animation-duration: 30s;
+	-webkit-animation-duration: 15s;	
+	-moz-animation-duration: 15s;
 }
 .stars6{
 	top: 10%;

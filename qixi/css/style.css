@@ -149,11 +149,11 @@ body {
    }
 */
 
-// a {
-//     position: absolute;
-//     top: 50%;
-//     left: 40%;
-// }
+a {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+}
 
 .charector {
     position: absolute;
