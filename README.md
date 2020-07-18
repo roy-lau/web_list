@@ -3,6 +3,7 @@
 - 象棋     	https://roy-lau.github.io/web_list/xiangqi
 - qqzone     https://roy-lau.github.io/web_list/qqzone
 - :heartbeat: 七夕情缘    https://roy-lau.github.io/web_list/qixi
+- :bird: 飞鸟游戏    https://roy-lau.github.io/web_list/flappy-bird
 - 图片画廊     https://roy-lau.github.io/web_list/lightbox :flower_playing_cards:
 - 弹性盒子     https://roy-lau.github.io/web_list/flex/index.html
 - [图片预加载（封装插件）：](https://github.com/roy-lau/web_list/tree/master/preload)
