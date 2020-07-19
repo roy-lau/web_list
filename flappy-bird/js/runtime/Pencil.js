@@ -1,5 +1,5 @@
 import { Sprite } from "../base/Sprite.js"
-import { Director } from "../Director.js"
+import { DataStore } from "../base/DataStore.js"
 /**
  * 铅笔的基础类（继承 Sprite 类）
  */
@@ -12,16 +12,17 @@ export class Pencil extends Sprite {
       pencilImg.width,
       pencilImg.height,
       // 刚好在右侧看不到的位置
-      window.innerWidth,
+      DataStore.getInstance().canvas.width,
       0,
       pencilImg.width,
       pencilImg.height,
     )
     this.top = top
+    this.landSpeed = 2
   }
 
   draw() {
-    this.x -= Director.getInstance().landSpeed
+    this.x -= this.landSpeed
     super.draw(
       this.img,
       0,

@@ -1,5 +1,6 @@
 import { Sprite } from "../base/Sprite.js"
 import { Director } from "../Director.js"
+import { DataStore } from "../base/DataStore.js"
 
 /**
  * 不断移动的陆地（继承 Sprite 类）
@@ -14,7 +15,7 @@ export class Land extends Sprite {
       landImg.width,
       landImg.height,
       0,
-      window.innerHeight - landImg.height,
+      DataStore.getInstance().canvas.height - landImg.height,
       landImg.width,
       landImg.height
     )
@@ -27,7 +28,7 @@ export class Land extends Sprite {
   draw() {
     this.landX += this.landSpeed
     // 陆地图片的位置 大于 图片的宽度 减去 屏幕的宽度的时候，将陆地图片的位置置为 0
-    if (this.landX > (this.img.width - window.innerWidth)) this.landX = 0
+    if (this.landX > (this.img.width - DataStore.getInstance().canvas.width)) this.landX = 0
     super.draw(
       this.img,
       this.srcX,
