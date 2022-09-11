@@ -22,6 +22,6 @@
 - 火拼俄罗斯：https://roy-lau.github.io/web_list/AlexeyPazhitnov
 - H5专题活动页：https://roy-lau.github.io/web_list/h5-final-report/src/ （仍需完善）
 - vue搭建的售卖平台：https://roy-lau.github.io/web_list/vuejs-shopping/
-- vue音乐播放器(Mobile)：https://roy-lau.github.io/web_list/vue-music-mobile/（连不上服务器）
+- vue音乐播放器(Mobile)：https://roy-lau.github.io/web_list/vue-music-mobile/ （连不上服务器）
 - 星级评分：https://roy-lau.github.io/web_list/star-rating/index-img.html
 - vue组件化京东金融：https://roy-lau.github.io/web_list/jdjr/
